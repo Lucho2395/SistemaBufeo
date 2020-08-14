@@ -1,8 +1,8 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: CesarJose39
- * Date: 05/11/2018
+ * User: Lucho
+ * Date: 03/08/2020
  * Time: 9:29
  */
 require 'app/models/Person.php';
@@ -115,7 +115,7 @@ class SellGasController{
 
         }
     }
-
+// ver historia de pedidos con filtros
     public function viewhistorypedidofiltro(){
         try {
             $fecha_i = $_POST['fecha_i'];
@@ -158,6 +158,7 @@ class SellGasController{
                 echo $listreturn;
             }
             else{
+                
                 $filtrousuario = $this->sell->listSalesfiltrousuario($fecha_i,$fecha_f,$estadopedido,$usuario);
                 $totalusuario = count($filtrousuario);
                 $listreturn = "";
@@ -173,6 +174,7 @@ class SellGasController{
                     if($m->saleproductgas_cancelled == 1){
                         $show = "<a class=\"btn btn-xs btn-outline-success\">VENDIDO</a>";
                     }
+                    
                     $listreturn .= "<tr>
                     <td>$totalusuario</td>
                         <td>".$m->saleproductgas_date."</td>
@@ -186,8 +188,10 @@ class SellGasController{
                         <td><a type=\"button\" class=\"btn btn-xs btn-primary btne\" href=\"<?php echo _SERVER_ . 'SellGas/viewsale/' . $m->id_saleproductgas;?>\" target=\"_blank\" >Ver Detalle</a></td>
                     </tr>";
                     $totalusuario--;
+                       
                 }
                 echo $listreturn;
+                
             }
 
         }catch (Throwable $e){

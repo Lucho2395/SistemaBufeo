@@ -32,11 +32,11 @@
         <br>
         <section class="content" style="background-color: white;box-shadow: 2px 2px 2px #888888;border-radius: 5px; padding: 10px; margin: 10px; min-height: 90px">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <label for="fecha_i">Desde:</label>
                     <input type="date" class="form-control" id="fecha_ini" value="<?php echo $fecha;?>">
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <label for="fecha_f">Hasta:</label>
                     <input type="date" class="form-control" id="fecha_fin" value="<?php echo $fecha;?>">
                 </div>
@@ -60,6 +60,9 @@
                         }
                         ?>
                     </select>
+                </div>
+                <div class="col-md-2">
+                    <a class="btn btn-success" type="button" onclick="buscar_registro_filtro()"><i class="fa fa-search"></i> Buscar</a>
                 </div>
             </div>
 
@@ -100,8 +103,8 @@
 <script type="text/javascript">
 
 
-    $(document).ready(function(){
-        var fecha_i = $("#fecha_ini").val();
+    /*$(document).ready(function(){
+        var fecha_i = "2020-08-01";
         var fecha_f = $("#fecha_fin").val();
         var estadopedido = 1;
         $("#tabla_lista_pedidos").html("");
@@ -111,24 +114,35 @@
             $("#tabla_lista_pedidos").html(data);
             //alert($("#tabla_lista_pedidos").html());
         });
-    });
+    });*/
 
     /*function filtro_por_estado(){
 
         var fecha_i = $("#fecha_ini").val();
         var fecha_f = $("#fecha_fin").val();
         var estadopedido = $("#filtroestado").val();
-        $("#tabla_lista_pedidos").html("");
-        alert($("#tabla_lista_pedidos").html());
-        //$("#tabla_lista_pedidos").load();
+        //$("#tabla_lista_pedidos").html("");
+        //alert($("#tabla_lista_pedidos").html());
+        $("table").load();
         $.post("<?php echo _SERVER_;?>api/SellGas/viewhistorypedidofiltro",{fecha_i: fecha_i,fecha_f: fecha_f, estadopedido:estadopedido}, function(data){
             $("#tabla_lista_pedidos").html(data);
-            alert($("#tabla_lista_pedidos").html());
+            //alert($("#tabla_lista_pedidos").html());
         });
-    }*/
+    }
 
 
     function filtro_por_usuario(){
+        var fecha_i = $("#fecha_ini").val();
+        var fecha_f = $("#fecha_fin").val();
+        var estadopedido = $("#filtroestado").val();
+        var usuario = $("#filtrousuario").val();
+        $.post("<?php echo _SERVER_;?>SellGas/viewhistorypedidofiltro",{fecha_i: fecha_i,fecha_f: fecha_f, estadopedido:estadopedido, usuario:usuario}, function(data){
+            $("#tabla_lista_pedidos").html(data);
+
+        });
+    }*/
+
+    function buscar_registro_filtro(){
         var fecha_i = $("#fecha_ini").val();
         var fecha_f = $("#fecha_fin").val();
         var estadopedido = $("#filtroestado").val();

@@ -1,4 +1,4 @@
-var urlweb = "http://localhost:8080/bufeosale-e/"; //aca se cambia por el ip.
+var urlweb = "http://localhost:8080/SistemaBufeo/"; //aca se cambia por el ip.
 
 function getParameterByName(name) {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");

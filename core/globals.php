@@ -7,7 +7,7 @@
  */
 
 // Definicion Variables Globales
-define('_SERVER_', 'http://localhost:8080/bufeosale-e/');//se cambia por el ip
+define('_SERVER_', 'http://localhost:8080/SistemaBufeo/');//se cambia por el ip
 define('_STYLES_', 'styles/');
 define('_LOGIN_STYLES_', 'styles/login/');
 define('_VIEW_PATH_', 'app/view/');
