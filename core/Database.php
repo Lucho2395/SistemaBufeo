@@ -13,7 +13,7 @@ class Database{
     public static function getConnection(){
         try{
             if(empty(self::$db)){
-                $pdo = new PDO('mysql:host=localhost;dbname=bufeosalebd-e;charset=utf8','root','');
+                $pdo = new PDO('mysql:host=localhost;dbname=sistemabufeo;charset=utf8','root','');
                 //En caso de trabajar localmente, descomentar la siguiente linea y comentar la anterior
                 //$pdo = new PDO('mysql:host=localhost;dbname=zxcvbnm;charset=utf8','root','');
 

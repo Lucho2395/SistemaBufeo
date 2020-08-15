@@ -1,0 +1,5 @@
+2019-05-23 10:28:44[UTC -5] [ip] ::1 [location] ReportController|print_sale [text] Class 'Mike42\Escpos\PrintConnectors\FilePrintConnector' not found
+2019-05-23 10:30:13[UTC -5] [ip] ::1 [location] ReportController|print_sale [text] Class 'Mike42\Escpos\PrintConnectors\FilePrintConnector' not found
+2019-05-23 10:31:28[UTC -5] [ip] ::1 [location] ReportController|print_sale [text] Class 'Mike42\Escpos\PrintConnectors\FilePrintConnector' not found
+2019-05-23 10:31:55[UTC -5] [ip] ::1 [location] ReportController|print_sale [text] Class 'Mike42\Escpos\PrintConnectors\FilePrintConnector' not found
+2019-05-23 10:44:12[UTC -5] [ip] ::1 [location] ReportController|print_sale [text] Class 'Mike42\Escpos\PrintConnectors\FilePrintConnector' not found

@@ -53,12 +53,7 @@
                     $totalpedidos = count($pedido);
                     foreach ($pedido as $m){
                         $estadopedido = "<a class=\"btn btn-xs btn-outline-danger\" style='color: #00ca6d'>PENDIENTE</a>";
-                        if($m->saleproductgas_estado == 1){
-                            $estadopedido = "<a class=\"btn btn-xs btn-outline-success\">VENDIDO</a>";
-                        }
-                        if ($m->saleproductgas_estado == 0){
-                            $estadopedido = "<a class=\"btn btn-xs btn-outline-success\" style='color: #902b2b'>CANCELADO</a>";
-                        }
+
                         $show = "<a class=\"btn btn-xs btn-outline-danger\">ANULADO</a>";
                         if($m->saleproductgas_cancelled == 1){
                             $show = "<a class=\"btn btn-xs btn-outline-success\">VENDIDO</a>";
@@ -72,10 +67,10 @@
                             <td><?php echo $m->saleproductgas_direccion;?></td>
                             <td><?php echo $m->saleproductgas_telefono;?></td>
                             <td>s/. <?php echo $m->saleproductgas_total;?></td>
-                            <!--<td><?php echo $estadopedido; ?></td>-->
-                            <td><?php echo $show;?></td>
-                            <td><a type="button" class="btn btn-xs btn-warning btne" href="<?php echo _SERVER_ . 'Proveedor/edit/' . $m->id_proveedor;?>" >ENTREGADO</a>
-                                <a type="button" class="btn btn-xs btn-danger" onclick="preguntarSiNo(<?php echo $m->id_proveedor;?>)">CANCELAR</a>
+                            <td><?php echo $estadopedido; ?></td>
+                            <!--<td><?php echo $show;?></td>-->
+                            <td><a type="button" class="btn btn-xs btn-warning btne" onclick="preguntarSiNoEntregar(<?php echo $m->id_saleproductgas;?>)" >ENTREGADO</a>
+                                <a type="button" class="btn btn-xs btn-danger" onclick="preguntarSiNoCancelar(<?php echo $m->id_proveedor;?>)">CANCELAR</a>
                             <a type="button" class="btn btn-xs btn-primary btne" href="<?php echo _SERVER_ . 'SellGas/viewsale/' . $m->id_saleproductgas;?>" target="_blank" >Ver Detalle</a></td>
                         </tr>
                         <?php
@@ -95,30 +90,7 @@
 
 <script type="text/javascript">
 
-    function filtro_por_estado(){
 
-        var fecha_i = $("#fecha_ini").val();
-        var fecha_f = $("#fecha_fin").val();
-        var estadopedido = $("#filtroestado").val();
-        $("tbody").empty();
-        //$("#tabla_lista_pedidos").load();
-        $.post("<?php echo _SERVER_;?>SellGas/viewhistorypedidofiltro",{fecha_i: fecha_i,fecha_f: fecha_f, estadopedido:estadopedido}, function(data){
-            $("#tabla_lista_pedidos").html(data);
-
-        });
-    }
-
-
-    function filtro_por_usuario(){
-        var fecha_i = $("#fecha_ini").val();
-        var fecha_f = $("#fecha_fin").val();
-        var estadopedido = $("#filtroestado").val();
-        var usuario = $("#filtrousuario").val();
-        $.post("<?php echo _SERVER_;?>SellGas/viewhistorypedidofiltro",{fecha_i: fecha_i,fecha_f: fecha_f, estadopedido:estadopedido, usuario:usuario}, function(data){
-            $("#tabla_lista_pedidos").html(data);
-
-        });
-    }
 
 </script>
 

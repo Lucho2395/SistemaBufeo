@@ -1,0 +1,69 @@
+2019-05-17 18:43:00[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 4096 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellController.php: 153[MESSAGGE]Object of class stdClass could not be converted to string
+
+2019-05-17 18:43:00[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 4096 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellController.php: 153[MESSAGGE]Object of class stdClass could not be converted to string
+
+2019-05-17 18:43:33[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 4096 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellController.php: 153[MESSAGGE]Object of class stdClass could not be converted to string
+
+2019-05-17 18:44:41[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 4096 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellController.php: 155[MESSAGGE]Object of class stdClass could not be converted to string
+
+2019-05-17 18:46:02[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellController.php: 155[MESSAGGE]Array to string conversion
+
+2019-05-17 18:50:09[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\LoginController.php: 30[MESSAGGE]Undefined index: user_nickname
+
+2019-05-17 18:50:09[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\LoginController.php: 31[MESSAGGE]Undefined index: user_password
+
+2019-05-17 18:50:36[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2019-05-17 18:50:50[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\LoginController.php: 30[MESSAGGE]Undefined index: user_nickname
+
+2019-05-17 18:50:50[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\LoginController.php: 31[MESSAGGE]Undefined index: user_password
+
+2019-05-17 18:50:51[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\LoginController.php: 30[MESSAGGE]Undefined index: user_nickname
+
+2019-05-17 18:50:51[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\LoginController.php: 31[MESSAGGE]Undefined index: user_password
+
+2019-05-17 18:50:51[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\LoginController.php: 30[MESSAGGE]Undefined index: user_nickname
+
+2019-05-17 18:50:51[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\LoginController.php: 31[MESSAGGE]Undefined index: user_password
+
+2019-05-17 18:50:52[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\LoginController.php: 30[MESSAGGE]Undefined index: user_nickname
+
+2019-05-17 18:50:52[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\LoginController.php: 31[MESSAGGE]Undefined index: user_password
+
+2019-05-17 18:50:52[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\LoginController.php: 30[MESSAGGE]Undefined index: user_nickname
+
+2019-05-17 18:50:52[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\LoginController.php: 31[MESSAGGE]Undefined index: user_password
+
+2019-05-17 18:51:19[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\LoginController.php: 30[MESSAGGE]Undefined index: user_nickname
+
+2019-05-17 18:51:19[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\LoginController.php: 31[MESSAGGE]Undefined index: user_password
+
+2019-05-17 18:51:21[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\LoginController.php: 30[MESSAGGE]Undefined index: user_nickname
+
+2019-05-17 18:51:21[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\LoginController.php: 31[MESSAGGE]Undefined index: user_password
+
+2019-05-17 18:51:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\LoginController.php: 30[MESSAGGE]Undefined index: user_nickname
+
+2019-05-17 18:51:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\LoginController.php: 31[MESSAGGE]Undefined index: user_password
+
+2019-05-17 18:52:58[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellController.php: 155[MESSAGGE]Array to string conversion
+
+2019-05-17 18:53:26[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellController.php: 155[MESSAGGE]Array to string conversion
+
+2019-05-17 18:54:28[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellController.php: 155[MESSAGGE]Array to string conversion
+
+2019-05-17 19:13:05[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellController.php: 155[MESSAGGE]Array to string conversion
+
+2019-05-17 19:13:06[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellController.php: 155[MESSAGGE]Array to string conversion
+
+2019-05-17 19:13:07[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellController.php: 155[MESSAGGE]Array to string conversion
+
+2019-05-17 19:13:07[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellController.php: 155[MESSAGGE]Array to string conversion
+
+2019-05-17 19:13:08[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellController.php: 155[MESSAGGE]Array to string conversion
+
+2019-05-17 19:58:24[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 101[MESSAGGE]Undefined offset: 1
+
+2019-05-17 20:00:23[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2019-05-17 20:00:33[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2019-05-17 20:01:14[UTC -5] [ip] ::1 [location] Edit|changeUser [text] SIN PERMISOS SUFICIENTES
+2019-05-17 20:01:40[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES

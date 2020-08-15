@@ -1,0 +1,7 @@
+2019-05-16 22:38:33[UTC -5] [ip] ::1 [location] Inventory|listProductprices [text] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'bufeosalebd.categoryp' doesn't exist
+2019-05-16 22:38:33[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\sell3.php: 34[MESSAGGE]Invalid argument supplied for foreach()
+
+2019-05-16 22:38:33[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\sell3.php: 189[MESSAGGE]Invalid argument supplied for foreach()
+
+2019-05-16 22:38:57[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2019-05-16 22:42:03[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES

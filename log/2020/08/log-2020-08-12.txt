@@ -1,0 +1,424 @@
+2020-08-12 10:43:55[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2020-08-12 11:01:00[UTC -5] [ip] 192.168.43.198 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2020-08-12 11:14:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 11:20:46[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 11:34:12[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 11:35:13[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 11:53:18[UTC -5] [ip] 192.168.43.198 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2020-08-12 11:53:35[UTC -5] [ip] 192.168.43.198 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2020-08-12 11:53:56[UTC -5] [ip] 192.168.43.101 [location] Logout|singOut [text] SIN PERMISOS SUFICIENTES
+2020-08-12 11:54:08[UTC -5] [ip] 192.168.43.101 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2020-08-12 12:20:58[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 12:21:12[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 12:22:49[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 12:22:52[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 12:35:31[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 12:35:40[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 12:35:47[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 15:44:24[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 15:48:36[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 15:57:45[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 16:27:54[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 16:30:45[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 16:31:00[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 16:31:04[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 16:31:10[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 16:31:14[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 16:32:26[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 17:21:28[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 17:21:33[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 17:22:24[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 17:23:52[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 17:29:31[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 17:29:36[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 17:29:37[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 17:29:51[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 17:30:24[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 17:31:24[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 17:31:31[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 17:31:49[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 17:31:51[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 17:31:54[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 17:31:57[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 17:32:17[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-12 22:12:45[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\option\edit.php: 21[MESSAGGE]Undefined variable: id_menu
+
+2020-08-12 22:13:17[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\viewsaleGas.php: 10[MESSAGGE]Undefined index: rol
+
+2020-08-12 22:24:30[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:24:30[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:24:30[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:24:30[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:24:30[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:24:30[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:24:30[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:24:30[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:24:30[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:24:30[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:24:30[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:24:30[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:24:30[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:24:30[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:32:43[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:32:43[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:32:43[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:32:43[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:32:43[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:32:43[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:32:43[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:32:43[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:32:43[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:32:43[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:32:43[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:32:43[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:32:43[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:32:43[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:32:47[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:32:47[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:32:47[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:32:47[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:32:47[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:32:47[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:32:47[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:32:47[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:32:47[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:32:47[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:32:47[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:32:47[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:32:47[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:32:47[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:34:19[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\viewsaleGas.php: 10[MESSAGGE]Undefined index: rol
+
+2020-08-12 22:34:38[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\viewsaleGas.php: 10[MESSAGGE]Undefined index: rol
+
+2020-08-12 22:35:04[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:35:04[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:35:04[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:35:04[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:35:04[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:35:04[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:35:04[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:35:04[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:35:04[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:35:04[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:35:04[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:35:04[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:35:04[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:35:04[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:35:12[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:35:12[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:35:12[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:35:12[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:35:12[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:35:12[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:35:12[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:35:12[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:35:12[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:35:12[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:35:12[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:35:12[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:35:12[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:35:12[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:37:35[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\viewsaleGas.php: 10[MESSAGGE]Undefined index: rol
+
+2020-08-12 22:37:35[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\viewsaleGas.php: 96[MESSAGGE]Undefined offset: 1
+
+2020-08-12 22:40:41[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:40:41[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:40:41[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:40:41[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:40:41[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:40:41[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:40:41[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:40:41[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:40:41[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:40:41[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:40:41[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:40:41[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:40:41[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:40:41[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:40:41[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:40:41[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:40:51[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:40:51[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:40:51[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:40:51[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:40:51[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:40:51[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:40:51[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:40:51[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:40:51[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:40:51[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:40:51[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:40:51[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:40:51[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:40:51[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:40:51[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:40:51[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:42:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:42:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:42:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:42:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:42:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:42:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:42:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:42:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:42:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:42:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:42:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:42:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:42:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:42:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:42:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:42:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 79[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:43:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 77[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:43:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:43:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 77[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:43:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:43:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 77[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:43:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:43:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 77[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:43:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:43:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 77[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:43:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:43:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 77[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:43:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:43:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 77[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:43:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:43:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 77[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:43:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:43:46[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 77[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:43:46[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:43:46[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 77[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:43:46[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:43:46[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 77[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:43:46[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:43:46[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 77[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:43:46[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:43:46[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 77[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:43:46[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:43:46[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 77[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:43:46[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:43:46[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 77[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:43:46[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:43:46[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 77[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 22:43:46[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 23:37:48[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 77[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 23:37:48[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 23:37:48[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 77[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 23:37:48[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 23:37:48[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 77[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 23:37:48[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 23:37:48[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 77[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 23:37:48[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 23:37:48[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 77[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 23:37:48[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 23:37:48[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 77[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 23:37:48[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 23:37:48[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 77[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 23:37:48[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 23:37:48[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 77[MESSAGGE]Undefined property: stdClass::$id_proveedor
+
+2020-08-12 23:37:48[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\pedidospendientes.php: 78[MESSAGGE]Undefined property: stdClass::$id_proveedor
+

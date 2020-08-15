@@ -1,0 +1,139 @@
+2020-07-26 00:08:29[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\permit\edit.php: 20[MESSAGGE]Undefined variable: id_optionm
+
+2020-07-26 00:11:06[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\ProveedorController.php: 97[MESSAGGE]Undefined index: nombre_provee
+
+2020-07-26 00:11:06[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\ProveedorController.php: 101[MESSAGGE]Undefined property: ProveedorController::$provedoor
+
+2020-07-26 00:11:06[UTC -5] [ip] ::1 [location] Proveedor|save [text] Call to a member function save() on null
+2020-07-26 00:19:44[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\ProveedorController.php: 97[MESSAGGE]Undefined index: nombre_provee
+
+2020-07-26 00:19:44[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\ProveedorController.php: 101[MESSAGGE]Undefined property: ProveedorController::$provedoor
+
+2020-07-26 00:19:44[UTC -5] [ip] ::1 [location] Proveedor|save [text] Call to a member function save() on null
+2020-07-26 00:20:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\ProveedorController.php: 97[MESSAGGE]Undefined index: nombre_provee
+
+2020-07-26 00:20:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\ProveedorController.php: 101[MESSAGGE]Undefined property: ProveedorController::$provedoor
+
+2020-07-26 00:20:25[UTC -5] [ip] ::1 [location] Proveedor|save [text] Call to a member function save() on null
+2020-07-26 00:24:37[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\ProveedorController.php: 97[MESSAGGE]Undefined index: nombre_provee
+
+2020-07-26 00:24:37[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\ProveedorController.php: 101[MESSAGGE]Undefined property: ProveedorController::$provedoor
+
+2020-07-26 00:24:37[UTC -5] [ip] ::1 [location] Proveedor|save [text] Call to a member function save() on null
+2020-07-26 00:31:46[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\ProveedorController.php: 97[MESSAGGE]Undefined index: nombre_provee
+
+2020-07-26 00:31:46[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\ProveedorController.php: 101[MESSAGGE]Undefined property: ProveedorController::$provedoor
+
+2020-07-26 00:31:46[UTC -5] [ip] ::1 [location] Proveedor|save [text] Call to a member function save() on null
+2020-07-26 00:31:49[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\ProveedorController.php: 97[MESSAGGE]Undefined index: nombre_provee
+
+2020-07-26 00:31:49[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\ProveedorController.php: 101[MESSAGGE]Undefined property: ProveedorController::$provedoor
+
+2020-07-26 00:31:49[UTC -5] [ip] ::1 [location] Proveedor|save [text] Call to a member function save() on null
+2020-07-26 00:33:54[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\ProveedorController.php: 97[MESSAGGE]Undefined index: nombre_provee
+
+2020-07-26 00:33:54[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\ProveedorController.php: 101[MESSAGGE]Undefined property: ProveedorController::$provedoor
+
+2020-07-26 00:33:54[UTC -5] [ip] ::1 [location] Proveedor|save [text] Call to a member function save() on null
+2020-07-26 00:34:14[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\ProveedorController.php: 97[MESSAGGE]Undefined index: nombre_provee
+
+2020-07-26 00:34:14[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\ProveedorController.php: 101[MESSAGGE]Undefined property: ProveedorController::$provedoor
+
+2020-07-26 00:34:14[UTC -5] [ip] ::1 [location] Proveedor|save [text] Call to a member function save() on null
+2020-07-26 00:35:42[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\ProveedorController.php: 97[MESSAGGE]Undefined index: nombre_provee
+
+2020-07-26 00:35:42[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\ProveedorController.php: 101[MESSAGGE]Undefined property: ProveedorController::$provedoor
+
+2020-07-26 00:35:42[UTC -5] [ip] ::1 [location] Proveedor|save [text] Call to a member function save() on null
+2020-07-26 00:36:11[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\ProveedorController.php: 97[MESSAGGE]Undefined index: nombre_provee
+
+2020-07-26 00:36:11[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\ProveedorController.php: 101[MESSAGGE]Undefined property: ProveedorController::$provedoor
+
+2020-07-26 00:36:11[UTC -5] [ip] ::1 [location] Proveedor|save [text] Call to a member function save() on null
+2020-07-26 00:36:36[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\ProveedorController.php: 97[MESSAGGE]Undefined index: nombre_provee
+
+2020-07-26 00:36:36[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\ProveedorController.php: 101[MESSAGGE]Undefined property: ProveedorController::$provedoor
+
+2020-07-26 00:36:36[UTC -5] [ip] ::1 [location] Proveedor|save [text] Call to a member function save() on null
+2020-07-26 00:37:08[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\ProveedorController.php: 101[MESSAGGE]Undefined property: ProveedorController::$provedoor
+
+2020-07-26 00:37:08[UTC -5] [ip] ::1 [location] Proveedor|save [text] Call to a member function save() on null
+2020-07-26 00:51:17[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2020-07-26 00:52:28[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\ProveedorController.php: 101[MESSAGGE]Undefined property: ProveedorController::$provedoor
+
+2020-07-26 00:52:28[UTC -5] [ip] ::1 [location] Proveedor|save [text] Call to a member function save() on null
+2020-07-26 00:52:35[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\ProveedorController.php: 101[MESSAGGE]Undefined property: ProveedorController::$provedoor
+
+2020-07-26 00:52:35[UTC -5] [ip] ::1 [location] Proveedor|save [text] Call to a member function save() on null
+2020-07-26 00:57:14[UTC -5] [ip] ::1 [location] Proveedor|all [text] SIN PERMISOS SUFICIENTES
+2020-07-26 01:00:25[UTC -5] [ip] ::1 [location] Proveedor|all [text] SIN PERMISOS SUFICIENTES
+2020-07-26 13:53:25[UTC -5] [ip] ::1 [location] Proveedor|all [text] SIN PERMISOS SUFICIENTES
+2020-07-26 14:11:29[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\proveedor\all.php: 55[MESSAGGE]Undefined variable: client
+
+2020-07-26 14:11:29[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale-e\app\view\proveedor\all.php: 55[MESSAGGE]Invalid argument supplied for foreach()
+
+2020-07-26 14:12:20[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\proveedor\all.php: 55[MESSAGGE]Undefined variable: client
+
+2020-07-26 14:12:20[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale-e\app\view\proveedor\all.php: 55[MESSAGGE]Invalid argument supplied for foreach()
+
+2020-07-26 14:12:34[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\proveedor\all.php: 55[MESSAGGE]Undefined variable: client
+
+2020-07-26 14:12:34[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale-e\app\view\proveedor\all.php: 55[MESSAGGE]Invalid argument supplied for foreach()
+
+2020-07-26 14:12:35[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\proveedor\all.php: 55[MESSAGGE]Undefined variable: client
+
+2020-07-26 14:12:35[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale-e\app\view\proveedor\all.php: 55[MESSAGGE]Invalid argument supplied for foreach()
+
+2020-07-26 14:13:11[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\proveedor\all.php: 55[MESSAGGE]Undefined variable: client
+
+2020-07-26 14:13:11[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale-e\app\view\proveedor\all.php: 55[MESSAGGE]Invalid argument supplied for foreach()
+
+2020-07-26 14:16:46[UTC -5] [ip] ::1 [location] Proveedor|edit [text] SIN PERMISOS SUFICIENTES
+2020-07-26 18:29:45[UTC -5] [ip] ::1 [location] Proveedor|delete [text] SIN PERMISOS SUFICIENTES
+2020-07-26 18:29:51[UTC -5] [ip] ::1 [location] Proveedor|delete [text] SIN PERMISOS SUFICIENTES
+2020-07-26 18:32:42[UTC -5] [ip] ::1 [location] Proveedor|delete [text] SIN PERMISOS SUFICIENTES
+2020-07-26 18:41:04[UTC -5] [ip] ::1 [location] Person|delete [text] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`bufeosalebd-e`.`user`, CONSTRAINT `R_2` FOREIGN KEY (`id_person`) REFERENCES `person` (`id_person`))
+2020-07-26 18:41:20[UTC -5] [ip] ::1 [location] Person|delete [text] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`bufeosalebd-e`.`user`, CONSTRAINT `R_2` FOREIGN KEY (`id_person`) REFERENCES `person` (`id_person`))
+2020-07-26 18:42:29[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2020-07-26 18:42:47[UTC -5] [ip] ::1 [location] Person|delete [text] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`bufeosalebd-e`.`user`, CONSTRAINT `R_2` FOREIGN KEY (`id_person`) REFERENCES `person` (`id_person`))
+2020-07-26 18:53:52[UTC -5] [ip] ::1 [location] Proveedor|delete [text] SIN PERMISOS SUFICIENTES
+2020-07-26 18:54:00[UTC -5] [ip] ::1 [location] Proveedor|delete [text] SIN PERMISOS SUFICIENTES
+2020-07-26 18:58:37[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2020-07-26 18:59:32[UTC -5] [ip] ::1 [location] Proveedor|delete [text] SIN PERMISOS SUFICIENTES
+2020-07-26 19:18:11[UTC -5] [ip] ::1 [location] Proveedor|delete [text] SIN PERMISOS SUFICIENTES
+2020-07-26 19:26:02[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\permit\edit.php: 20[MESSAGGE]Undefined variable: id_optionm
+
+2020-07-26 22:16:11[UTC -5] [ip] ::1 [location] Proveedor|edit [text] SIN PERMISOS SUFICIENTES
+2020-07-26 22:21:02[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\option\edit.php: 21[MESSAGGE]Undefined variable: id_menu
+
+2020-07-26 22:39:42[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\proveedor\edit.php: 40[MESSAGGE]Undefined variable: provedoor
+
+2020-07-26 22:39:42[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\proveedor\edit.php: 40[MESSAGGE]Trying to get property 'nombre_provee' of non-object
+
+2020-07-26 22:41:24[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\proveedor\edit.php: 40[MESSAGGE]Undefined variable: provedoor
+
+2020-07-26 22:41:24[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\proveedor\edit.php: 40[MESSAGGE]Trying to get property 'nombre_provee' of non-object
+
+2020-07-26 22:42:03[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\proveedor\edit.php: 40[MESSAGGE]Undefined variable: provedoor
+
+2020-07-26 22:42:03[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\proveedor\edit.php: 40[MESSAGGE]Trying to get property 'nombre_provee' of non-object
+
+2020-07-26 22:42:05[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\proveedor\edit.php: 40[MESSAGGE]Undefined variable: provedoor
+
+2020-07-26 22:42:05[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\proveedor\edit.php: 40[MESSAGGE]Trying to get property 'nombre_provee' of non-object
+
+2020-07-26 22:42:12[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\proveedor\edit.php: 40[MESSAGGE]Undefined variable: provedoor
+
+2020-07-26 22:42:12[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\proveedor\edit.php: 40[MESSAGGE]Trying to get property 'nombre_provee' of non-object
+
+2020-07-26 23:40:24[UTC -5] [ip] ::1 [location] Inventory|listProducts [text] Class 'Proveedor' not found
+2020-07-26 23:40:38[UTC -5] [ip] ::1 [location] Inventory|listProducts [text] Class 'Proveedor' not found
+2020-07-26 23:40:55[UTC -5] [ip] ::1 [location] Inventory|listProducts [text] Class 'Proveedor' not found
+2020-07-26 23:40:59[UTC -5] [ip] ::1 [location] Inventory|listProducts [text] Class 'Proveedor' not found
+2020-07-26 23:41:01[UTC -5] [ip] ::1 [location] Inventory|listProducts [text] Class 'Proveedor' not found
+2020-07-26 23:42:15[UTC -5] [ip] ::1 [location] Inventory|listProducts [text] Class 'Proveedor' not found
+2020-07-26 23:47:58[UTC -5] [ip] ::1 [location] Inventory|listProducts [text] syntax error, unexpected 'class' (T_CLASS)
+2020-07-26 23:48:01[UTC -5] [ip] ::1 [location] Inventory|listProducts [text] syntax error, unexpected 'class' (T_CLASS)
+2020-07-26 23:48:17[UTC -5] [ip] ::1 [location] Inventory|listProducts [text] syntax error, unexpected 'class' (T_CLASS)
+2020-07-26 23:48:26[UTC -5] [ip] ::1 [location] Inventory|addProduct [text] syntax error, unexpected 'class' (T_CLASS)
+2020-07-26 23:56:26[UTC -5] [ip] ::1 [location] Inventory|listProducts [text] syntax error, unexpected 'class' (T_CLASS)

@@ -1,0 +1,108 @@
+2020-07-30 00:10:21[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2020-07-30 10:55:14[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2020-07-30 12:33:34[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\api.php: 65[MESSAGGE]Undefined index: user_nickname
+
+2020-07-30 12:33:34[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\models\Rolei.php: 180[MESSAGGE]Trying to get property 'user_status' of non-object
+
+2020-07-30 12:33:34[UTC -5] [ip] ::1 [location] Sell|search_by_barcode [text] SIN PERMISOS SUFICIENTES
+2020-07-30 12:33:37[UTC -5] [ip] ::1 [location] Sell|search_by_barcode [text] SIN PERMISOS SUFICIENTES
+2020-07-30 12:33:40[UTC -5] [ip] ::1 [location] Sell|search_by_barcode [text] SIN PERMISOS SUFICIENTES
+2020-07-30 12:33:57[UTC -5] [ip] ::1 [location] Sell|addProduct [text] SIN PERMISOS SUFICIENTES
+2020-07-30 12:35:47[UTC -5] [ip] ::1 [location] Sell|fastSell [text] SIN PERMISOS SUFICIENTES
+2020-07-30 12:35:58[UTC -5] [ip] ::1 [location] Sell|fastSell [text] syntax error, unexpected '$saleproduct_correlative' (T_VARIABLE)
+2020-07-30 12:37:49[UTC -5] [ip] ::1 [location] Sell|fastSell [text] syntax error, unexpected '$saleproduct_correlative' (T_VARIABLE)
+2020-07-30 12:37:50[UTC -5] [ip] ::1 [location] Sell|fastSell [text] syntax error, unexpected '$saleproduct_correlative' (T_VARIABLE)
+2020-07-30 12:38:01[UTC -5] [ip] ::1 [location] Sell|fastSell [text] syntax error, unexpected '$saleproduct_correlative' (T_VARIABLE)
+2020-07-30 12:51:38[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellController.php: 229[MESSAGGE]Undefined property: stdClass::$id_saleproductgas
+
+2020-07-30 12:51:38[UTC -5] [ip] ::1 [location] Sell|insertSaledetail [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_saleproduct' cannot be null
+2020-07-30 12:53:14[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellController.php: 229[MESSAGGE]Undefined property: stdClass::$id_saleproductgas
+
+2020-07-30 12:53:14[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 101[MESSAGGE]Undefined offset: 1
+
+2020-07-30 12:56:47[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellController.php: 229[MESSAGGE]Undefined property: stdClass::$id_saleproductgas
+
+2020-07-30 12:56:48[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 101[MESSAGGE]Undefined offset: 1
+
+2020-07-30 12:58:18[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellController.php: 229[MESSAGGE]Undefined property: stdClass::$id_saleproductgas
+
+2020-07-30 12:58:18[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 101[MESSAGGE]Undefined offset: 1
+
+2020-07-30 13:05:05[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 101[MESSAGGE]Undefined offset: 1
+
+2020-07-30 13:07:04[UTC -5] [ip] ::1 [location] SellGas|fastSell [text] syntax error, unexpected '$saleproduct_correlative' (T_VARIABLE)
+2020-07-30 13:10:43[UTC -5] [ip] ::1 [location] SellGas|fastSell [text] syntax error, unexpected '$saleproduct_correlative' (T_VARIABLE)
+2020-07-30 13:12:03[UTC -5] [ip] ::1 [location] SellGas|fastSell [text] syntax error, unexpected 'try' (T_TRY), expecting function (T_FUNCTION) or const (T_CONST)
+2020-07-30 13:47:23[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\report\day.php: 226[MESSAGGE]Undefined variable: id
+
+2020-07-30 15:56:20[UTC -5] [ip] ::1 [location] SellGas|fastSell [text] syntax error, unexpected '$saleproduct_correlative' (T_VARIABLE)
+2020-07-30 15:56:56[UTC -5] [ip] ::1 [location] SellGas|sellProduct [text] Call to undefined method SellGasController::sellproduct()
+2020-07-30 15:57:35[UTC -5] [ip] ::1 [location] SellGas|fastSell [text] syntax error, unexpected '$saleproduct_correlative' (T_VARIABLE)
+2020-07-30 15:58:03[UTC -5] [ip] ::1 [location] SellGas|fastSell [text] syntax error, unexpected '$saleproduct_correlative' (T_VARIABLE)
+2020-07-30 17:46:20[UTC -5] [ip] ::1 [location] SellGas|fastSell [text] syntax error, unexpected '$saleproduct_correlative' (T_VARIABLE)
+2020-07-30 18:05:43[UTC -5] [ip] ::1 [location] SellGas|fastSell [text] syntax error, unexpected '$correlative' (T_VARIABLE)
+2020-07-30 19:50:23[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\option\edit.php: 21[MESSAGGE]Undefined variable: id_menu
+
+2020-07-30 19:50:28[UTC -5] [ip] ::1 [location] MenuController|functions [text] ID Sin Declarar
+2020-07-30 20:57:34[UTC -5] [ip] ::1 [location] SellGas|insertSale [text] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'saleproductgas_correlative' in 'field list'
+2020-07-30 20:57:35[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 225[MESSAGGE]Trying to get property 'id_saleproductgas' of non-object
+
+2020-07-30 20:57:35[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 231[MESSAGGE]Trying to get property 'id_saleproductgas' of non-object
+
+2020-07-30 20:57:34[UTC -5] [ip] ::1 [location] SellGas|insertSaledetail [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_saleproductgas' cannot be null
+2020-07-30 21:00:09[UTC -5] [ip] ::1 [location] SellGas|insertSale [text] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'saleproductgas_correlative' in 'field list'
+2020-07-30 21:00:09[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 225[MESSAGGE]Trying to get property 'id_saleproductgas' of non-object
+
+2020-07-30 21:00:09[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 231[MESSAGGE]Trying to get property 'id_saleproductgas' of non-object
+
+2020-07-30 21:00:09[UTC -5] [ip] ::1 [location] SellGas|insertSaledetail [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_saleproductgas' cannot be null
+2020-07-30 21:08:21[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 101[MESSAGGE]Undefined offset: 1
+
+2020-07-30 22:33:22[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 101[MESSAGGE]Undefined offset: 1
+
+2020-07-30 22:36:14[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 101[MESSAGGE]Undefined offset: 1
+
+2020-07-30 22:36:46[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 101[MESSAGGE]Undefined offset: 1
+
+2020-07-30 22:36:55[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 101[MESSAGGE]Undefined offset: 1
+
+2020-07-30 22:37:33[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 101[MESSAGGE]Undefined offset: 1
+
+2020-07-30 22:46:53[UTC -5] [ip] 192.168.43.34 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2020-07-30 22:47:24[UTC -5] [ip] 192.168.43.34 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2020-07-30 22:47:49[UTC -5] [ip] 192.168.43.34 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2020-07-30 22:47:56[UTC -5] [ip] 192.168.43.34 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2020-07-30 22:51:46[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 101[MESSAGGE]Undefined offset: 1
+
+2020-07-30 23:01:58[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 30[MESSAGGE]Undefined property: stdClass::$saleproduct_date
+
+2020-07-30 23:01:58[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 34[MESSAGGE]Undefined property: stdClass::$saleproduct_correlative
+
+2020-07-30 23:01:58[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 40[MESSAGGE]Undefined property: stdClass::$saleproduct_cancelled
+
+2020-07-30 23:01:58[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 82[MESSAGGE]Undefined property: stdClass::$sale_productstotalprice
+
+2020-07-30 23:01:58[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 87[MESSAGGE]Undefined property: stdClass::$sale_productstotalselled
+
+2020-07-30 23:01:58[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 88[MESSAGGE]Undefined property: stdClass::$sale_productname
+
+2020-07-30 23:01:58[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 89[MESSAGGE]Undefined property: stdClass::$sale_price
+
+2020-07-30 23:01:58[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 101[MESSAGGE]Undefined offset: 1
+
+2020-07-30 23:02:01[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 30[MESSAGGE]Undefined property: stdClass::$saleproduct_date
+
+2020-07-30 23:02:01[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 34[MESSAGGE]Undefined property: stdClass::$saleproduct_correlative
+
+2020-07-30 23:02:01[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 40[MESSAGGE]Undefined property: stdClass::$saleproduct_cancelled
+
+2020-07-30 23:02:01[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 82[MESSAGGE]Undefined property: stdClass::$sale_productstotalprice
+
+2020-07-30 23:02:01[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 87[MESSAGGE]Undefined property: stdClass::$sale_productstotalselled
+
+2020-07-30 23:02:01[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 88[MESSAGGE]Undefined property: stdClass::$sale_productname
+
+2020-07-30 23:02:01[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 89[MESSAGGE]Undefined property: stdClass::$sale_price
+
+2020-07-30 23:02:01[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 101[MESSAGGE]Undefined offset: 1
+

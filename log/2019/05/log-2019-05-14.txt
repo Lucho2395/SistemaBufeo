@@ -1,0 +1,7 @@
+2019-05-14 14:07:27[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale\app\models\Rolei.php: 180[MESSAGGE]Trying to get property of non-object
+
+2019-05-14 14:07:26[UTC -5] [ip] ::1 [location] Logout|singOut [text] SIN PERMISOS SUFICIENTES
+2019-05-14 14:07:34[UTC -5] [ip] ::1 [location] Logout|singOut [text] SIN PERMISOS SUFICIENTES
+2019-05-14 14:07:39[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2019-05-14 14:10:45[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2019-05-14 14:17:15[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES

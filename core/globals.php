@@ -14,7 +14,7 @@ define('_VIEW_PATH_', 'app/view/');
 define('_JS_', 'js/');
 //Estilos Index
 define('_VIEW_PATH_INDEX_', 'styles/index/');
-define('_TITLE_', 'BufeoSale');
+define('_TITLE_', 'SistemaBufeo');
 define('_ICON_', 'styles/bufeosale-icon.png');
 
 

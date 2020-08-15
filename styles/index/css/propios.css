@@ -1,0 +1,25 @@
+.btn-chico{
+    width: 80px;
+}
+
+.btn-final{
+    width: 160px;
+}
+
+.btn-chico-especial{
+    width: 120px;
+}
+
+.btn-grande{
+    width: 200px;
+    font-size: 20px;
+}
+
+.texto-venta{
+    font-size: 20px;
+}
+
+.boton-alquiler{
+    height: 150px;
+    border-radius: 20px;
+}

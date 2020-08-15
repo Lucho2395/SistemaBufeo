@@ -1,0 +1,9 @@
+2019-05-05 11:27:01[UTC -5] [ip] ::1 [location] Turni|setStock [text] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+2019-05-05 11:27:01[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2019-05-05 11:29:28[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale\app\view\turn\seeall.php: 66[MESSAGGE]Undefined variable: eliminar
+
+2019-05-05 12:25:57[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2019-05-05 12:27:21[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale\app\models\Menui.php: 43[MESSAGGE]Trying to get property of non-object
+
+2019-05-05 12:27:21[UTC -5] [ip] ::1 [location] Userg|all [text] SIN PERMISOS SUFICIENTES
+2019-05-05 18:35:45[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES

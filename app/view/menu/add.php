@@ -17,7 +17,7 @@
         <ol class="breadcrumb">
             <li><a href="#"><i class="<?php echo $_SESSION['icono'];?>"></i><?php echo $_SESSION['controlador'];?></a></li>
             <li><a href="#"><?php echo $_SESSION['accion'];?></a></li>
-            <a class="btn btn-chico btn-default btn-xs" onclick="volverf(<?php echo $id_menu;?>)"> >Volver</a>
+            <a class="btn btn-chico btn-default btn-xs" onclick="volverf(<?php echo $id_menu;?>)"> Volver</a>
         </ol>
     </section>
 

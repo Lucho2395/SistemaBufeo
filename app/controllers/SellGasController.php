@@ -125,57 +125,23 @@ class SellGasController{
             $fecha_f = $explode[0]."-".$explode[1]."-".$sum;
             $estadopedido = $_POST['estadopedido'];
             $usuario = $_POST['usuario'];
-            if (empty($usuario)){
-                $pedido = $this->sell->listSalesfiltro($fecha_i,$fecha_f,$estadopedido);
-                $totalpedidos = count($pedido);
-                $listreturn = "";
-                foreach ($pedido as $m) {
-                    $estadopedido = "<a class=\"btn btn-xs btn-outline-danger\" style='color: #00ca6d'>PENDIENTE</a>";
-                    if($m->saleproductgas_estado == 1){
-                        $estadopedido = "<a class=\"btn btn-xs btn-outline-success\">VENDIDO</a>";
-                    }
-                    if ($m->saleproductgas_estado == 0){
-                        $estadopedido = "<a class=\"btn btn-xs btn-outline-success\" style='color: #902b2b'>CANCELADO</a>";
-                    }
-                    $show = "<a class=\"btn btn-xs btn-outline-danger\">ANULADO</a>";
-                    if($m->saleproductgas_cancelled == 1){
-                        $show = "<a class=\"btn btn-xs btn-outline-success\">VENDIDO</a>";
-                    }
-                    $listreturn .= "<tr>
-                    <td>$totalpedidos</td>
-                        <td>".$m->saleproductgas_date."</td>
-                        <td>".$m->client_name."</td>
-                        <td>".$m->user_nickname."</td>
-                        <td>".$m->saleproductgas_direccion."</td>
-                        <td>".$m->saleproductgas_telefono."</td>
-                        <td>s/. ".$m->saleproductgas_total."</td>
-                        <td>".$estadopedido."</td>
-                        <td>".$show."</td>
-                        <td><a type=\"button\" class=\"btn btn-xs btn-primary btne\" href=\"<?php echo _SERVER_ . 'SellGas/viewsale/' . $m->id_saleproductgas;?>\" target=\"_blank\" >Ver Detalle</a></td>
-                    </tr>";
-                    $totalpedidos--;
+            $filtrousuario = $this->sell->listSalesfiltrousuario($fecha_i,$fecha_f,$estadopedido,$usuario);
+            $totalusuario = count($filtrousuario);
+            $listreturn = "";
+            foreach ($filtrousuario as $m) {
+                $estadopedido = "<a class=\"btn btn-xs btn-outline-danger\" style='color: #00ca6d'>PENDIENTE</a>";
+                if($m->saleproductgas_estado == 1){
+                    $estadopedido = "<a class=\"btn btn-xs btn-outline-success\">VENDIDO</a>";
                 }
-                echo $listreturn;
-            }
-            else{
-                
-                $filtrousuario = $this->sell->listSalesfiltrousuario($fecha_i,$fecha_f,$estadopedido,$usuario);
-                $totalusuario = count($filtrousuario);
-                $listreturn = "";
-                foreach ($filtrousuario as $m) {
-                    $estadopedido = "<a class=\"btn btn-xs btn-outline-danger\" style='color: #00ca6d'>PENDIENTE</a>";
-                    if($m->saleproductgas_estado == 1){
-                        $estadopedido = "<a class=\"btn btn-xs btn-outline-success\">VENDIDO</a>";
-                    }
-                    if ($m->saleproductgas_estado == 0){
-                        $estadopedido = "<a class=\"btn btn-xs btn-outline-success\" style='color: #902b2b'>CANCELADO</a>";
-                    }
-                    $show = "<a class=\"btn btn-xs btn-outline-danger\">ANULADO</a>";
-                    if($m->saleproductgas_cancelled == 1){
-                        $show = "<a class=\"btn btn-xs btn-outline-success\">VENDIDO</a>";
-                    }
-                    
-                    $listreturn .= "<tr>
+                if ($m->saleproductgas_estado == 0){
+                    $estadopedido = "<a class=\"btn btn-xs btn-outline-success\" style='color: #902b2b'>CANCELADO</a>";
+                }
+                $show = "<a class=\"btn btn-xs btn-outline-danger\">ANULADO</a>";
+                if($m->saleproductgas_cancelled == 1){
+                    $show = "<a class=\"btn btn-xs btn-outline-success\">VENDIDO</a>";
+                }
+
+                $listreturn .= "<tr>
                     <td>$totalusuario</td>
                         <td>".$m->saleproductgas_date."</td>
                         <td>".$m->client_name."</td>
@@ -184,12 +150,9 @@ class SellGasController{
                         <td>".$m->saleproductgas_telefono."</td>
                         <td>s/. ".$m->saleproductgas_total."</td>
                         <td>".$estadopedido."</td>
-                        <td>".$show."</td>
                         <td><a type=\"button\" class=\"btn btn-xs btn-primary btne\" href=\"<?php echo _SERVER_ . 'SellGas/viewsale/' . $m->id_saleproductgas;?>\" target=\"_blank\" >Ver Detalle</a></td>
                     </tr>";
-                    $totalusuario--;
-                       
-                }
+                $totalusuario--;
                 echo $listreturn;
                 
             }
@@ -199,6 +162,22 @@ class SellGasController{
             echo "<script language=\"javascript\">alert(\"Error Al Mostrar Contenido. Redireccionando Al Inicio\");</script>";
             echo "<script language=\"javascript\">window.location.href=\"". _SERVER_ ."\";</script>";
         }
+    }
+//cambiar estado a ENTREGADO o CANCELADO en la vista pedidospendientes
+    public function estadoentregado(){
+        try {
+            if(isset($_POST['id_saleproductgas'])){
+                $id_saleproductgas = $_POST['id_saleproductgas'];
+                $cambiarpedido = $this->sell->CambiarPedido($id_saleproductgas);
+
+            } else {
+                $result = 2;
+            }
+        } catch (Exception $e){
+            $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
+            $result = 2;
+        }
+        echo $result;
     }
 
     public function viewSale(){

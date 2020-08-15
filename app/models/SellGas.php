@@ -90,7 +90,7 @@ class SellGas{
     //Listar los datos de una venta
     public function revokeSale($id){
         try {
-            $sql = 'update saleproductgas set saleproductgas_cancelled = 0 where id_saleproductgas = ?';
+            $sql = 'update saleproductgas set saleproductgas_cancelled = 0, saleproductgas_estado = 0 where id_saleproductgas = ?';
             $stm = $this->pdo->prepare($sql);
             $stm->execute([$id]);
             $result = 1;
@@ -444,6 +444,19 @@ class SellGas{
             $stm = $this->pdo->prepare($sql);
             $stm->execute([$id]);
             $result = $stm->fetch();
+        } catch (Exception $e){
+            $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
+            $result = 2;
+        }
+        return $result;
+    }
+
+    public function CambiarPedido($id){
+        try {
+            $sql = 'update saleproductgas set saleproductgas_estado = 1 where id_saleproductgas = ?';
+            $stm = $this->pdo->prepare($sql);
+            $stm->execute([$id]);
+            $result = 1;
         } catch (Exception $e){
             $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
             $result = 2;

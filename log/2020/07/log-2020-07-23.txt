@@ -1,0 +1,1 @@
+2020-07-23 23:48:06[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES

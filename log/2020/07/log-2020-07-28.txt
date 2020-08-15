@@ -1,0 +1,20 @@
+2020-07-28 09:29:53[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 101[MESSAGGE]Undefined offset: 1
+
+2020-07-28 13:03:10[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 101[MESSAGGE]Undefined offset: 1
+
+2020-07-28 13:18:05[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\correlative\show.php: 55[MESSAGGE]Undefined property: stdClass::$correlative_p
+
+2020-07-28 13:19:00[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\correlative\show.php: 55[MESSAGGE]Undefined property: stdClass::$correlative_p
+
+2020-07-28 13:19:01[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\correlative\show.php: 55[MESSAGGE]Undefined property: stdClass::$correlative_p
+
+2020-07-28 13:19:03[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\correlative\show.php: 55[MESSAGGE]Undefined property: stdClass::$correlative_p
+
+2020-07-28 13:19:13[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\correlative\show.php: 55[MESSAGGE]Undefined property: stdClass::$correlative_p
+
+2020-07-28 15:12:46[UTC -5] [ip] ::1 [location] SellGas|table_products [text] SIN PERMISOS SUFICIENTES
+2020-07-28 15:34:24[UTC -5] [ip] ::1 [location] SellGas|table_productsGas [text] Call to undefined method SellGasController::table_productsgas()
+2020-07-28 15:34:42[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\option\edit.php: 21[MESSAGGE]Undefined variable: id_menu
+
+2020-07-28 15:41:05[UTC -5] [ip] ::1 [location] SellGas|table_products [text] SIN PERMISOS SUFICIENTES
+2020-07-28 15:42:26[UTC -5] [ip] ::1 [location] SellGas|table_products [text] SIN PERMISOS SUFICIENTES

@@ -1,0 +1,79 @@
+2020-07-31 08:14:16[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 30[MESSAGGE]Undefined property: stdClass::$saleproduct_date
+
+2020-07-31 08:14:16[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 34[MESSAGGE]Undefined property: stdClass::$saleproduct_correlative
+
+2020-07-31 08:14:16[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 40[MESSAGGE]Undefined property: stdClass::$saleproduct_cancelled
+
+2020-07-31 08:14:16[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 82[MESSAGGE]Undefined property: stdClass::$sale_productstotalprice
+
+2020-07-31 08:14:16[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 87[MESSAGGE]Undefined property: stdClass::$sale_productstotalselled
+
+2020-07-31 08:14:16[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 88[MESSAGGE]Undefined property: stdClass::$sale_productname
+
+2020-07-31 08:14:16[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 89[MESSAGGE]Undefined property: stdClass::$sale_price
+
+2020-07-31 08:14:16[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 101[MESSAGGE]Undefined offset: 1
+
+2020-07-31 08:53:44[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 86[MESSAGGE]require(app/view/sell/viewsaleGas.php): failed to open stream: No such file or directory
+
+2020-07-31 09:17:58[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 86[MESSAGGE]require(app/view/sell/viewsaleGas.php): failed to open stream: No such file or directory
+
+2020-07-31 09:19:33[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\viewsaleGas.php: 10[MESSAGGE]Undefined index: rol
+
+2020-07-31 09:19:33[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\viewsaleGas.php: 29[MESSAGGE]Undefined property: stdClass::$saleproductgas_correlative
+
+2020-07-31 09:19:37[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\viewsaleGas.php: 10[MESSAGGE]Undefined index: rol
+
+2020-07-31 09:19:37[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\viewsaleGas.php: 29[MESSAGGE]Undefined property: stdClass::$saleproductgas_correlative
+
+2020-07-31 09:21:31[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\viewsaleGas.php: 10[MESSAGGE]Undefined index: rol
+
+2020-07-31 09:21:31[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\viewsaleGas.php: 29[MESSAGGE]Undefined property: stdClass::$saleproductgas_correlative
+
+2020-07-31 12:15:00[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\viewsaleGas.php: 10[MESSAGGE]Undefined index: rol
+
+2020-07-31 12:15:00[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\viewsaleGas.php: 29[MESSAGGE]Undefined property: stdClass::$saleproductgas_correlative
+
+2020-07-31 12:26:18[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 101[MESSAGGE]Undefined offset: 1
+
+2020-07-31 12:29:27[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2020-07-31 12:30:30[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\report\day.php: 226[MESSAGGE]Undefined variable: id
+
+2020-07-31 12:31:06[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\models\Report.php: 42[MESSAGGE]Trying to get property 'startproduct_stock' of non-object
+
+2020-07-31 12:31:06[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\models\Report.php: 42[MESSAGGE]Trying to get property 'startproduct_stock' of non-object
+
+2020-07-31 12:31:21[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8192 IN C:\xampp\htdocs\bufeosale-e\app\view\report\fpdf\fpdf.php: 1108[MESSAGGE]Function get_magic_quotes_runtime() is deprecated
+
+2020-07-31 12:31:21[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\models\Report.php: 42[MESSAGGE]Trying to get property 'startproduct_stock' of non-object
+
+2020-07-31 12:31:21[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\report\all_PDF.php: 61[MESSAGGE]Undefined property: stdClass::$saleproduct_total
+
+2020-07-31 12:31:21[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\models\Report.php: 42[MESSAGGE]Trying to get property 'startproduct_stock' of non-object
+
+2020-07-31 12:31:21[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\report\all_PDF.php: 61[MESSAGGE]Undefined property: stdClass::$saleproduct_total
+
+2020-07-31 12:31:21[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\report\all_PDF.php: 61[MESSAGGE]Undefined property: stdClass::$saleproduct_total
+
+2020-07-31 12:31:22[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8192 IN C:\xampp\htdocs\bufeosale-e\app\view\report\fpdf\fpdf.php: 1108[MESSAGGE]Function get_magic_quotes_runtime() is deprecated
+
+2020-07-31 12:31:22[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\models\Report.php: 42[MESSAGGE]Trying to get property 'startproduct_stock' of non-object
+
+2020-07-31 12:31:22[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\report\all_PDF.php: 61[MESSAGGE]Undefined property: stdClass::$saleproduct_total
+
+2020-07-31 12:31:22[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\models\Report.php: 42[MESSAGGE]Trying to get property 'startproduct_stock' of non-object
+
+2020-07-31 12:31:22[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\report\all_PDF.php: 61[MESSAGGE]Undefined property: stdClass::$saleproduct_total
+
+2020-07-31 12:31:22[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\report\all_PDF.php: 61[MESSAGGE]Undefined property: stdClass::$saleproduct_total
+
+2020-07-31 12:31:57[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\models\Report.php: 42[MESSAGGE]Trying to get property 'startproduct_stock' of non-object
+
+2020-07-31 12:31:57[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\models\Report.php: 42[MESSAGGE]Trying to get property 'startproduct_stock' of non-object
+
+2020-07-31 12:51:51[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2020-07-31 12:52:40[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\report\day.php: 226[MESSAGGE]Undefined variable: id
+
+2020-07-31 12:55:12[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2020-07-31 14:40:35[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\SellGas.php: 117[MESSAGGE]Undefined index: icono
+

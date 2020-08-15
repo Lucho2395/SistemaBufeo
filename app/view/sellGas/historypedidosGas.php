@@ -72,7 +72,7 @@
         <!-- /.row (main row) -->
         <div class="row">
             <div class="col-lg-12">
-                <table id="example2" class="table table-bordered table-hover">
+                <table  class="table table-bordered table-hover">
                     <thead class="text-capitalize">
                     <tr>
                         <th>N°</th>
@@ -83,7 +83,6 @@
                         <th>Telefono</th>
                         <th>Total de Venta</th>
                         <th>Estado de Pedido</th>
-                        <th>Estado de Venta</th>
                         <th>ACCIONES</th>
                     </tr>
                     </thead>
@@ -147,6 +146,7 @@
         var fecha_f = $("#fecha_fin").val();
         var estadopedido = $("#filtroestado").val();
         var usuario = $("#filtrousuario").val();
+
         $.post("<?php echo _SERVER_;?>SellGas/viewhistorypedidofiltro",{fecha_i: fecha_i,fecha_f: fecha_f, estadopedido:estadopedido, usuario:usuario}, function(data){
             $("#tabla_lista_pedidos").html(data);
 

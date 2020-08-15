@@ -1,0 +1,4 @@
+2019-05-01 23:08:30[UTC -5] [ip] ::1 [location] Sell|fastSellw [text] SIN PERMISOS SUFICIENTES
+2019-05-01 23:08:40[UTC -5] [ip] ::1 [location] Sell|fastSellw [text] SIN PERMISOS SUFICIENTES
+2019-05-01 23:27:04[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale\app\view\sell\table_products.php: 31[MESSAGGE]A non-numeric value encountered
+

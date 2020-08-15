@@ -1,0 +1,105 @@
+2020-07-27 00:10:19[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\add.php: 82[MESSAGGE]Undefined variable: proveedor
+
+2020-07-27 00:10:19[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\add.php: 82[MESSAGGE]Invalid argument supplied for foreach()
+
+2020-07-27 00:10:48[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\add.php: 82[MESSAGGE]Undefined variable: proveedor
+
+2020-07-27 00:10:48[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\add.php: 82[MESSAGGE]Invalid argument supplied for foreach()
+
+2020-07-27 00:13:30[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\listproducts2.php: 59[MESSAGGE]Undefined variable: proveedor
+
+2020-07-27 00:13:30[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\listproducts2.php: 59[MESSAGGE]Trying to get property 'nombre_provee' of non-object
+
+2020-07-27 00:13:30[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\listproducts2.php: 59[MESSAGGE]Undefined variable: proveedor
+
+2020-07-27 00:13:30[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\listproducts2.php: 59[MESSAGGE]Trying to get property 'nombre_provee' of non-object
+
+2020-07-27 00:14:10[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\listproducts2.php: 59[MESSAGGE]Undefined variable: proveedor
+
+2020-07-27 00:14:10[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\listproducts2.php: 59[MESSAGGE]Trying to get property 'nombre_provee' of non-object
+
+2020-07-27 00:14:10[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\listproducts2.php: 59[MESSAGGE]Undefined variable: proveedor
+
+2020-07-27 00:14:10[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\listproducts2.php: 59[MESSAGGE]Trying to get property 'nombre_provee' of non-object
+
+2020-07-27 00:21:06[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\add.php: 82[MESSAGGE]Undefined variable: proveedor
+
+2020-07-27 00:21:06[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\add.php: 82[MESSAGGE]Invalid argument supplied for foreach()
+
+2020-07-27 00:26:29[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\add.php: 82[MESSAGGE]Undefined variable: proveedor
+
+2020-07-27 00:26:29[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\add.php: 82[MESSAGGE]Invalid argument supplied for foreach()
+
+2020-07-27 00:35:11[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\add.php: 65[MESSAGGE]Undefined variable: proveedor
+
+2020-07-27 00:35:11[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\add.php: 65[MESSAGGE]Invalid argument supplied for foreach()
+
+2020-07-27 00:35:11[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\add.php: 95[MESSAGGE]Undefined variable: proveedor
+
+2020-07-27 00:35:11[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\add.php: 95[MESSAGGE]Invalid argument supplied for foreach()
+
+2020-07-27 00:35:26[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\add.php: 65[MESSAGGE]Undefined variable: proveedor
+
+2020-07-27 00:35:26[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\add.php: 65[MESSAGGE]Invalid argument supplied for foreach()
+
+2020-07-27 00:35:26[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\add.php: 95[MESSAGGE]Undefined variable: proveedor
+
+2020-07-27 00:35:26[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\add.php: 95[MESSAGGE]Invalid argument supplied for foreach()
+
+2020-07-27 11:40:15[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\report\day.php: 226[MESSAGGE]Undefined variable: id
+
+2020-07-27 11:42:04[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\InventoryController.php: 223[MESSAGGE]Undefined index: id_proveedor
+
+2020-07-27 11:42:04[UTC -5] [ip] ::1 [location] Inventory|save [text] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`bufeosalebd-e`.`product`, CONSTRAINT `product_ibfk_2` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedor` (`id_proveedor`) ON DELETE CASCADE ON UPDATE CASCADE)
+2020-07-27 11:44:58[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 101[MESSAGGE]Undefined offset: 1
+
+2020-07-27 11:48:07[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 101[MESSAGGE]Undefined offset: 1
+
+2020-07-27 15:26:11[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 101[MESSAGGE]Undefined offset: 1
+
+2020-07-27 15:59:26[UTC -5] [ip] ::1 [location] User|all [text] SIN PERMISOS SUFICIENTES
+2020-07-27 16:00:59[UTC -5] [ip] ::1 [location] Menu|listp [text] SIN PERMISOS SUFICIENTES
+2020-07-27 16:13:13[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 101[MESSAGGE]Undefined offset: 1
+
+2020-07-27 16:15:05[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 101[MESSAGGE]Undefined offset: 1
+
+2020-07-27 16:41:31[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 101[MESSAGGE]Undefined offset: 1
+
+2020-07-27 16:43:08[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 101[MESSAGGE]Undefined offset: 1
+
+2020-07-27 17:14:59[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 101[MESSAGGE]Undefined offset: 1
+
+2020-07-27 17:23:36[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 101[MESSAGGE]Undefined offset: 1
+
+2020-07-27 17:52:07[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\menu\add.php: 20[MESSAGGE]Undefined variable: id_menu
+
+2020-07-27 17:57:29[UTC -5] [ip] ::1 [location] SellGas|fastSell [text] Class 'SellGasController' not found
+2020-07-27 18:02:54[UTC -5] [ip] ::1 [location] SellGas|fastSell [text] Class 'SellGasController' not found
+2020-07-27 18:06:12[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\menu\add.php: 20[MESSAGGE]Undefined variable: id_menu
+
+2020-07-27 18:07:15[UTC -5] [ip] ::1 [location] SellGas|fastSell [text] Class 'SellGasController' not found
+2020-07-27 18:09:33[UTC -5] [ip] ::1 [location] SellGas|fastSell [text] Class 'SellGasController' not found
+2020-07-27 18:11:39[UTC -5] [ip] ::1 [location] SellGas|fastSell [text] Class 'SellGasController' not found
+2020-07-27 18:11:41[UTC -5] [ip] ::1 [location] SellGas|fastSell [text] Class 'SellGasController' not found
+2020-07-27 18:11:52[UTC -5] [ip] ::1 [location] SellGas|fastSell [text] Class 'SellGasController' not found
+2020-07-27 18:22:51[UTC -5] [ip] ::1 [location] SellGas|fastSell [text] Class 'SellGasController' not found
+2020-07-27 18:43:45[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\option\edit.php: 21[MESSAGGE]Undefined variable: id_menu
+
+2020-07-27 18:48:58[UTC -5] [ip] ::1 [location] SellGas|fastSell [text] Class 'SellGasController' not found
+2020-07-27 18:49:00[UTC -5] [ip] ::1 [location] SellGas|fastSell [text] Class 'SellGasController' not found
+2020-07-27 18:49:01[UTC -5] [ip] ::1 [location] SellGas|fastSell [text] Class 'SellGasController' not found
+2020-07-27 18:49:12[UTC -5] [ip] ::1 [location] SellGas|fastSell [text] Class 'SellGasController' not found
+2020-07-27 18:51:05[UTC -5] [ip] ::1 [location] SellGas|fastSell [text] Class 'SellGas' not found
+2020-07-27 18:51:07[UTC -5] [ip] ::1 [location] SellGas|fastSell [text] Class 'SellGas' not found
+2020-07-27 19:29:36[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 101[MESSAGGE]Undefined offset: 1
+
+2020-07-27 19:35:10[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 101[MESSAGGE]Undefined offset: 1
+
+2020-07-27 19:59:38[UTC -5] [ip] ::1 [location] SellGas|table_products [text] SIN PERMISOS SUFICIENTES
+2020-07-27 23:20:02[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\option\edit.php: 21[MESSAGGE]Undefined variable: id_menu
+
+2020-07-27 23:21:19[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\option\edit.php: 21[MESSAGGE]Undefined variable: id_menu
+
+2020-07-27 23:22:53[UTC -5] [ip] ::1 [location] SellGas|table_products [text] SIN PERMISOS SUFICIENTES
+2020-07-27 23:24:21[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sell\viewsale.php: 101[MESSAGGE]Undefined offset: 1
+

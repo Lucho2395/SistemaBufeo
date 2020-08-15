@@ -1,0 +1,1 @@
+2019-05-08 13:06:54[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES

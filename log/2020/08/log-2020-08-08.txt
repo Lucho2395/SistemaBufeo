@@ -1,0 +1,14 @@
+2020-08-08 11:23:56[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\historypedidosGas.php: 58[MESSAGGE]Undefined variable: user
+
+2020-08-08 11:23:56[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\historypedidosGas.php: 58[MESSAGGE]Invalid argument supplied for foreach()
+
+2020-08-08 11:46:01[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\ReportController.php: 449[MESSAGGE]Undefined offset: 2
+
+2020-08-08 11:46:01[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\ReportController.php: 450[MESSAGGE]Undefined offset: 1
+
+2020-08-08 13:09:50[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8192 IN C:\xampp\htdocs\bufeosale-e\app\view\report\fpdf\fpdf.php: 1108[MESSAGGE]Function get_magic_quotes_runtime() is deprecated
+
+2020-08-08 13:09:54[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8192 IN C:\xampp\htdocs\bufeosale-e\app\view\report\fpdf\fpdf.php: 1108[MESSAGGE]Function get_magic_quotes_runtime() is deprecated
+
+2020-08-08 13:23:51[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\report\day.php: 226[MESSAGGE]Undefined variable: id
+

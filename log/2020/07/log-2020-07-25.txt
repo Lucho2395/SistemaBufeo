@@ -1,0 +1,84 @@
+2020-07-25 01:04:52[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2020-07-25 09:59:42[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2020-07-25 10:01:25[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2020-07-25 10:08:23[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2020-07-25 15:06:27[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\menu\add.php: 20[MESSAGGE]Undefined variable: id_menu
+
+2020-07-25 15:50:36[UTC -5] [ip] ::1 [location] Person|delete [text] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`bufeosalebd-e`.`user`, CONSTRAINT `R_2` FOREIGN KEY (`id_person`) REFERENCES `person` (`id_person`))
+2020-07-25 15:50:43[UTC -5] [ip] ::1 [location] Person|delete [text] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`bufeosalebd-e`.`user`, CONSTRAINT `R_2` FOREIGN KEY (`id_person`) REFERENCES `person` (`id_person`))
+2020-07-25 15:50:54[UTC -5] [ip] ::1 [location] Person|delete [text] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`bufeosalebd-e`.`user`, CONSTRAINT `R_2` FOREIGN KEY (`id_person`) REFERENCES `person` (`id_person`))
+2020-07-25 16:09:25[UTC -5] [ip] ::1 [location] User|all [text] SIN PERMISOS SUFICIENTES
+2020-07-25 16:38:07[UTC -5] [ip] ::1 [location] User|all [text] SIN PERMISOS SUFICIENTES
+2020-07-25 16:38:47[UTC -5] [ip] ::1 [location] User|all [text] SIN PERMISOS SUFICIENTES
+2020-07-25 16:42:23[UTC -5] [ip] ::1 [location] User|all [text] SIN PERMISOS SUFICIENTES
+2020-07-25 17:35:10[UTC -5] [ip] ::1 [location] Inventory|save [text] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`bufeosalebd-e`.`product`, CONSTRAINT `product_ibfk_2` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedor` (`id_proveedor`) ON DELETE CASCADE ON UPDATE CASCADE)
+2020-07-25 17:35:10[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\models\Inventory.php: 47[MESSAGGE]Trying to get property 'id_product' of non-object
+
+2020-07-25 17:35:10[UTC -5] [ip] ::1 [location] Inventory|save [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_product' cannot be null
+2020-07-25 17:35:10[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\models\Inventory.php: 144[MESSAGGE]Trying to get property 'id_product' of non-object
+
+2020-07-25 17:35:10[UTC -5] [ip] ::1 [location] Inventory|setStock [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_product' cannot be null
+2020-07-25 17:35:14[UTC -5] [ip] ::1 [location] Inventory|save [text] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`bufeosalebd-e`.`product`, CONSTRAINT `product_ibfk_2` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedor` (`id_proveedor`) ON DELETE CASCADE ON UPDATE CASCADE)
+2020-07-25 17:35:14[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\models\Inventory.php: 47[MESSAGGE]Trying to get property 'id_product' of non-object
+
+2020-07-25 17:35:14[UTC -5] [ip] ::1 [location] Inventory|save [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_product' cannot be null
+2020-07-25 17:35:15[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\models\Inventory.php: 144[MESSAGGE]Trying to get property 'id_product' of non-object
+
+2020-07-25 17:35:14[UTC -5] [ip] ::1 [location] Inventory|setStock [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_product' cannot be null
+2020-07-25 17:35:15[UTC -5] [ip] ::1 [location] Inventory|save [text] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`bufeosalebd-e`.`product`, CONSTRAINT `product_ibfk_2` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedor` (`id_proveedor`) ON DELETE CASCADE ON UPDATE CASCADE)
+2020-07-25 17:35:16[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\models\Inventory.php: 47[MESSAGGE]Trying to get property 'id_product' of non-object
+
+2020-07-25 17:35:15[UTC -5] [ip] ::1 [location] Inventory|save [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_product' cannot be null
+2020-07-25 17:35:16[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\models\Inventory.php: 144[MESSAGGE]Trying to get property 'id_product' of non-object
+
+2020-07-25 17:35:15[UTC -5] [ip] ::1 [location] Inventory|setStock [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_product' cannot be null
+2020-07-25 17:35:17[UTC -5] [ip] ::1 [location] Inventory|save [text] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`bufeosalebd-e`.`product`, CONSTRAINT `product_ibfk_2` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedor` (`id_proveedor`) ON DELETE CASCADE ON UPDATE CASCADE)
+2020-07-25 17:35:17[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\models\Inventory.php: 47[MESSAGGE]Trying to get property 'id_product' of non-object
+
+2020-07-25 17:35:17[UTC -5] [ip] ::1 [location] Inventory|save [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_product' cannot be null
+2020-07-25 17:35:17[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\models\Inventory.php: 144[MESSAGGE]Trying to get property 'id_product' of non-object
+
+2020-07-25 17:35:17[UTC -5] [ip] ::1 [location] Inventory|setStock [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_product' cannot be null
+2020-07-25 18:52:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\add.php: 82[MESSAGGE]Undefined variable: proveedor
+
+2020-07-25 18:52:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\add.php: 82[MESSAGGE]Invalid argument supplied for foreach()
+
+2020-07-25 18:53:37[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\add.php: 82[MESSAGGE]Undefined variable: proveedor
+
+2020-07-25 18:53:37[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\add.php: 82[MESSAGGE]Invalid argument supplied for foreach()
+
+2020-07-25 19:02:54[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\add.php: 82[MESSAGGE]Undefined variable: proveedor
+
+2020-07-25 19:02:54[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\add.php: 82[MESSAGGE]Invalid argument supplied for foreach()
+
+2020-07-25 19:02:55[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\add.php: 82[MESSAGGE]Undefined variable: proveedor
+
+2020-07-25 19:02:55[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\add.php: 82[MESSAGGE]Invalid argument supplied for foreach()
+
+2020-07-25 19:02:56[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\add.php: 82[MESSAGGE]Undefined variable: proveedor
+
+2020-07-25 19:02:56[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\add.php: 82[MESSAGGE]Invalid argument supplied for foreach()
+
+2020-07-25 20:11:30[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\add.php: 82[MESSAGGE]Undefined variable: proveedor
+
+2020-07-25 20:11:30[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\add.php: 82[MESSAGGE]Invalid argument supplied for foreach()
+
+2020-07-25 20:11:44[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\add.php: 82[MESSAGGE]Undefined variable: proveedor
+
+2020-07-25 20:11:44[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale-e\app\view\inventory\add.php: 82[MESSAGGE]Invalid argument supplied for foreach()
+
+2020-07-25 23:29:30[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\menu\add.php: 20[MESSAGGE]Undefined variable: id_menu
+
+2020-07-25 23:30:28[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\menu\add.php: 20[MESSAGGE]Undefined variable: id_menu
+
+2020-07-25 23:38:52[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2020-07-25 23:56:30[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\ProveedorController.php: 97[MESSAGGE]Undefined index: nombre_provee
+
+2020-07-25 23:56:30[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\ProveedorController.php: 101[MESSAGGE]Undefined property: ProveedorController::$provedoor
+
+2020-07-25 23:56:30[UTC -5] [ip] ::1 [location] Proveedor|save [text] Call to a member function save() on null
+2020-07-25 23:56:39[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\ProveedorController.php: 97[MESSAGGE]Undefined index: nombre_provee
+
+2020-07-25 23:56:39[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\ProveedorController.php: 101[MESSAGGE]Undefined property: ProveedorController::$provedoor
+
+2020-07-25 23:56:39[UTC -5] [ip] ::1 [location] Proveedor|save [text] Call to a member function save() on null

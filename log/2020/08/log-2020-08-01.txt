@@ -1,0 +1,7 @@
+2020-08-01 17:34:59[UTC -5] [ip] ::1 [location] Inventory|listProduct [text] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`bufeosalebd-e`.`productforsale`, CONSTRAINT `productforsale_ibfk_1` FOREIGN KEY (`id_product`) REFERENCES `product` (`id_product`))
+2020-08-01 17:35:15[UTC -5] [ip] ::1 [location] Inventory|listProduct [text] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`bufeosalebd-e`.`productforsale`, CONSTRAINT `productforsale_ibfk_1` FOREIGN KEY (`id_product`) REFERENCES `product` (`id_product`))
+2020-08-01 19:40:38[UTC -5] [ip] ::1 [location] Client|save [text] Call to undefined method PDOStatement::excecute()
+2020-08-01 20:13:02[UTC -5] [ip] ::1 [location] Client|save [text] Call to undefined method PDOStatement::excecute()
+2020-08-01 20:25:21[UTC -5] [ip] ::1 [location] Client|save [text] Call to undefined method PDOStatement::excecute()
+2020-08-01 20:34:43[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2020-08-01 22:29:10[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES

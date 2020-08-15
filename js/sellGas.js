@@ -85,3 +85,51 @@ function anular(id_saleproductgas){
         }
     });
 }
+
+// de la vista pedidospendientes
+
+function preguntarSiNoEntregar(id_saleproductgas){
+    alertify.confirm('Entrega Realizada', '¿Esta seguro que desea realizar esta entrega?',
+        function(){ entregado(id_saleproductgas) }
+        , function(){ alertify.error('Operacion Cancelada')});
+}
+
+function entregado(id_saleproductgas){
+    var cadena = "id_saleproductgas=" + id_saleproductgas;
+    $.ajax({
+        type:"POST",
+        url: urlweb + "api/SellGas/estadoentregado",
+        data : cadena,
+        success:function (r) {
+            if(r!=2){
+                alertify.success('Pedido Entregado');
+                location.href = urlweb + 'SellGas/pedidospendientes';
+            } else {
+                alertify.error('No se pudo Entregar el pedido');
+            }
+        }
+    });
+}
+
+function preguntarSiNoCancelar(id_saleproductgas){
+    alertify.confirm('Cancelar Pedido', '¿Esta seguro que desea Cancelar este Pedido?',
+        function(){ Cancelar(id_saleproductgas) }
+        , function(){ alertify.error('Operacion Cancelada')});
+}
+function Cancelar(id_saleproductgas){
+    var cadena = "id_saleproductgas=" + id_saleproductgas;
+    $.ajax({
+        type:"POST",
+        url: urlweb + "api/SellGas/revokeSale",
+        data : cadena,
+        success:function (r) {
+            if(r!=2){
+                alertify.success('Venta Realizada');
+                location.href = urlweb + 'SellGas/pedidospendientes';
+            } else {
+                alertify.error('No se pudo Cancelar el pedido');
+            }
+        }
+    });
+}
+

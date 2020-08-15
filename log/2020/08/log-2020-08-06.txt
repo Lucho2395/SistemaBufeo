@@ -1,0 +1,102 @@
+2020-08-06 00:03:56[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 212[MESSAGGE]Undefined index: saleproduct_naturaleza
+
+2020-08-06 00:03:56[UTC -5] [ip] ::1 [location] SellGas|insertSale [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'saleproductgas_naturaleza' cannot be null
+2020-08-06 00:03:56[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 225[MESSAGGE]Trying to get property 'id_saleproductgas' of non-object
+
+2020-08-06 00:03:56[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 231[MESSAGGE]Trying to get property 'id_saleproductgas' of non-object
+
+2020-08-06 00:03:56[UTC -5] [ip] ::1 [location] SellGas|insertSaledetail [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_saleproductgas' cannot be null
+2020-08-06 10:01:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 212[MESSAGGE]Undefined index: saleproduct_naturaleza
+
+2020-08-06 10:01:25[UTC -5] [ip] ::1 [location] SellGas|insertSale [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'saleproductgas_naturaleza' cannot be null
+2020-08-06 10:01:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 225[MESSAGGE]Trying to get property 'id_saleproductgas' of non-object
+
+2020-08-06 10:01:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 231[MESSAGGE]Trying to get property 'id_saleproductgas' of non-object
+
+2020-08-06 10:01:25[UTC -5] [ip] ::1 [location] SellGas|insertSaledetail [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_saleproductgas' cannot be null
+2020-08-06 10:01:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 231[MESSAGGE]Trying to get property 'id_saleproductgas' of non-object
+
+2020-08-06 10:01:25[UTC -5] [ip] ::1 [location] SellGas|insertSaledetail [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_saleproductgas' cannot be null
+2020-08-06 10:01:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 231[MESSAGGE]Trying to get property 'id_saleproductgas' of non-object
+
+2020-08-06 10:01:25[UTC -5] [ip] ::1 [location] SellGas|insertSaledetail [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_saleproductgas' cannot be null
+2020-08-06 10:06:11[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 206[MESSAGGE]Trying to get property 'id_client' of non-object
+
+2020-08-06 10:06:11[UTC -5] [ip] ::1 [location] SellGas|insertSale [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_client' cannot be null
+2020-08-06 10:06:11[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 225[MESSAGGE]Trying to get property 'id_saleproductgas' of non-object
+
+2020-08-06 10:06:11[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 231[MESSAGGE]Trying to get property 'id_saleproductgas' of non-object
+
+2020-08-06 10:06:11[UTC -5] [ip] ::1 [location] SellGas|insertSaledetail [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_saleproductgas' cannot be null
+2020-08-06 10:11:53[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 206[MESSAGGE]Trying to get property 'id_client' of non-object
+
+2020-08-06 10:11:53[UTC -5] [ip] ::1 [location] SellGas|insertSale [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_client' cannot be null
+2020-08-06 10:11:53[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 225[MESSAGGE]Trying to get property 'id_saleproductgas' of non-object
+
+2020-08-06 10:11:53[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 231[MESSAGGE]Trying to get property 'id_saleproductgas' of non-object
+
+2020-08-06 10:11:53[UTC -5] [ip] ::1 [location] SellGas|insertSaledetail [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_saleproductgas' cannot be null
+2020-08-06 10:48:41[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\viewsaleGas.php: 10[MESSAGGE]Undefined index: rol
+
+2020-08-06 10:58:20[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\viewsaleGas.php: 10[MESSAGGE]Undefined index: rol
+
+2020-08-06 10:58:20[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\viewsaleGas.php: 96[MESSAGGE]Undefined offset: 1
+
+2020-08-06 11:24:20[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\viewsaleGas.php: 10[MESSAGGE]Undefined index: rol
+
+2020-08-06 11:24:20[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\viewsaleGas.php: 96[MESSAGGE]Undefined offset: 1
+
+2020-08-06 15:12:13[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\viewsaleGas.php: 10[MESSAGGE]Undefined index: rol
+
+2020-08-06 15:14:31[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\viewsaleGas.php: 10[MESSAGGE]Undefined index: rol
+
+2020-08-06 15:14:31[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\viewsaleGas.php: 96[MESSAGGE]Undefined offset: 1
+
+2020-08-06 19:29:29[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\viewsaleGas.php: 10[MESSAGGE]Undefined index: rol
+
+2020-08-06 19:29:29[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\viewsaleGas.php: 96[MESSAGGE]Undefined offset: 1
+
+2020-08-06 19:29:48[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\viewsaleGas.php: 10[MESSAGGE]Undefined index: rol
+
+2020-08-06 19:29:48[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\viewsaleGas.php: 96[MESSAGGE]Undefined offset: 1
+
+2020-08-06 20:20:48[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\historypedidosGas.php: 71[MESSAGGE]Undefined variable: totalsales
+
+2020-08-06 20:23:09[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\viewsaleGas.php: 10[MESSAGGE]Undefined index: rol
+
+2020-08-06 20:23:34[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\viewsaleGas.php: 10[MESSAGGE]Undefined index: rol
+
+2020-08-06 22:07:59[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\historypedidosGas.php: 71[MESSAGGE]Undefined variable: totalsales
+
+2020-08-06 22:42:21[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\historypedidosGas.php: 74[MESSAGGE]Undefined variable: totalsales
+
+2020-08-06 22:45:27[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\historypedidosGas.php: 74[MESSAGGE]Undefined variable: totalsales
+
+2020-08-06 22:46:28[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\historypedidosGas.php: 74[MESSAGGE]Undefined variable: totalsales
+
+2020-08-06 22:47:19[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\historypedidosGas.php: 74[MESSAGGE]Undefined variable: totalsales
+
+2020-08-06 22:47:54[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\historypedidosGas.php: 74[MESSAGGE]Undefined variable: totalsales
+
+2020-08-06 22:48:55[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\historypedidosGas.php: 74[MESSAGGE]Undefined variable: totalsales
+
+2020-08-06 22:52:34[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\historypedidosGas.php: 74[MESSAGGE]Undefined variable: totalsales
+
+2020-08-06 23:04:14[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\report\day.php: 226[MESSAGGE]Undefined variable: id
+
+2020-08-06 23:11:38[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\viewsaleGas.php: 10[MESSAGGE]Undefined index: rol
+
+2020-08-06 23:23:23[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\historypedidosGas.php: 74[MESSAGGE]Undefined variable: totalsales
+
+2020-08-06 23:25:27[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\viewsaleGas.php: 10[MESSAGGE]Undefined index: rol
+
+2020-08-06 23:25:40[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\viewsaleGas.php: 10[MESSAGGE]Undefined index: rol
+
+2020-08-06 23:32:31[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 225[MESSAGGE]Trying to get property 'id_client' of non-object
+
+2020-08-06 23:32:30[UTC -5] [ip] ::1 [location] SellGas|insertSale [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_client' cannot be null
+2020-08-06 23:32:32[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 250[MESSAGGE]Trying to get property 'id_saleproductgas' of non-object
+
+2020-08-06 23:32:32[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 256[MESSAGGE]Trying to get property 'id_saleproductgas' of non-object
+
+2020-08-06 23:32:30[UTC -5] [ip] ::1 [location] SellGas|insertSaledetail [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_saleproductgas' cannot be null

@@ -1,0 +1,47 @@
+2019-05-02 00:11:05[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale\app\view\sell\table_products.php: 31[MESSAGGE]A non-numeric value encountered
+
+2019-05-02 12:25:16[UTC -5] [ip] 127.0.0.1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale\app\view\report\inventory_PDF.php: 48[MESSAGGE]Undefined property: stdClass::$saleproduct_total
+
+2019-05-02 12:25:16[UTC -5] [ip] 127.0.0.1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale\app\view\report\inventory_PDF.php: 48[MESSAGGE]Undefined property: stdClass::$saleproduct_total
+
+2019-05-02 12:25:16[UTC -5] [ip] 127.0.0.1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale\app\view\report\inventory_PDF.php: 48[MESSAGGE]Undefined property: stdClass::$saleproduct_total
+
+2019-05-02 12:25:16[UTC -5] [ip] 127.0.0.1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale\app\view\report\inventory_PDF.php: 48[MESSAGGE]Undefined property: stdClass::$saleproduct_total
+
+2019-05-02 12:25:16[UTC -5] [ip] 127.0.0.1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale\app\view\report\inventory_PDF.php: 48[MESSAGGE]Undefined property: stdClass::$saleproduct_total
+
+2019-05-02 12:25:16[UTC -5] [ip] 127.0.0.1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale\app\view\report\inventory_PDF.php: 48[MESSAGGE]Undefined property: stdClass::$saleproduct_total
+
+2019-05-02 13:34:30[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale\app\view\menu\add.php: 20[MESSAGGE]Undefined variable: id_menu
+
+2019-05-02 13:35:38[UTC -5] [ip] ::1 [location] Correlative|show [text] Call to undefined method CorrelativeController::show()
+2019-05-02 13:36:03[UTC -5] [ip] ::1 [location] Correlative|show [text] Call to undefined method CorrelativeController::show()
+2019-05-02 13:37:15[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2019-05-02 13:37:18[UTC -5] [ip] ::1 [location] Menu|add [text] SIN PERMISOS SUFICIENTES
+2019-05-02 15:50:45[UTC -5] [ip] 127.0.0.1 [location] Inventory|saveProductstock [text] SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+2019-05-02 16:34:53[UTC -5] [ip] 127.0.0.1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale\app\controllers\SellController.php: 13[MESSAGGE]require(app/models/Correlative.php.php): failed to open stream: No such file or directory
+
+2019-05-02 16:36:42[UTC -5] [ip] 127.0.0.1 [location] Sell|insertSale [text] SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+2019-05-02 16:36:42[UTC -5] [ip] 127.0.0.1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale\app\controllers\SellController.php: 193[MESSAGGE]Trying to get property of non-object
+
+2019-05-02 16:36:42[UTC -5] [ip] 127.0.0.1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale\app\controllers\SellController.php: 198[MESSAGGE]Trying to get property of non-object
+
+2019-05-02 16:36:42[UTC -5] [ip] 127.0.0.1 [location] Sell|insertSaledetail [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_saleproduct' cannot be null
+2019-05-02 20:16:55[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale\app\models\Menui.php: 43[MESSAGGE]Trying to get property of non-object
+
+2019-05-02 20:16:54[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2019-05-02 21:28:22[UTC -5] [ip] ::1 [location] Sell|Client [text] SIN PERMISOS SUFICIENTES
+2019-05-02 22:57:05[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale\app\view\report\day.php: 213[MESSAGGE]Undefined variable: balance_final
+
+2019-05-02 22:57:28[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale\app\view\report\day.php: 213[MESSAGGE]Undefined variable: balance_final
+
+2019-05-02 22:57:30[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale\app\view\report\day.php: 213[MESSAGGE]Undefined variable: balance_final
+
+2019-05-02 22:57:40[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale\app\view\report\day.php: 213[MESSAGGE]Undefined variable: balance_final
+
+2019-05-02 22:58:14[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale\app\view\report\day.php: 213[MESSAGGE]Undefined variable: balance_final
+
+2019-05-02 22:58:53[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale\app\view\report\day.php: 213[MESSAGGE]Undefined variable: balance_final
+
+2019-05-02 22:59:46[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale\app\view\report\day.php: 213[MESSAGGE]Undefined variable: balance_final
+

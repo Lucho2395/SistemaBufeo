@@ -1,0 +1,32 @@
+2020-08-11 09:12:28[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 85[MESSAGGE]Undefined index: fecha_i
+
+2020-08-11 09:12:28[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 86[MESSAGGE]Undefined index: fecha_f
+
+2020-08-11 09:12:28[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 90[MESSAGGE]Undefined index: estadopedido
+
+2020-08-11 09:12:45[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 85[MESSAGGE]Undefined index: fecha_i
+
+2020-08-11 09:12:45[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 86[MESSAGGE]Undefined index: fecha_f
+
+2020-08-11 09:12:45[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 90[MESSAGGE]Undefined index: estadopedido
+
+2020-08-11 09:25:34[UTC -5] [ip] ::1 [location] SellGas|viewhistorypedidofiltro [text] SIN PERMISOS SUFICIENTES
+2020-08-11 11:16:25[UTC -5] [ip] ::1 [location] SellGas|viewhistorypedidofiltro [text] SIN PERMISOS SUFICIENTES
+2020-08-11 12:20:58[UTC -5] [ip] ::1 [location] SellGas|viewhistorypedidofiltro [text] SIN PERMISOS SUFICIENTES
+2020-08-11 17:05:15[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\viewsaleGas.php: 10[MESSAGGE]Undefined index: rol
+
+2020-08-11 18:05:46[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-11 18:06:23[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-11 18:10:08[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-11 18:10:18[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+
+2020-08-11 18:11:01[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2020-08-11 18:11:19[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2020-08-11 18:13:46[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2020-08-11 18:14:16[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\viewsaleGas.php: 10[MESSAGGE]Undefined index: rol
+
+2020-08-11 18:14:31[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 109[MESSAGGE]Undefined index: usuario
+

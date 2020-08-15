@@ -1,0 +1,15 @@
+2019-05-06 11:07:38[UTC -5] [ip] ::1 [location] Turni|setStock [text] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+2019-05-06 11:07:38[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2019-05-06 11:07:36[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2019-05-06 11:08:32[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2019-05-06 11:08:46[UTC -5] [ip] ::1 [location] Login|singIn [text] SIN PERMISOS SUFICIENTES
+2019-05-06 11:12:57[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2019-05-06 11:14:10[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale\app\controllers\SellController.php: 176[MESSAGGE]Trying to get property of non-object
+
+2019-05-06 11:14:10[UTC -5] [ip] ::1 [location] Sell|insertSale [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_client' cannot be null
+2019-05-06 11:14:10[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale\app\controllers\SellController.php: 193[MESSAGGE]Trying to get property of non-object
+
+2019-05-06 11:14:10[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale\app\controllers\SellController.php: 198[MESSAGGE]Trying to get property of non-object
+
+2019-05-06 11:14:10[UTC -5] [ip] ::1 [location] Sell|insertSaledetail [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_saleproduct' cannot be null
+2019-05-06 13:29:04[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES

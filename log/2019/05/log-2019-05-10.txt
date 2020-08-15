@@ -1,0 +1,2 @@
+2019-05-10 16:21:01[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2019-05-10 16:21:09[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES

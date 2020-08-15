@@ -1,0 +1,66 @@
+2020-08-03 11:01:10[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\ClientController.php: 86[MESSAGGE]Undefined index: id_client
+
+2020-08-03 11:01:21[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\ClientController.php: 86[MESSAGGE]Undefined index: id_client
+
+2020-08-03 11:01:35[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\ClientController.php: 86[MESSAGGE]Undefined index: id_client
+
+2020-08-03 11:01:44[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\ClientController.php: 86[MESSAGGE]Undefined index: id_client
+
+2020-08-03 13:06:13[UTC -5] [ip] ::1 [location] Inventory|listProducts [text] syntax error, unexpected ')'
+2020-08-03 13:06:19[UTC -5] [ip] ::1 [location] Inventory|addProduct [text] syntax error, unexpected ')'
+2020-08-03 13:06:21[UTC -5] [ip] ::1 [location] Inventory|listProducts [text] syntax error, unexpected ')'
+2020-08-03 13:45:45[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\models\Inventory.php: 178[MESSAGGE]Trying to get property 'id_product' of non-object
+
+2020-08-03 13:45:45[UTC -5] [ip] ::1 [location] Inventory|setStock [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_product' cannot be null
+2020-08-03 13:47:26[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\models\Inventory.php: 178[MESSAGGE]Trying to get property 'id_product' of non-object
+
+2020-08-03 13:47:26[UTC -5] [ip] ::1 [location] Inventory|setStock [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_product' cannot be null
+2020-08-03 13:48:28[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\models\Inventory.php: 178[MESSAGGE]Trying to get property 'id_product' of non-object
+
+2020-08-03 13:48:28[UTC -5] [ip] ::1 [location] Inventory|setStock [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_product' cannot be null
+2020-08-03 20:19:28[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\models\Inventory.php: 178[MESSAGGE]Trying to get property 'id_product' of non-object
+
+2020-08-03 20:19:28[UTC -5] [ip] ::1 [location] Inventory|setStock [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_product' cannot be null
+2020-08-03 20:19:42[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\models\Inventory.php: 178[MESSAGGE]Trying to get property 'id_product' of non-object
+
+2020-08-03 20:19:42[UTC -5] [ip] ::1 [location] Inventory|setStock [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_product' cannot be null
+2020-08-03 20:20:13[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\models\Inventory.php: 178[MESSAGGE]Trying to get property 'id_product' of non-object
+
+2020-08-03 20:20:13[UTC -5] [ip] ::1 [location] Inventory|setStock [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_product' cannot be null
+2020-08-03 20:20:15[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\models\Inventory.php: 178[MESSAGGE]Trying to get property 'id_product' of non-object
+
+2020-08-03 20:20:15[UTC -5] [ip] ::1 [location] Inventory|setStock [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_product' cannot be null
+2020-08-03 20:21:45[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\models\Inventory.php: 178[MESSAGGE]Trying to get property 'id_product' of non-object
+
+2020-08-03 20:21:45[UTC -5] [ip] ::1 [location] Inventory|setStock [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_product' cannot be null
+2020-08-03 20:28:29[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\UserController.php: 132[MESSAGGE]Undefined index: user_status
+
+2020-08-03 20:28:29[UTC -5] [ip] ::1 [location] User|all [text] SIN PERMISOS SUFICIENTES
+2020-08-03 20:34:10[UTC -5] [ip] ::1 [location] User|all [text] SIN PERMISOS SUFICIENTES
+2020-08-03 20:34:15[UTC -5] [ip] ::1 [location] User|all [text] SIN PERMISOS SUFICIENTES
+2020-08-03 20:34:43[UTC -5] [ip] ::1 [location] User|edit [text] SIN PERMISOS SUFICIENTES
+2020-08-03 20:35:21[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\report\day.php: 226[MESSAGGE]Undefined variable: id
+
+2020-08-03 20:37:16[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2020-08-03 20:37:41[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2020-08-03 23:35:14[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale-e\app\models\User.php: 92[MESSAGGE]count(): Parameter must be an array or an object that implements Countable
+
+2020-08-03 23:38:05[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale-e\app\models\User.php: 92[MESSAGGE]count(): Parameter must be an array or an object that implements Countable
+
+2020-08-03 23:38:13[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale-e\app\models\User.php: 92[MESSAGGE]count(): Parameter must be an array or an object that implements Countable
+
+2020-08-03 23:38:21[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale-e\app\models\User.php: 92[MESSAGGE]count(): Parameter must be an array or an object that implements Countable
+
+2020-08-03 23:48:19[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale-e\app\models\User.php: 92[MESSAGGE]count(): Parameter must be an array or an object that implements Countable
+
+2020-08-03 23:48:26[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale-e\app\models\User.php: 92[MESSAGGE]count(): Parameter must be an array or an object that implements Countable
+
+2020-08-03 23:48:29[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale-e\app\models\User.php: 92[MESSAGGE]count(): Parameter must be an array or an object that implements Countable
+
+2020-08-03 23:48:30[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale-e\app\models\User.php: 92[MESSAGGE]count(): Parameter must be an array or an object that implements Countable
+
+2020-08-03 23:48:49[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale-e\app\models\User.php: 92[MESSAGGE]count(): Parameter must be an array or an object that implements Countable
+
+2020-08-03 23:53:16[UTC -5] [ip] ::1 [location] User|all [text] SIN PERMISOS SUFICIENTES
+2020-08-03 23:53:35[UTC -5] [ip] ::1 [location] User|all [text] SIN PERMISOS SUFICIENTES
+2020-08-03 23:53:56[UTC -5] [ip] ::1 [location] User|all [text] SIN PERMISOS SUFICIENTES

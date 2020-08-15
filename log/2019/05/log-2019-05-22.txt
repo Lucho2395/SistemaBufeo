@@ -1,0 +1,13 @@
+2019-05-22 19:57:56[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\models\Menui.php: 43[MESSAGGE]Trying to get property of non-object
+
+2019-05-22 19:57:55[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES
+2019-05-22 20:09:48[UTC -5] [ip] ::1 [location] Role|save [text] SQLSTATE[21000]: Cardinality violation: 1241 Operand should contain 1 column(s)
+2019-05-22 20:09:48[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 2 IN C:\xampp\htdocs\bufeosale-e\app\view\userg\edituu.php: 48[MESSAGGE]Invalid argument supplied for foreach()
+
+2019-05-22 20:51:04[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\UsergController.php: 142[MESSAGGE]Undefined index: id_role
+
+2019-05-22 20:51:03[UTC -5] [ip] ::1 [location] User|save [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_role' cannot be null
+2019-05-22 23:26:30[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\UsergController.php: 194[MESSAGGE]Undefined index: id_role
+
+2019-05-22 23:26:30[UTC -5] [ip] ::1 [location] User|save [text] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`bufeosalebd-e`.`user`, CONSTRAINT `user_ibfk_1` FOREIGN KEY (`id_role`) REFERENCES `role` (`id_role`))
+2019-05-22 23:49:27[UTC -5] [ip] ::1 [location] Admin|index [text] SIN PERMISOS SUFICIENTES

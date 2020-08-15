@@ -1,0 +1,54 @@
+2020-08-05 10:47:47[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\viewsaleGas.php: 10[MESSAGGE]Undefined index: rol
+
+2020-08-05 10:47:47[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\viewsaleGas.php: 96[MESSAGGE]Undefined offset: 1
+
+2020-08-05 12:22:33[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\table_productsGas.php: 57[MESSAGGE]Undefined index: naturaleza_sell
+
+2020-08-05 12:24:02[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\table_productsGas.php: 57[MESSAGGE]Undefined index: naturaleza_sell
+
+2020-08-05 12:24:48[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\table_productsGas.php: 57[MESSAGGE]Undefined index: naturaleza_sell
+
+2020-08-05 12:25:37[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\table_productsGas.php: 57[MESSAGGE]Undefined index: naturaleza_sell
+
+2020-08-05 12:30:25[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\view\sellGas\table_productsGas.php: 57[MESSAGGE]Undefined index: naturaleza_sell
+
+2020-08-05 23:38:34[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 212[MESSAGGE]Undefined index: saleproduct_naturaleza
+
+2020-08-05 23:38:34[UTC -5] [ip] ::1 [location] SellGas|insertSale [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'saleproductgas_naturaleza' cannot be null
+2020-08-05 23:38:34[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 225[MESSAGGE]Trying to get property 'id_saleproductgas' of non-object
+
+2020-08-05 23:38:34[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 231[MESSAGGE]Trying to get property 'id_saleproductgas' of non-object
+
+2020-08-05 23:38:34[UTC -5] [ip] ::1 [location] SellGas|insertSaledetail [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_saleproductgas' cannot be null
+2020-08-05 23:39:44[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 212[MESSAGGE]Undefined index: saleproduct_naturaleza
+
+2020-08-05 23:39:44[UTC -5] [ip] ::1 [location] SellGas|insertSale [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'saleproductgas_naturaleza' cannot be null
+2020-08-05 23:39:44[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 225[MESSAGGE]Trying to get property 'id_saleproductgas' of non-object
+
+2020-08-05 23:39:44[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 231[MESSAGGE]Trying to get property 'id_saleproductgas' of non-object
+
+2020-08-05 23:39:44[UTC -5] [ip] ::1 [location] SellGas|insertSaledetail [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_saleproductgas' cannot be null
+2020-08-05 23:40:28[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 212[MESSAGGE]Undefined index: saleproduct_naturaleza
+
+2020-08-05 23:40:28[UTC -5] [ip] ::1 [location] SellGas|insertSale [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'saleproductgas_naturaleza' cannot be null
+2020-08-05 23:40:28[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 225[MESSAGGE]Trying to get property 'id_saleproductgas' of non-object
+
+2020-08-05 23:40:28[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 231[MESSAGGE]Trying to get property 'id_saleproductgas' of non-object
+
+2020-08-05 23:40:28[UTC -5] [ip] ::1 [location] SellGas|insertSaledetail [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_saleproductgas' cannot be null
+2020-08-05 23:41:19[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 212[MESSAGGE]Undefined index: saleproduct_naturaleza
+
+2020-08-05 23:41:19[UTC -5] [ip] ::1 [location] SellGas|insertSale [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'saleproductgas_naturaleza' cannot be null
+2020-08-05 23:41:19[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 225[MESSAGGE]Trying to get property 'id_saleproductgas' of non-object
+
+2020-08-05 23:41:19[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 231[MESSAGGE]Trying to get property 'id_saleproductgas' of non-object
+
+2020-08-05 23:41:19[UTC -5] [ip] ::1 [location] SellGas|insertSaledetail [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_saleproductgas' cannot be null
+2020-08-05 23:45:56[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 212[MESSAGGE]Undefined index: saleproduct_naturaleza
+
+2020-08-05 23:45:56[UTC -5] [ip] ::1 [location] SellGas|insertSale [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'saleproductgas_naturaleza' cannot be null
+2020-08-05 23:45:56[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 225[MESSAGGE]Trying to get property 'id_saleproductgas' of non-object
+
+2020-08-05 23:45:56[UTC -5] [ip] ::1 [location] Excepcion No Manejada [text] [LEVEL]: 8 IN C:\xampp\htdocs\bufeosale-e\app\controllers\SellGasController.php: 231[MESSAGGE]Trying to get property 'id_saleproductgas' of non-object
+
+2020-08-05 23:45:56[UTC -5] [ip] ::1 [location] SellGas|insertSaledetail [text] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_saleproductgas' cannot be null
