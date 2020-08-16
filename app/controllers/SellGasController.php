@@ -103,7 +103,6 @@ class SellGasController{
 
             //$user = $this->usuario->listAllPedidos();
             $pedido = $this->sell->listPendientes();
-
             require _VIEW_PATH_ . 'header.php';
             require _VIEW_PATH_ . 'navbar.php';
             require _VIEW_PATH_ . 'sellGas/pedidospendientes.php';
@@ -144,8 +143,8 @@ class SellGasController{
                 $listreturn .= "<tr>
                     <td>$totalusuario</td>
                         <td>".$m->saleproductgas_date."</td>
-                        <td>".$m->client_name."</td>
                         <td style='color: red;'>".$m->user_nickname."</td>
+                        <td>".$m->client_name."</td>
                         <td>".$m->saleproductgas_direccion."</td>
                         <td>".$m->saleproductgas_telefono."</td>
                         <td>s/. ".$m->saleproductgas_total."</td>
@@ -153,9 +152,8 @@ class SellGasController{
                         <td><a type=\"button\" class=\"btn btn-xs btn-primary btne\" href=\"<?php echo _SERVER_ . 'SellGas/viewsale/' . $m->id_saleproductgas;?>\" target=\"_blank\" >Ver Detalle</a></td>
                     </tr>";
                 $totalusuario--;
-                echo $listreturn;
-                
             }
+            echo $listreturn;
 
         }catch (Throwable $e){
             $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
@@ -169,7 +167,7 @@ class SellGasController{
             if(isset($_POST['id_saleproductgas'])){
                 $id_saleproductgas = $_POST['id_saleproductgas'];
                 $cambiarpedido = $this->sell->CambiarPedido($id_saleproductgas);
-
+                $result = 1;
             } else {
                 $result = 2;
             }
@@ -184,6 +182,7 @@ class SellGasController{
         try{
             $this->nav = new Navbar();
             $navs = $this->nav->listMenu($this->crypt->decrypt($_SESSION['role'],_PASS_));
+            //$idroleUser = $this->crypt->decrypt($_SESSION['role'],_PASS_);
             $id = $_GET['id'] ?? 0;
             if($id == 0){
                 throw new Exception('ID Sin Declarar');

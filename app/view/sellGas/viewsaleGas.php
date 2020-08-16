@@ -7,7 +7,7 @@
     <section class="content-header">
         <h1>
             <?php echo $_SESSION['controlador'];?>
-            <small><?php echo $_SESSION['rol'];?>
+            <small><?php echo $_SESSION['accion'];?></small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="<?php echo $_SESSION['icono'];?>"></i><?php echo $_SESSION['controlador'];?></a></li>
@@ -32,11 +32,18 @@
             <div class="col-xs-4">
                 <?php
                 $id_turn = $this->active->getTurnactive();
+                $idroleUser = $this->crypt->decrypt($_SESSION['role'],_PASS_);
                 if($sale->saleproductgas_cancelled == 1){
                     ?>
                     <p style="color: green; float: right;"><i class="fa fa-check-circle"></i> Venta Realizada Correctamente</p>
                     <?php
-                    if($id_turn == $sale->id_turn){ //si la venta no es del dia actual no se genera la anulacion
+                    if ($idroleUser == 4){
+                        if($id_turn == $sale->id_turn){ //si la venta no es del dia actual no se genera la anulacion
+                            ?>
+                            <a type="button" class="btn btn-xs btn-danger" style="float: right" onclick="preguntarSiNoA(<?php echo $sale->id_saleproductgas;?>)"><i class="fa fa-times-circle"></i> Anular Venta</a>
+                            <?php
+                        }
+                    } else{
                         ?>
                         <a type="button" class="btn btn-xs btn-danger" style="float: right" onclick="preguntarSiNoA(<?php echo $sale->id_saleproductgas;?>)"><i class="fa fa-times-circle"></i> Anular Venta</a>
                         <?php

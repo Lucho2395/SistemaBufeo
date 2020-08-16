@@ -124,7 +124,7 @@ function Cancelar(id_saleproductgas){
         data : cadena,
         success:function (r) {
             if(r!=2){
-                alertify.success('Venta Realizada');
+                alertify.success('Pedido Cancelado');
                 location.href = urlweb + 'SellGas/pedidospendientes';
             } else {
                 alertify.error('No se pudo Cancelar el pedido');

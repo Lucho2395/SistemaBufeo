@@ -70,8 +70,23 @@
                             <td><?php echo $estadopedido; ?></td>
                             <!--<td><?php echo $show;?></td>-->
                             <td><a type="button" class="btn btn-xs btn-warning btne" onclick="preguntarSiNoEntregar(<?php echo $m->id_saleproductgas;?>)" >ENTREGADO</a>
-                                <a type="button" class="btn btn-xs btn-danger" onclick="preguntarSiNoCancelar(<?php echo $m->id_proveedor;?>)">CANCELAR</a>
-                            <a type="button" class="btn btn-xs btn-primary btne" href="<?php echo _SERVER_ . 'SellGas/viewsale/' . $m->id_saleproductgas;?>" target="_blank" >Ver Detalle</a></td>
+                                <?php
+                                $id_turn = $this->active->getTurnactive();
+                                $idroleUser = $this->crypt->decrypt($_SESSION['role'],_PASS_);
+                                if ($idroleUser == 4){
+                                    if($id_turn == $m->id_turn){ //si la venta no es del dia actual no se genera la anulacion
+                                    ?>
+                                        <a type="button" class="btn btn-xs btn-danger" onclick="preguntarSiNoCancelar(<?php echo $m->id_saleproductgas;?>)">CANCELAR</a>
+                                <?php
+                                    }
+                                }else{
+                                ?>
+                                    <a type="button" class="btn btn-xs btn-danger" onclick="preguntarSiNoCancelar(<?php echo $m->id_saleproductgas;?>)">CANCELAR</a>
+                                <?php
+                                }
+                                ?>
+                                <a type="button" class="btn btn-xs btn-primary btne" href="<?php echo _SERVER_ . 'SellGas/viewsale/' . $m->id_saleproductgas;?>" target="_blank" >Ver Detalle</a>
+                            </td>
                         </tr>
                         <?php
                         $totalpedidos--;

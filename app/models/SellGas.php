@@ -116,7 +116,7 @@ class SellGas{
 
     public function listSales(){
         try {
-            $sql = 'select * from saleproductgas s inner join user u on s.id_user = u.id_user inner join client c on s.id_client = c.id_client '; // where saleproductgas_naturaleza = "PEDIDO"
+            $sql = 'select * from saleproductgas s inner join user u on s.id_user = u.id_user inner join client c on s.id_client = c.id_client order by saleproductgas_date asc'; // where saleproductgas_naturaleza = "PEDIDO"
             $stm = $this->pdo->prepare($sql);
             $stm->execute();
             $result = $stm->fetchAll();
@@ -129,7 +129,7 @@ class SellGas{
 
     public function listPendientes(){
         try {
-            $sql = 'select * from saleproductgas s inner join user u on s.id_user = u.id_user inner join client c on s.id_client = c.id_client where saleproductgas_estado = 2'; //
+            $sql = 'select * from saleproductgas s inner join user u on s.id_user = u.id_user inner join client c on s.id_client = c.id_client where saleproductgas_estado = 2 order by saleproductgas_date desc'; //
             $stm = $this->pdo->prepare($sql);
             $stm->execute();
             $result = $stm->fetchAll();
@@ -162,7 +162,7 @@ class SellGas{
     public function listSalesfiltrousuario($fecha_i,$fecha_f,$estadopedido,$usuario){
         try {
             $sql = 'select * from saleproductgas s inner join user u on s.id_user = u.id_user inner join client c on s.id_client = c.id_client 
-                    where saleproductgas_date between ? and ? and s.saleproductgas_estado = ? and u.id_user = ?'; //  where saleproductgas_naturaleza = "PEDIDO"
+                    where saleproductgas_date between ? and ? and s.saleproductgas_estado = ? and u.id_user = ? order by saleproductgas_date desc'; //  where saleproductgas_naturaleza = "PEDIDO"
             $stm = $this->pdo->prepare($sql);
             $stm->execute([
                 $fecha_i,
@@ -453,7 +453,7 @@ class SellGas{
 
     public function CambiarPedido($id){
         try {
-            $sql = 'update saleproductgas set saleproductgas_estado = 1 where id_saleproductgas = ?';
+            $sql = 'update saleproductgas set saleproductgas_estado = 1 where id_saleproductgas = ? ';
             $stm = $this->pdo->prepare($sql);
             $stm->execute([$id]);
             $result = 1;
