@@ -1,10 +1,18 @@
 <?php
-require 'fpdf/fpdf.php';
+/**
+ * Created by PhpStorm.
+ * User: Lucho
+ * Date: 16/08/2020
+ * Time: 14:59
+ */
+//con esto accedemos a la libreria fdpf
+require 'app/view/report/fpdf/fpdf.php';
 
 class PDF extends FPDF{
-
     //Cabecera de pagina
     function Header(){
+        //Logo
+        $this->Image('styles/bufeosale.png',10,8, 33);
         //Arial bold 15
         $this->SetFont('Arial','B',16);
         //Mover
@@ -24,7 +32,6 @@ class PDF extends FPDF{
         //Arial italic 8
         $this->SetFont('Arial','I',8);
         //Numero de Ipagina
-        $this->Cell(0,10,'Pagina ' . $this->PageNo().'/{nb}',0,0,'C');
+        $this->Cell(0,10,'Página ' . $this->PageNo().'/{nb}',0,0,'C');
     }
 }
-?>

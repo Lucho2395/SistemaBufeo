@@ -43,7 +43,7 @@
                 <div class="col-md-3">
                     <label for="productos">Seleccione estado de Pedido:</label>
                     <select class="form-control" onchange="filtro_por_estado()" id="filtroestado">
-                        <option>Seleccione Estado</option>
+                        <option value="">Seleccione Estado</option>
                         <option value="0">CANCELADO</option>
                         <option value="1">VENDIDO</option>
                         <option value="2">PENDIENTE</option>
@@ -53,7 +53,7 @@
                 <div class="col-md-3">
                     <label for="fecha_f">Usuario:</label>
                     <select class="form-control" onchange="filtro_por_usuario()" id="filtrousuario">
-                        <option>Seleccione Usuario</option>
+                        <option value="">Seleccione Usuario</option>
                         <?php
                         foreach ($user as $u){
                             echo "<option value='".$u->id_user."'>".$u->user_nickname."</option>";
@@ -71,7 +71,7 @@
 
         <!-- /.row (main row) -->
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-12" id="tabla_con_filtro">
                 <table  class="table table-bordered table-hover">
                     <thead class="text-capitalize">
                     <tr>
@@ -92,6 +92,27 @@
                 </table>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-1">
+                <form method="post" target="_blank" action="<?php echo _SERVER_;?>SellGas/historypedidos_pdf">
+                    <input type="hidden" name="fecha_i_f" id="fecha_i_f" value="">
+                    <input type="hidden" name="fecha_f_f" id="fecha_f_f" value="">
+                    <input type="hidden" name="estadopedido_pdf" id="estadopedido_pdf" value="">
+                    <input type="hidden" name="usuario_pdf" id="usuario_pdf" value="">
+                    <button class="btn btn-primary" type="submit"><i class="fa fa-print"></i> Imprimir</button>
+                </form>
+            </div>
+            <div class="col-lg-10">
+                <form method="post" target="_blank" action="<?php echo _SERVER_;?>SellGas/exportarhistorypedidos_excel">
+                    <input type="hidden" name="fecha_i_f_e" id="fecha_i_f_e" value="">
+                    <input type="hidden" name="fecha_f_f_e" id="fecha_f_f_e" value="">
+                    <input type="hidden" name="estadopedido_excel" id="estadopedido_excel" value="">
+                    <input type="hidden" name="usuario_excel" id="usuario_excel" value="">
+                    <button class="btn btn-primary" type="submit"><i class="fa fa-file-excel-o"></i> Exportar</button>
+                </form>
+            </div>
+        </div>
+
 
     </section>
     <!-- /.content -->
@@ -146,7 +167,14 @@
         var fecha_f = $("#fecha_fin").val();
         var estadopedido = $("#filtroestado").val();
         var usuario = $("#filtrousuario").val();
-
+        $("#fecha_i_f").val(fecha_i);
+        $("#fecha_f_f").val(fecha_f);
+        $("#estadopedido_pdf").val(estadopedido);
+        $("#usuario_pdf").val(usuario);
+        $("#fecha_i_f_e").val(fecha_i);
+        $("#fecha_f_f_e").val(fecha_f);
+        $("#estadopedido_excel").val(estadopedido);
+        $("#usuario_excel").val(usuario);
         $.post("<?php echo _SERVER_;?>SellGas/viewhistorypedidofiltro",{fecha_i: fecha_i,fecha_f: fecha_f, estadopedido:estadopedido, usuario:usuario}, function(data){
             $("#tabla_lista_pedidos").html(data);
 

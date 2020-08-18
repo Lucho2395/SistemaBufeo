@@ -141,7 +141,7 @@ class SellGas{
     }
 
     //filtro para buscar entre 2 fechas y el estado del pedido
-    public function listSalesfiltro($fecha_i,$fecha_f,$estadopedido){
+    public function listSalesfiltroestado($fecha_i,$fecha_f,$estadopedido){
         try {
             $sql = 'select * from saleproductgas s inner join user u on s.id_user = u.id_user inner join client c on s.id_client = c.id_client 
                     where saleproductgas_date between ? and ? and s.saleproductgas_estado = ? '; // and u.id_user like ? where saleproductgas_naturaleza = "PEDIDO"
@@ -159,7 +159,25 @@ class SellGas{
         return $result;
     }
 
-    public function listSalesfiltrousuario($fecha_i,$fecha_f,$estadopedido,$usuario){
+    public function listSalesfiltrousuario($fecha_i,$fecha_f,$usuario){
+        try {
+            $sql = 'select * from saleproductgas s inner join user u on s.id_user = u.id_user inner join client c on s.id_client = c.id_client 
+                    where saleproductgas_date between ? and ? and u.id_user = ? order by saleproductgas_date desc'; //  where saleproductgas_naturaleza = "PEDIDO"
+            $stm = $this->pdo->prepare($sql);
+            $stm->execute([
+                $fecha_i,
+                $fecha_f,
+                $usuario
+            ]);
+            $result = $stm->fetchAll();
+        } catch (Exception $e){
+            $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
+            $result = [];
+        }
+        return $result;
+    }
+//filtro para buscar con todos los campos llenos
+    public function listSalesfiltro($fecha_i,$fecha_f,$estadopedido,$usuario){
         try {
             $sql = 'select * from saleproductgas s inner join user u on s.id_user = u.id_user inner join client c on s.id_client = c.id_client 
                     where saleproductgas_date between ? and ? and s.saleproductgas_estado = ? and u.id_user = ? order by saleproductgas_date desc'; //  where saleproductgas_naturaleza = "PEDIDO"
@@ -169,6 +187,24 @@ class SellGas{
                 $fecha_f,
                 $estadopedido,
                 $usuario
+            ]);
+            $result = $stm->fetchAll();
+        } catch (Exception $e){
+            $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
+            $result = [];
+        }
+        return $result;
+    }
+
+    //filtro con las fechas
+    public function listSalesfiltrofechas($fecha_i,$fecha_f){
+        try {
+            $sql = 'select * from saleproductgas s inner join user u on s.id_user = u.id_user inner join client c on s.id_client = c.id_client 
+                    where saleproductgas_date between ? and ? order by saleproductgas_date desc'; //  where saleproductgas_naturaleza = "PEDIDO"
+            $stm = $this->pdo->prepare($sql);
+            $stm->execute([
+                $fecha_i,
+                $fecha_f
             ]);
             $result = $stm->fetchAll();
         } catch (Exception $e){

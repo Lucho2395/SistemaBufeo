@@ -12,6 +12,7 @@ require 'app/models/Active.php';
 require 'app/models/Client.php';
 require 'app/models/Correlative.php';
 require 'app/models/User.php';
+//require 'app/view/report/fpdf/fpdf.php';
 class SellGasController{
     private $crypt;
     private $nav;
@@ -23,6 +24,7 @@ class SellGasController{
     private $client;
     private $correlative;
     private $usuario;
+    //private $pdf;
 
     public function __construct()
     {
@@ -36,6 +38,7 @@ class SellGasController{
         $this->client = new Client();
         $this->correlative = new Correlative();
         $this->usuario = new User();
+        //$this->pdf = new FPDF();
     }
 
     //Vistas
@@ -124,7 +127,16 @@ class SellGasController{
             $fecha_f = $explode[0]."-".$explode[1]."-".$sum;
             $estadopedido = $_POST['estadopedido'];
             $usuario = $_POST['usuario'];
-            $filtrousuario = $this->sell->listSalesfiltrousuario($fecha_i,$fecha_f,$estadopedido,$usuario);
+            if ($estadopedido=="" && $usuario==""){
+                $filtrousuario = $this->sell->listSalesfiltrofechas($fecha_i,$fecha_f);
+            } elseif ($usuario == ""){
+                $filtrousuario = $this->sell->listSalesfiltroestado($fecha_i,$fecha_f,$estadopedido);
+            } elseif ($estadopedido==""){
+                $filtrousuario = $this->sell->listSalesfiltrousuario($fecha_i,$fecha_f,$usuario);
+            } else{
+                $filtrousuario = $this->sell->listSalesfiltro($fecha_i,$fecha_f,$estadopedido,$usuario);
+            }
+
             $totalusuario = count($filtrousuario);
             $listreturn = "";
             foreach ($filtrousuario as $m) {
@@ -379,6 +391,62 @@ class SellGasController{
             $return = 2;
         }
         echo $return;
+    }
+//funcion para imprimir un pdf
+    public function historypedidos_pdf(){
+        try {
+            $fecha_i = $_POST['fecha_i_f'];
+            $fecha_f = $_POST['fecha_f_f']; //aaaa-mm-dd hay 3 filas aaaa[0], mm[1], dd[2]
+            $explode = explode("-",$fecha_f); //explode divide un string en varios string, devuelve un array de string
+            $sum = $explode[2] + 1;
+            $fecha_f = $explode[0]."-".$explode[1]."-".$sum;
+            $estadopedido = $_POST['estadopedido_pdf'];
+            $usuario = $_POST['usuario_pdf'];
+            $filtrousuario = $this->sell->listSalesfiltrousuario($fecha_i,$fecha_f,$estadopedido,$usuario);
+            if ($estadopedido==1){
+                $estadopedido = "VENDIDO";
+            } else if ($estadopedido == 2){
+                $estadopedido = "PENDIENTE";
+            } else{
+                $estadopedido = "CANCELADO";
+            }
+
+
+            require _VIEW_PATH_ . 'sellGas/historypedidos_pdf.php';
+        } catch (Throwable $e){
+            $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
+            echo "<script language=\"javascript\">alert(\"Error Al Mostrar Contenido. Redireccionando Al Inicio\");</script>";
+            echo "<script language=\"javascript\">window.location.href=\"". _SERVER_ ."\";</script>";
+        }
+
+    }
+
+    //funcion para imprimir un pdf
+    public function exportarhistorypedidos_excel(){
+        try {
+            $fecha_i = $_POST['fecha_i_f_e'];
+            $fecha_f = $_POST['fecha_f_f_e']; //aaaa-mm-dd hay 3 filas aaaa[0], mm[1], dd[2]
+            $explode = explode("-",$fecha_f); //explode divide un string en varios string, devuelve un array de string
+            $sum = $explode[2] + 1;
+            $fecha_f = $explode[0]."-".$explode[1]."-".$sum;
+            $estadopedido = $_POST['estadopedido_excel'];
+            $usuario = $_POST['usuario_excel'];
+            $filtrousuario_excel = $this->sell->listSalesfiltrousuario($fecha_i,$fecha_f,$estadopedido,$usuario);
+            if ($estadopedido==1){
+                $estadopedido = "VENDIDO";
+            } else if ($estadopedido == 2){
+                $estadopedido = "PENDIENTE";
+            } else{
+                $estadopedido = "CANCELADO";
+            }
+
+            require _VIEW_PATH_ . 'sellGas/exportar_filtro_excel.php';
+        } catch (Throwable $e){
+            $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
+            echo "<script language=\"javascript\">alert(\"Error Al Mostrar Contenido. Redireccionando Al Inicio\");</script>";
+            echo "<script language=\"javascript\">window.location.href=\"". _SERVER_ ."\";</script>";
+        }
+
     }
 
     //ALQUILER PRODUCTO-------------------------------------------------->

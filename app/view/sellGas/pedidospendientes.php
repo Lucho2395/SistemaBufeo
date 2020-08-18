@@ -29,6 +29,12 @@
                 <center><h2>Lista de Pedidos Pendientes</h2></center>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-10"></div>
+            <div class="col-lg-2">
+                <a class="btn btn-primary" target="_blank" href="<?php echo _SERVER_;?>SellGas/historypedidos_PDF/<?= $id; ?>"><i class="fa fa-print"></i> Imprimir</a>
+            </div>
+        </div>
         <br>
         <!-- /.row (main row) -->
         <div class="row">
