@@ -492,7 +492,7 @@ class SellGas{
             $sql = 'update saleproductgas set saleproductgas_estado = 1 where id_saleproductgas = ? ';
             $stm = $this->pdo->prepare($sql);
             $stm->execute([$id]);
-            $result = 1;
+            $result = true;
         } catch (Exception $e){
             $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
             $result = 2;

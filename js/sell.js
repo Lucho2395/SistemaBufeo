@@ -70,7 +70,7 @@ function anular(id_saleproduct){
         data : cadena,
         success:function (r) {
             if(r!=2){
-                alertify.success('Venta Realizada');
+                alertify.success('Venta Anulada');
                 location.href = urlweb + 'Sell/viewhistory/';
             } else {
                 alertify.error('No se pudo anular la venta');

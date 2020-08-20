@@ -17,7 +17,7 @@ $pdf = new PDF();
 $pdf->AddPage();
 $pdf->SetFont('Arial','U','12');
 $pdf->Cell(180,6, 'Lista de pedidos en estado '.$estadopedido.' entre las fechas '.$fecha_i.' y '.$fecha_f,0,1,'L',0);
-//$pdf->Cell(180,6, 'Usuario: '.$usuariopedido,0,1,'L',0);
+$pdf->Cell(180,6, 'Usuario: '.$user,0,1,'L',0);
 $pdf->Ln();
 $pdf->SetFont('Arial','',12);
 $pdf->Cell(180,6,'Lista',0,1,'L',0);

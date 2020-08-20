@@ -102,6 +102,11 @@ class ProveedorController
                 $model->direccion_provee = $_POST['direccion_provee'];
                 $result = $this->proveedor->save($model);
             }
+            if (isset($_SESSION['id_proveedor'])) {
+                $validacion = $this->proveedor->validardnieditar($_POST['ruc_proveedor'], $_SESSION['id_proveedor']);
+
+            }
+
 
         } catch (Exception $e) {
             $this->log->insert($e->getMessage(), get_class($this) . '|' . __FUNCTION__);

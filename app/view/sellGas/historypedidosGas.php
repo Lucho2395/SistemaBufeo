@@ -72,7 +72,7 @@
         <!-- /.row (main row) -->
         <div class="row">
             <div class="col-lg-12" id="tabla_con_filtro">
-                <table  class="table table-bordered table-hover">
+                <table id="example2" class="table table-bordered table-hover">
                     <thead class="text-capitalize">
                     <tr>
                         <th>N°</th>
@@ -108,7 +108,7 @@
                     <input type="hidden" name="fecha_f_f_e" id="fecha_f_f_e" value="">
                     <input type="hidden" name="estadopedido_excel" id="estadopedido_excel" value="">
                     <input type="hidden" name="usuario_excel" id="usuario_excel" value="">
-                    <button class="btn btn-primary" type="submit"><i class="fa fa-file-excel-o"></i> Exportar</button>
+                    <button class="btn btn-primary" id= "boton_exportar_excel" type="submit"><i class="fa fa-file-excel-o"></i> Exportar</button>
                 </form>
             </div>
         </div>
@@ -179,6 +179,7 @@
             $("#tabla_lista_pedidos").html(data);
 
         });
+        $("#tabla_con_filtro").load();
     }
 
 </script>

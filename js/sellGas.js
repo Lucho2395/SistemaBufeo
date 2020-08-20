@@ -77,7 +77,7 @@ function anular(id_saleproductgas){
         data : cadena,
         success:function (r) {
             if(r!=2){
-                alertify.success('Venta Realizada');
+                alertify.success('Venta Anulada');
                 location.href = urlweb + 'SellGas/viewhistory';
             } else {
                 alertify.error('No se pudo anular la venta');

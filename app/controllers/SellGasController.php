@@ -122,9 +122,9 @@ class SellGasController{
         try {
             $fecha_i = $_POST['fecha_i'];
             $fecha_f = $_POST['fecha_f']; //aaaa-mm-dd hay 3 filas aaaa[0], mm[1], dd[2]
-            $explode = explode("-",$fecha_f); //explode divide un string en varios string, devuelve un array de string
+            /*$explode = explode("-",$fecha_f); //explode divide un string en varios string, devuelve un array de string
             $sum = $explode[2] + 1;
-            $fecha_f = $explode[0]."-".$explode[1]."-".$sum;
+            $fecha_f = $explode[0]."-".$explode[1]."-".$sum;*/
             $estadopedido = $_POST['estadopedido'];
             $usuario = $_POST['usuario'];
             if ($estadopedido=="" && $usuario==""){
@@ -161,7 +161,7 @@ class SellGasController{
                         <td>".$m->saleproductgas_telefono."</td>
                         <td>s/. ".$m->saleproductgas_total."</td>
                         <td>".$estadopedido."</td>
-                        <td><a type=\"button\" class=\"btn btn-xs btn-primary btne\" href=\"<?php echo _SERVER_ . 'SellGas/viewsale/' . $m->id_saleproductgas;?>\" target=\"_blank\" >Ver Detalle</a></td>
+                        <td><a type=\"button\" class=\"btn btn-xs btn-primary btne\" href=\"viewsale/$m->id_saleproductgas\" target=\"_blank\" >Ver Detalle</a></td>
                     </tr>";
                 $totalusuario--;
             }
@@ -397,20 +397,35 @@ class SellGasController{
         try {
             $fecha_i = $_POST['fecha_i_f'];
             $fecha_f = $_POST['fecha_f_f']; //aaaa-mm-dd hay 3 filas aaaa[0], mm[1], dd[2]
-            $explode = explode("-",$fecha_f); //explode divide un string en varios string, devuelve un array de string
+            /*$explode = explode("-",$fecha_f); //explode divide un string en varios string, devuelve un array de string
             $sum = $explode[2] + 1;
-            $fecha_f = $explode[0]."-".$explode[1]."-".$sum;
+            $fecha_f = $explode[0]."-".$explode[1]."-".$sum;*/
             $estadopedido = $_POST['estadopedido_pdf'];
             $usuario = $_POST['usuario_pdf'];
-            $filtrousuario = $this->sell->listSalesfiltrousuario($fecha_i,$fecha_f,$estadopedido,$usuario);
+            if ($estadopedido=="" && $usuario==""){
+                $filtrousuario = $this->sell->listSalesfiltrofechas($fecha_i,$fecha_f);
+            } elseif ($usuario == ""){
+                $filtrousuario = $this->sell->listSalesfiltroestado($fecha_i,$fecha_f,$estadopedido);
+            } elseif ($estadopedido==""){
+                $filtrousuario = $this->sell->listSalesfiltrousuario($fecha_i,$fecha_f,$usuario);
+            } else{
+                $filtrousuario = $this->sell->listSalesfiltro($fecha_i,$fecha_f,$estadopedido,$usuario);
+            }
+
             if ($estadopedido==1){
                 $estadopedido = "VENDIDO";
             } else if ($estadopedido == 2){
                 $estadopedido = "PENDIENTE";
+            } else if ($estadopedido==""){
+                $estadopedido = "TODO";
             } else{
                 $estadopedido = "CANCELADO";
             }
 
+            $user = $this->usuario->selectNickname($usuario);
+            if ($user == ""){
+                $user = "TODO";
+            }
 
             require _VIEW_PATH_ . 'sellGas/historypedidos_pdf.php';
         } catch (Throwable $e){
@@ -426,20 +441,25 @@ class SellGasController{
         try {
             $fecha_i = $_POST['fecha_i_f_e'];
             $fecha_f = $_POST['fecha_f_f_e']; //aaaa-mm-dd hay 3 filas aaaa[0], mm[1], dd[2]
-            $explode = explode("-",$fecha_f); //explode divide un string en varios string, devuelve un array de string
+            /*$explode = explode("-",$fecha_f); //explode divide un string en varios string, devuelve un array de string
             $sum = $explode[2] + 1;
-            $fecha_f = $explode[0]."-".$explode[1]."-".$sum;
+            $fecha_f = $explode[0]."-".$explode[1]."-".$sum;*/
             $estadopedido = $_POST['estadopedido_excel'];
             $usuario = $_POST['usuario_excel'];
-            $filtrousuario_excel = $this->sell->listSalesfiltrousuario($fecha_i,$fecha_f,$estadopedido,$usuario);
-            if ($estadopedido==1){
-                $estadopedido = "VENDIDO";
-            } else if ($estadopedido == 2){
-                $estadopedido = "PENDIENTE";
+            if ($estadopedido=="" && $usuario==""){
+                $filtrousuario_excel = $this->sell->listSalesfiltrofechas($fecha_i,$fecha_f);
+            } elseif ($usuario == ""){
+                $filtrousuario_excel = $this->sell->listSalesfiltroestado($fecha_i,$fecha_f,$estadopedido);
+            } elseif ($estadopedido==""){
+                $filtrousuario_excel = $this->sell->listSalesfiltrousuario($fecha_i,$fecha_f,$usuario);
             } else{
-                $estadopedido = "CANCELADO";
+                $filtrousuario_excel = $this->sell->listSalesfiltro($fecha_i,$fecha_f,$estadopedido,$usuario);
             }
+            $user = $this->usuario->selectNickname($usuario);
 
+
+            header('Content-Type: application/vnd.ms-excel; charset=utf-8');
+            header('Content-Disposition: attachment; filename="Reporte_filtro_pedidos.xls"');
             require _VIEW_PATH_ . 'sellGas/exportar_filtro_excel.php';
         } catch (Throwable $e){
             $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
