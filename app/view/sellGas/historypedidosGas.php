@@ -72,24 +72,9 @@
         <!-- /.row (main row) -->
         <div class="row">
             <div class="col-lg-12" id="tabla_con_filtro">
-                <table id="example2" class="table table-bordered table-hover">
-                    <thead class="text-capitalize">
-                    <tr>
-                        <th>N°</th>
-                        <th>Fecha</th>
-                        <th>Usuario Vendedor</th>
-                        <th>Cliente</th>
-                        <th>Dirección</th>
-                        <th>Telefono</th>
-                        <th>Total de Venta</th>
-                        <th>Estado de Pedido</th>
-                        <th>ACCIONES</th>
-                    </tr>
-                    </thead>
-                    <tbody id="tabla_lista_pedidos">
 
-                    </tbody>
-                </table>
+
+
             </div>
         </div>
         <div class="row">
@@ -99,16 +84,25 @@
                     <input type="hidden" name="fecha_f_f" id="fecha_f_f" value="">
                     <input type="hidden" name="estadopedido_pdf" id="estadopedido_pdf" value="">
                     <input type="hidden" name="usuario_pdf" id="usuario_pdf" value="">
-                    <button class="btn btn-primary" type="submit"><i class="fa fa-print"></i> Imprimir</button>
+                    <button class="btn btn-danger" type="submit"><i class="fa fa-file-pdf-o"></i> PDF</button>
                 </form>
             </div>
-            <div class="col-lg-10">
+            <div class="col-lg-1">
                 <form method="post" target="_blank" action="<?php echo _SERVER_;?>SellGas/exportarhistorypedidos_excel">
                     <input type="hidden" name="fecha_i_f_e" id="fecha_i_f_e" value="">
                     <input type="hidden" name="fecha_f_f_e" id="fecha_f_f_e" value="">
                     <input type="hidden" name="estadopedido_excel" id="estadopedido_excel" value="">
                     <input type="hidden" name="usuario_excel" id="usuario_excel" value="">
-                    <button class="btn btn-primary" id= "boton_exportar_excel" type="submit"><i class="fa fa-file-excel-o"></i> Exportar</button>
+                    <button class="btn btn-success" id= "boton_exportar_excel" type="submit"><i class="fa fa-file-excel-o"></i> EXCEL</button>
+                </form>
+            </div>
+            <div class="col-lg-1">
+                <form method="post" target="_blank" action="<?php echo _SERVER_;?>SellGas/imprimir_tabla_filtro">
+                    <input type="hidden" name="fecha_i_f_e_i" id="fecha_i_f_e_i" value="">
+                    <input type="hidden" name="fecha_f_f_e_i" id="fecha_f_f_e_i" value="">
+                    <input type="hidden" name="estadopedido_imprimir" id="estadopedido_imprimir" value="">
+                    <input type="hidden" name="usuario_imprimir" id="usuario_imprimir" value="">
+                    <button class="btn btn-primary" onclick="javascript:imprim2();" type="submit" ><i class="fa fa-print"></i> IMPRIMIR</button>
                 </form>
             </div>
         </div>
@@ -122,45 +116,19 @@
 
 <script type="text/javascript">
 
-
-    /*$(document).ready(function(){
-        var fecha_i = "2020-08-01";
-        var fecha_f = $("#fecha_fin").val();
-        var estadopedido = 1;
-        $("#tabla_lista_pedidos").html("");
-        //alert($("#tabla_lista_pedidos").html());
-        //$("#tabla_lista_pedidos").load();
-        $.post("<?php echo _SERVER_;?>api/SellGas/viewhistorypedidofiltro",{fecha_i: fecha_i,fecha_f: fecha_f, estadopedido:estadopedido}, function(data){
-            $("#tabla_lista_pedidos").html(data);
-            //alert($("#tabla_lista_pedidos").html());
-        });
-    });*/
-
-    /*function filtro_por_estado(){
-
-        var fecha_i = $("#fecha_ini").val();
-        var fecha_f = $("#fecha_fin").val();
-        var estadopedido = $("#filtroestado").val();
-        //$("#tabla_lista_pedidos").html("");
-        //alert($("#tabla_lista_pedidos").html());
-        $("table").load();
-        $.post("<?php echo _SERVER_;?>api/SellGas/viewhistorypedidofiltro",{fecha_i: fecha_i,fecha_f: fecha_f, estadopedido:estadopedido}, function(data){
-            $("#tabla_lista_pedidos").html(data);
-            //alert($("#tabla_lista_pedidos").html());
-        });
+    function imprim2(){
+        var mywindow = window.open('', 'PRINT', 'height=400,width=600');
+        mywindow.document.write('<html><head>');
+        mywindow.document.write('<style>.tabla{width:100%;border-collapse:collapse;margin:16px 0 16px 0;}.tabla th{border:1px solid #ddd;padding:4px;background-color:#d4eefd;text-align:left;font-size:15px;}.tabla td{border:1px solid #ddd;text-align:left;padding:6px;}</style>');
+        mywindow.document.write('</head><body >');
+        mywindow.document.write(document.getElementById('muestra').innerHTML);
+        mywindow.document.write('</body></html>');
+        mywindow.document.close(); // necesario para IE >= 10
+        mywindow.focus(); // necesario para IE >= 10
+        mywindow.print();
+        mywindow.close();
+        return true;
     }
-
-
-    function filtro_por_usuario(){
-        var fecha_i = $("#fecha_ini").val();
-        var fecha_f = $("#fecha_fin").val();
-        var estadopedido = $("#filtroestado").val();
-        var usuario = $("#filtrousuario").val();
-        $.post("<?php echo _SERVER_;?>SellGas/viewhistorypedidofiltro",{fecha_i: fecha_i,fecha_f: fecha_f, estadopedido:estadopedido, usuario:usuario}, function(data){
-            $("#tabla_lista_pedidos").html(data);
-
-        });
-    }*/
 
     function buscar_registro_filtro(){
         var fecha_i = $("#fecha_ini").val();
@@ -175,11 +143,46 @@
         $("#fecha_f_f_e").val(fecha_f);
         $("#estadopedido_excel").val(estadopedido);
         $("#usuario_excel").val(usuario);
-        $.post("<?php echo _SERVER_;?>SellGas/viewhistorypedidofiltro",{fecha_i: fecha_i,fecha_f: fecha_f, estadopedido:estadopedido, usuario:usuario}, function(data){
-            $("#tabla_lista_pedidos").html(data);
+        $("#fecha_i_f_e_i").val(fecha_i);
+        $("#fecha_f_f_e_i").val(fecha_f);
+        $("#estadopedido_imprimir").val(estadopedido);
+        $("#usuario_imprimir").val(usuario);
+        if (fecha_i != "" && fecha_f != ""){
 
-        });
-        $("#tabla_con_filtro").load();
+            $.post("<?php echo _SERVER_;?>SellGas/viewhistorypedidofiltro",{fecha_i: fecha_i,fecha_f: fecha_f, estadopedido:estadopedido, usuario:usuario}, function(data){
+                $("#tabla_con_filtro").html(data);
+                $("#example2").DataTable({
+                    responsive: true,
+                    "language": {
+                        sEmptyTable: "No existen datos en esta tabla",
+                        sInfo: "Mostrando _START_ de _END_ de _TOTAL_ Entradas",
+                        sInfoEmpty: "0 de 0 de 0 Entradas",
+                        sInfoFiltered: "(Filtrado de un total de _MAX_ resultados)",
+                        sInfoPostFix: "",
+                        sInfoThousands: ".",
+                        sLengthMenu: "Mostrar _MENU_ Resultados",
+                        sLoadingRecords: "Cargando resultados...",
+                        sProcessing: "Espere por favor..",
+                        sSearch: "Buscar:",
+                        sZeroRecords: "No se han encontrado resultados.",
+                        oPaginate: {
+                            sFirst: "Primero",
+                            sPrevious: "Anterior",
+                            sNext: "Siguiente",
+                            sLast: "Último"
+                        },
+                        oAria: {
+                            sSortAscending: ":Habilitar para ordenar de forma ascendente",
+                            sSortDescending: ":Habilitar para ordenar de forma descendente"
+                        }
+                    }
+                });
+            });
+        }else{
+            alertify.error('El campo fecha está vacío');
+            $('#fecha_ini').css('border','solid red');
+            $('#fecha_fin').css('border','solid red');
+        }
     }
 
 </script>

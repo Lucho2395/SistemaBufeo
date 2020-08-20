@@ -144,7 +144,7 @@ class SellGas{
     public function listSalesfiltroestado($fecha_i,$fecha_f,$estadopedido){
         try {
             $sql = 'select * from saleproductgas s inner join user u on s.id_user = u.id_user inner join client c on s.id_client = c.id_client 
-                    where saleproductgas_date between ? and ? and s.saleproductgas_estado = ? '; // and u.id_user like ? where saleproductgas_naturaleza = "PEDIDO"
+                    where DATE(saleproductgas_date) between ? and ? and s.saleproductgas_estado = ? '; // and u.id_user like ? where saleproductgas_naturaleza = "PEDIDO"
             $stm = $this->pdo->prepare($sql);
             $stm->execute([
                 $fecha_i,
@@ -162,7 +162,7 @@ class SellGas{
     public function listSalesfiltrousuario($fecha_i,$fecha_f,$usuario){
         try {
             $sql = 'select * from saleproductgas s inner join user u on s.id_user = u.id_user inner join client c on s.id_client = c.id_client 
-                    where saleproductgas_date between ? and ? and u.id_user = ? order by saleproductgas_date desc'; //  where saleproductgas_naturaleza = "PEDIDO"
+                    where DATE(saleproductgas_date) between ? and ? and u.id_user = ? order by saleproductgas_date desc'; //  where saleproductgas_naturaleza = "PEDIDO"
             $stm = $this->pdo->prepare($sql);
             $stm->execute([
                 $fecha_i,
@@ -180,7 +180,7 @@ class SellGas{
     public function listSalesfiltro($fecha_i,$fecha_f,$estadopedido,$usuario){
         try {
             $sql = 'select * from saleproductgas s inner join user u on s.id_user = u.id_user inner join client c on s.id_client = c.id_client 
-                    where saleproductgas_date between ? and ? and s.saleproductgas_estado = ? and u.id_user = ? order by saleproductgas_date desc'; //  where saleproductgas_naturaleza = "PEDIDO"
+                    where DATE(saleproductgas_date) between ? and ? and s.saleproductgas_estado = ? and u.id_user = ? order by saleproductgas_date desc'; //  where saleproductgas_naturaleza = "PEDIDO"
             $stm = $this->pdo->prepare($sql);
             $stm->execute([
                 $fecha_i,
@@ -199,8 +199,9 @@ class SellGas{
     //filtro con las fechas
     public function listSalesfiltrofechas($fecha_i,$fecha_f){
         try {
-            $sql = 'select * from saleproductgas s inner join user u on s.id_user = u.id_user inner join client c on s.id_client = c.id_client 
-                    where saleproductgas_date between ? and ? order by saleproductgas_date desc'; //  where saleproductgas_naturaleza = "PEDIDO"
+            $sql = 'select * from saleproductgas s inner join user u on s.id_user = u.id_user inner join client c 
+                    on s.id_client = c.id_client 
+                    where DATE(saleproductgas_date) between ? and ? order by saleproductgas_date desc'; //  where saleproductgas_naturaleza = "PEDIDO"
             $stm = $this->pdo->prepare($sql);
             $stm->execute([
                 $fecha_i,

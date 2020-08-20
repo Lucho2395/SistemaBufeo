@@ -136,9 +136,23 @@ class SellGasController{
             } else{
                 $filtrousuario = $this->sell->listSalesfiltro($fecha_i,$fecha_f,$estadopedido,$usuario);
             }
-
             $totalusuario = count($filtrousuario);
-            $listreturn = "";
+            $listreturn = "<h3>FILTRO DEL $fecha_i al $fecha_f || Estado de Pedido: || Usuario:</h3>";
+            $listreturn .= "<table id=\"example2\" class=\"table table-bordered table-hover\">
+                    <thead class=\"text-capitalize\">
+                    <tr>
+                        <th>N°</th>
+                        <th>Fecha</th>
+                        <th>Usuario Vendedor</th>
+                        <th>Cliente</th>
+                        <th>Dirección</th>
+                        <th>Telefono</th>
+                        <th>Total de Venta</th>
+                        <th>Estado de Pedido</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                    </thead>
+                    <tbody id=\"tabla_lista_pedidos\">";
             foreach ($filtrousuario as $m) {
                 $estadopedido = "<a class=\"btn btn-xs btn-outline-danger\" style='color: #00ca6d'>PENDIENTE</a>";
                 if($m->saleproductgas_estado == 1){
@@ -164,8 +178,15 @@ class SellGasController{
                         <td><a type=\"button\" class=\"btn btn-xs btn-primary btne\" href=\"viewsale/$m->id_saleproductgas\" target=\"_blank\" >Ver Detalle</a></td>
                     </tr>";
                 $totalusuario--;
+                //RecordsTotal = Total de registros, antes del filtrado (es decir, el número total de registros en la base de datos)
+                //recordsFiltered = Total de registros, después del filtrado (es decir, el número total de registros después de aplicar
+                // el filtrado, no solo el número de registros que se devuelven para esta página de datos).
+                //$output = array("draw"=>1, "recordsTotal" => 0, "recordsFiltered" => $totalusuario, "data" => $listreturn);
             }
+            $listreturn .="</tbody>
+                </table>";
             echo $listreturn;
+            //echo json_encode($output);
 
         }catch (Throwable $e){
             $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
@@ -467,6 +488,35 @@ class SellGasController{
             echo "<script language=\"javascript\">window.location.href=\"". _SERVER_ ."\";</script>";
         }
 
+    }
+
+    function imprimir_tabla_filtro(){
+        try {
+            $fecha_i = $_POST['fecha_i_f_e_i'];
+            $fecha_f = $_POST['fecha_f_f_e_i']; //aaaa-mm-dd hay 3 filas aaaa[0], mm[1], dd[2]
+            /*$explode = explode("-",$fecha_f); //explode divide un string en varios string, devuelve un array de string
+            $sum = $explode[2] + 1;
+            $fecha_f = $explode[0]."-".$explode[1]."-".$sum;*/
+            $estadopedido = $_POST['estadopedido_imprimir'];
+            $usuario = $_POST['usuario_imprimir'];
+            if ($estadopedido=="" && $usuario==""){
+                $filtrousuario_excel = $this->sell->listSalesfiltrofechas($fecha_i,$fecha_f);
+            } elseif ($usuario == ""){
+                $filtrousuario_excel = $this->sell->listSalesfiltroestado($fecha_i,$fecha_f,$estadopedido);
+            } elseif ($estadopedido==""){
+                $filtrousuario_excel = $this->sell->listSalesfiltrousuario($fecha_i,$fecha_f,$usuario);
+            } else{
+                $filtrousuario_excel = $this->sell->listSalesfiltro($fecha_i,$fecha_f,$estadopedido,$usuario);
+            }
+            $user = $this->usuario->selectNickname($usuario);
+
+            require _VIEW_PATH_ . 'header.php';
+            require _VIEW_PATH_ . 'sellGas/imprimir_tabla_filtro.php';
+        } catch (Throwable $e){
+            $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
+            echo "<script language=\"javascript\">alert(\"Error Al Mostrar Contenido. Redireccionando Al Inicio\");</script>";
+            echo "<script language=\"javascript\">window.location.href=\"". _SERVER_ ."\";</script>";
+        }
     }
 
     //ALQUILER PRODUCTO-------------------------------------------------->
