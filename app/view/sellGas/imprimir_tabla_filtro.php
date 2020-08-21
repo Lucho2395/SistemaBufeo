@@ -5,9 +5,11 @@
  * Date: 03/08/2020
  * Time: 9:29
  */
-if (isset($_POST['boton_imprimir'])){
-    //onclick="window.print()";
-}
+
+    echo '<script type="text/javascript">',
+    'funcionjs(imprim2);',
+    '</script>';
+
 ?>
 <div style="background: #e6f1fc; padding: 40px 250px" id="muestra">
 <!-- Content Header (Page header) -->
@@ -86,10 +88,10 @@ if (isset($_POST['boton_imprimir'])){
     </section>
 
 </div>
-<center><button class="btn btn-primary" onclick="javascript:imprim2();" type="submit" ><i class="fa fa-print"></i> IMPRIMIR</button></center>
+<center><button class="btn btn-primary" onclick="javascript:imprimboton();" type="submit" ><i class="fa fa-print"></i> IMPRIMIR</button></center>
 <script>
-    function imprim2(){
-        var mywindow = window.open('', 'PRINT', 'height=400,width=600');
+    function imprimboton(){
+        var mywindow = window.open('', 'PRINT', 'height=400,width=700');
         mywindow.document.write('<html><head>');
         mywindow.document.write('<style>.example2{width:100%;border-collapse:collapse;margin:16px 0 16px 0;}.example2 th{border:1px solid #ddd;padding:4px;background-color:#d4eefd;text-align:left;font-size:15px;}.example2 td{border:1px solid #ddd;text-align:left;padding:6px;}</style>');
         mywindow.document.write('</head><body >');
@@ -99,7 +101,21 @@ if (isset($_POST['boton_imprimir'])){
         mywindow.focus(); // necesario para IE >= 10
         mywindow.print();
         mywindow.close();
-        return true;}
+        return true;
+    }
+    window.onload = function imprim2() {
+        var mywindow = window.open('', 'PRINT', 'height=400,width=700');
+        mywindow.document.write('<html><head>');
+        mywindow.document.write('<style>.example2{width:100%;border-collapse:collapse;margin:16px 0 16px 0;}.example2 th{border:1px solid #ddd;padding:4px;background-color:#d4eefd;text-align:left;font-size:15px;}.example2 td{border:1px solid #ddd;text-align:left;padding:6px;}</style>');
+        mywindow.document.write('</head><body >');
+        mywindow.document.write(document.getElementById('muestra').innerHTML);
+        mywindow.document.write('</body></html>');
+        mywindow.document.close(); // necesario para IE >= 10
+        mywindow.focus(); // necesario para IE >= 10
+        mywindow.print();
+        mywindow.close();
+        return true;
+    }
 </script>
 
 

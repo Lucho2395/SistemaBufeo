@@ -102,7 +102,7 @@
                     <input type="hidden" name="fecha_f_f_e_i" id="fecha_f_f_e_i" value="">
                     <input type="hidden" name="estadopedido_imprimir" id="estadopedido_imprimir" value="">
                     <input type="hidden" name="usuario_imprimir" id="usuario_imprimir" value="">
-                    <button class="btn btn-primary" onclick="javascript:imprim2();" type="submit" ><i class="fa fa-print"></i> IMPRIMIR</button>
+                    <button class="btn btn-primary" id="boton_imprimir" type="submit" ><i class="fa fa-print"></i> IMPRIMIR</button>
                 </form>
             </div>
         </div>
@@ -116,7 +116,7 @@
 
 <script type="text/javascript">
 
-    function imprim2(){
+/*    function imprim2(){
         var mywindow = window.open('', 'PRINT', 'height=400,width=600');
         mywindow.document.write('<html><head>');
         mywindow.document.write('<style>.example2{width:100%;border-collapse:collapse;margin:16px 0 16px 0;}.tabla th{border:1px solid #ddd;padding:4px;background-color:#d4eefd;text-align:left;font-size:15px;}.tabla td{border:1px solid #ddd;text-align:left;padding:6px;}</style>');
@@ -129,7 +129,7 @@
         mywindow.close();
         return true;
     }
-
+*/
     function buscar_registro_filtro(){
         var fecha_i = $("#fecha_ini").val();
         var fecha_f = $("#fecha_fin").val();
