@@ -25,7 +25,7 @@
         <!-- /.row -->
         <!-- Main row -->
         <div class="row">
-            <div class="col-xs-10">
+            <div class="col-xs-12">
                 <center><h2>Lista de Pedidos Registradas</h2></center>
             </div>
         </div>
@@ -151,6 +151,8 @@
 
             $.post("<?php echo _SERVER_;?>SellGas/viewhistorypedidofiltro",{fecha_i: fecha_i,fecha_f: fecha_f, estadopedido:estadopedido, usuario:usuario}, function(data){
                 $("#tabla_con_filtro").html(data);
+                var totaldedinero = $("#montototalfiltro").val();
+                $('#spanTotal').html(totaldedinero);
                 $("#example2").DataTable({
                     responsive: true,
                     "language": {
@@ -176,6 +178,7 @@
                             sSortDescending: ":Habilitar para ordenar de forma descendente"
                         }
                     }
+
                 });
             });
         }else{

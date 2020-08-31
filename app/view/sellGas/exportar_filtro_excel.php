@@ -87,11 +87,12 @@ foreach ($filtrousuario_excel as $fe){
         </thead>
         <tbody>
         <?php
-
+        $totaldedinero = 0;
         foreach ($filtrousuario_excel as $fe){
+            $subtotal = round($fe->saleproductgas_total, 2);
+            $totaldedinero = $totaldedinero + $subtotal;
             ?>
             <tr>
-
                 <td><?php echo $fe->saleproductgas_date; ?></td>
                 <td><?php echo utf8_decode($fe->user_nickname);?></td>
                 <td><?php echo utf8_decode($fe->client_name); ?></td>
@@ -110,4 +111,7 @@ foreach ($filtrousuario_excel as $fe){
         <?php } ?>
         </tbody>
     </table>
+    <div class="col-md-6">
+        <center><h4>Total s/ <?php echo $totaldedinero; ?></h4></center>
+    </div>
 </div>

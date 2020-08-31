@@ -25,14 +25,17 @@
         <!-- /.row -->
         <!-- Main row -->
         <div class="row">
-            <div class="col-xs-10">
+            <div class="col-xs-12 col-lg-9">
                 <center><h2>Lista de Venta de Gas Registradas</h2></center>
+            </div>
+            <div class="col-xs-12 col-lg-3">
+                <center><a class="btn btn-block btn-info btne" href="http://localhost:9000/#" target="_blank">FACTURADOR SUNAT</a></center> <!--target para abrir una pestaña-->
             </div>
         </div>
         <br>
         <!-- /.row (main row) -->
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-12 col-xs-12">
                 <table id="example2" class="table table-bordered table-hover">
                     <thead class="text-capitalize">
                     <tr>
@@ -68,7 +71,19 @@
                             <td>s/. <?php echo $m->saleproductgas_total;?></td>
                             <td><?php echo $m->saleproductgas_naturaleza;?></td>
                             <td><?php echo $show;?></td>
-                            <td><a type="button" class="btn btn-xs btn-primary btne" href="<?php echo _SERVER_ . 'SellGas/viewsale/' . $m->id_saleproductgas;?>" target="_blank" >Ver Detalle</a></td>
+                            <td><a type="button" class="btn btn-xs btn-primary btne" href="<?php echo _SERVER_ . 'SellGas/viewsale/' . $m->id_saleproductgas;?>" target="_blank" >Ver Detalle</a>
+                                <?php
+                                if ($m->enviado_sunat == 0){
+                                ?>
+                                    <a type="button" class="btn btn-xs btn-success btne" onclick="preguntarSiNoEnviarSunat(<?php echo $m->id_saleproductgas;?>,<?php echo $m->enviado_sunat;?>)" target="_blank" >Enviar a Facturador</a></td>
+                                <?php
+                                } else {
+                                    ?>
+                                    <a type="button" class="btn btn-xs btn-danger btne" onclick="preguntarSiNoAnular(<?php echo $m->id_saleproductgas;?>,<?php echo $m->enviado_sunat;?>)" target="_blank" >Anular</a></td>
+                                <?php
+                                }
+                                ?>
+
                         </tr>
                         <?php
                         $totalsales--;
@@ -84,3 +99,29 @@
 </div>
 <script src="<?php echo _SERVER_ . _JS_;?>domain.js"></script>
 <script src="<?php echo _SERVER_ . _JS_;?>sellGas.js"></script>
+
+<script type="text/javascript">
+    function preguntarSiNoEnviarSunat(id, envio_sunat){
+        alertify.confirm('Enviar a Facturador', '¿Esta seguro de Enivar al Facturador de la Sunat?',
+            function(){ crear_ArchivosPlanos(id, envio_sunat) }
+            , function(){ alertify.error('Operacion Cancelada')});
+    }
+    function crear_ArchivosPlanos(id, envio_sunat){
+        var cadena = "id=" + id +
+                    "&envio_sunat=" + envio_sunat;
+        $.ajax({
+            type:"POST",
+            url: urlweb + "api/SellGas/crear_ArchivosPlanos",
+            data : cadena,
+            success:function (r) {
+                alert(r)
+                if(r==1){
+                    alertify.success('Registro Enviado');
+                    location.reload();
+                } else {
+                    alertify.error('No se pudo realizar');
+                }
+            }
+        });
+    }
+</script>

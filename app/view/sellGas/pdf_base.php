@@ -31,6 +31,7 @@ class PDF extends FPDF{
         $this->SetY(-15);
         //Arial italic 8
         $this->SetFont('Arial','I',8);
+        $this->AliasNbPages();
         //Numero de Ipagina
         $this->Cell(0,10,'Página ' . $this->PageNo().'/{nb}',0,0,'C');
     }

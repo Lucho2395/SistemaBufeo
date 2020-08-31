@@ -136,8 +136,23 @@ class SellGasController{
             } else{
                 $filtrousuario = $this->sell->listSalesfiltro($fecha_i,$fecha_f,$estadopedido,$usuario);
             }
+            $estadopedidomostrar = $_POST['estadopedido'];;
+            if ($estadopedidomostrar == 2){
+                $estadopedidomostrar = "PENDIENTE";
+            } elseif ($estadopedidomostrar == 1){
+                $estadopedidomostrar = "VENDIDO";
+            } elseif($estadopedidomostrar == ""){
+                $estadopedidomostrar = "TODO";
+            } else{
+                $estadopedidomostrar = "CANCELADO";
+            }
+            $usermostrar = $this->usuario->selectNickname($usuario);
+            if ($usermostrar == ""){
+                $usermostrar = "TODO";
+            }
+
             $totalusuario = count($filtrousuario);
-            $listreturn = "<h3>FILTRO DEL $fecha_i al $fecha_f || Estado de Pedido: || Usuario:</h3>";
+            $listreturn = "<h4>FILTRO DEL $fecha_i al $fecha_f || Estado de Pedido: $estadopedidomostrar || Usuario: $usermostrar || TOTAL $/ <span id=\"spanTotal\">0</span></h4>";
             $listreturn .= "<table id=\"example2\" class=\"table table-bordered table-hover\">
                     <thead class=\"text-capitalize\">
                     <tr>
@@ -153,7 +168,11 @@ class SellGasController{
                     </tr>
                     </thead>
                     <tbody id=\"tabla_lista_pedidos\">";
+            $totaldelfiltro = 0;
             foreach ($filtrousuario as $m) {
+                $subtotal = round($m->saleproductgas_total, 2);
+                $totaldelfiltro = $totaldelfiltro + $subtotal;
+
                 $estadopedido = "<a class=\"btn btn-xs btn-outline-danger\" style='color: #00ca6d'>PENDIENTE</a>";
                 if($m->saleproductgas_estado == 1){
                     $estadopedido = "<a class=\"btn btn-xs btn-outline-success\">VENDIDO</a>";
@@ -185,8 +204,8 @@ class SellGasController{
             }
             $listreturn .="</tbody>
                 </table>";
+            $listreturn .= "<input type=\"hidden\" value=\"$totaldelfiltro\" id=\"montototalfiltro\">";
             echo $listreturn;
-            //echo json_encode($output);
 
         }catch (Throwable $e){
             $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
@@ -517,6 +536,18 @@ class SellGasController{
             echo "<script language=\"javascript\">alert(\"Error Al Mostrar Contenido. Redireccionando Al Inicio\");</script>";
             echo "<script language=\"javascript\">window.location.href=\"". _SERVER_ ."\";</script>";
         }
+    }
+
+    //funcion para crear los archivos planos, para generar el xml en el facturador Electronico Sunat
+    function crear_ArchivosPlanos(){
+        $return = 1;
+        echo $return;
+    }
+    
+    function facturador_sunat(){
+        ?>
+        <a href="http://localhost:9000/#"></a>
+    <?php
     }
 
     //ALQUILER PRODUCTO-------------------------------------------------->

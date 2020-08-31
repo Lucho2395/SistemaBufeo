@@ -35,7 +35,7 @@ function preguntarSiNo(){
     var saleproductgas_telefono = $('#client_telefono').val();
     var saleproduct_type = $('#type_sell').val();
     var saleproduct_naturaleza = $('#naturaleza_sell').val();
-    var saleproduct_total = $('#montototal').val();;
+    var saleproduct_total = $('#montototal').val();
     alertify.confirm('Realizar Venta', '¿Esta seguro que desea realizar esta venta? Monto Total: s/.' + saleproduct_total,
         function(){ vender(client_number, saleproductgas_direccion, saleproductgas_telefono, saleproduct_type, saleproduct_naturaleza, saleproduct_total) }
         , function(){ alertify.error('Operacion Cancelada')});

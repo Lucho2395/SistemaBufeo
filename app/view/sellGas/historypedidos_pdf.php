@@ -11,6 +11,7 @@
 //require 'app/view/report/pdf_base.php';
 //llamamos a la clase pdf_base.php que esta en la vista sellgas
 require_once 'pdf_base.php';
+//require 'app/view/report/pdf_base.php';
 // creamos el objeto
 $pdf = new PDF();
 //Define el marcador de posición usado para insertar el número total de páginas en el documento
@@ -26,16 +27,24 @@ $pdf->SetFillColor(232,232,232);
 $pdf->SetFont('Arial','',10);
 $pdf->Cell(35,6,'Fecha',1,0,'C',1);
 $pdf->Cell(50,6,'Cliente',1,0,'C',1);
-$pdf->Cell(40,6,'Dirección',1,0,'C',1);
+$pdf->Cell(50,6,'Dirección',1,0,'C',1);
 $pdf->Cell(30,6,'Telefono',1,0,'C',1);
-$pdf->Cell(30,6,'Total de Venta',1,0,'C',1);
+$pdf->Cell(25,6,'Total de Venta',1,0,'C',1);
 //$pdf->Cell(20,6,'VENDIDO',1,0,'C',1);
 $pdf->Ln();
+$totaldedinero = 0;
 foreach ($filtrousuario as $f){
+    $subtotal = round($f->saleproductgas_total, 2);
+    $totaldedinero = $totaldedinero + $subtotal;
     $pdf->Cell(35,6,$f->saleproductgas_date,1,0,'C',0);
     $pdf->Cell(50,6,$f->client_name,1,0,'C',0);
-    $pdf->Cell(40,6,$f->saleproductgas_direccion,1,0,'C',0);
+    $pdf->Cell(50,6,$f->saleproductgas_direccion,1,0,'C',0);
     $pdf->Cell(30,6,$f->saleproductgas_telefono,1,0,'C',0);
-    $pdf->Cell(30,6,$f->saleproductgas_total,1,1,'C',0);
+    $pdf->Cell(25,6,$f->saleproductgas_total,1,1,'C',0);
 }
+
+$pdf->SetFont('Arial','B',10);
+$pdf->SetX(-65);
+$pdf->Cell(30,6,'Total: ',1,0,'C',0);
+$pdf->Cell(25,6,$totaldedinero,1,1,'C',0);
 $pdf->Output();
