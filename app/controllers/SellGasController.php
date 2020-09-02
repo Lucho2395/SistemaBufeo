@@ -12,6 +12,7 @@ require 'app/models/Active.php';
 require 'app/models/Client.php';
 require 'app/models/Correlative.php';
 require 'app/models/User.php';
+require 'app/models/Nmletras.php';
 //require 'app/view/report/fpdf/fpdf.php';
 class SellGasController{
     private $crypt;
@@ -24,6 +25,7 @@ class SellGasController{
     private $client;
     private $correlative;
     private $usuario;
+    private $numLetra;
     //private $pdf;
 
     public function __construct()
@@ -38,6 +40,7 @@ class SellGasController{
         $this->client = new Client();
         $this->correlative = new Correlative();
         $this->usuario = new User();
+        $this->numLetra = new Nmletras();
         //$this->pdf = new FPDF();
     }
 
@@ -540,15 +543,14 @@ class SellGasController{
 
     //funcion para crear los archivos planos, para generar el xml en el facturador Electronico Sunat
     function crear_ArchivosPlanos(){
-        $return = 1;
-        echo $return;
+        $id_productoventa = $_POST['id'];
+        $estado_enviado = $_POST['envio_sunat'];
+        //$cliente_data = $this->client->listAll();
+        $comprobante_data = $this->sell->todoslosdatos_comprobante($id_productoventa); //CONSULTA DONDE SE REALACIONA TODO LO QUE SE USA EN SELLPRODUCTGAS
+
     }
     
-    function facturador_sunat(){
-        ?>
-        <a href="http://localhost:9000/#"></a>
-    <?php
-    }
+
 
     //ALQUILER PRODUCTO-------------------------------------------------->
     /*public function sellRent(){

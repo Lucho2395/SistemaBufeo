@@ -1,8 +1,8 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: CesarJose39
- * Date: 29/10/2018
+ * User: Lucho
+ * Date: 31/08/2020
  * Time: 9:59
  */
 
@@ -18,7 +18,7 @@ class Inventory{
     //Listar Productos Registrados
     public function listProducts(){
         try{
-            $sql = "Select * from product p inner join productforsale p2 on p.id_product = p2.id_product inner join categoryp c on p.id_categoryp = c.id_categoryp inner join proveedor pr on p.id_proveedor = pr.id_proveedor order by p.product_name";
+            $sql = "Select * from product p inner join productforsale p2 on p.id_product = p2.id_product inner join categoryp c on p.id_categoryp = c.id_categoryp inner join medida me on p.product_unid_type = me.medida_id inner join proveedor pr on p.id_proveedor = pr.id_proveedor order by p.product_name";
             $stm = $this->pdo->prepare($sql);
             $stm->execute();
 

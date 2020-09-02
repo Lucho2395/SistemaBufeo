@@ -36,6 +36,19 @@
                     <div>
                         <div class="box-body">
                             <div class="form-group">
+                                <label class="col-form-label">Tipo de Documento</label>
+                                <select id="tipò_documento" class="form-control">
+                                    <option value="">Seleccione el tipo de documento...</option>
+                                    <?php
+                                    foreach ($tipodocumento as $tipo){
+                                        ?>
+                                        <option <?php echo ($tipo->id_tipodocumento == $client->id_tipodocumento) ? 'selected' : '';?> value="<?php echo $tipo->id_tipodocumento; ?>"><?php echo $tipo->tipodocumento_identidad; ?></option>
+                                        <?php
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label class="col-form-label">Nombre del Cliente</label>
                                 <input type="text" class="form-control" id="client_name" placeholder="Ingresar Nombre del Cliente..." value="<?php echo $client->client_name;?>">
                             </div>

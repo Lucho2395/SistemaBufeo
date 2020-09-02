@@ -500,4 +500,17 @@ class SellGas{
         }
         return $result;
     }
+    //funcion donde selecciona todas las columnas
+    public function todoslosdatos_comprobante($id_productoventa){
+        try {
+            $sql = '';
+            $stm = $this->pdo->prepare($sql);
+            $stm->execute([$id_productoventa]);
+            $result = true;
+        } catch (Exception $e){
+            $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
+            $result = 2;
+        }
+        return $result;
+    }
 }

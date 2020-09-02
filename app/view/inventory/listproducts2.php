@@ -60,7 +60,7 @@
                             <td><?php echo $product->categoryp_name;?></td>
                             <td><?php echo $product->product_barcode;?></td>
                             <!--<td><?php echo $product->product_description;?></td>-->
-                            <td><?php echo $product->product_unid_type;?></td>
+                            <td><?php echo $product->medida_codigo_unidad;?></td>
                             <td>S/. <?php echo $product->product_price;?></td>
                             <td><?php echo $product->product_stock;?></td>
                             <td><a class="btn btn-chico btn-warning btn-xs" type="button" href="<?php echo _SERVER_;?>Inventory/editProduct/<?php echo $product->id_product;?>"><i class="fa fa-pencil"></i> Editar</a><a class="btn btn-chico btn-danger btn-xs" onclick="preguntarSiNo(<?php echo $product->id_product;?>)"><i class="fa fa-times"></i> Eliminar</a><a class="btn btn-info btn-xs" href="<?php echo _SERVER_;?>Inventory/addProductstock/<?php echo $product->id_product;?>"><i class="fa fa-sort-numeric-asc"></i> Agregar Stock</a><a class="btn btn-primary btn-xs" href="<?php echo _SERVER_;?>Inventory/outProductstock/<?php echo $product->id_product;?>"><i class="fa fa-eraser"></i>Salida Stock</a>

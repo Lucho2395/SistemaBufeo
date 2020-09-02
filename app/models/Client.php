@@ -1,8 +1,8 @@
 <?php
 /**
  * Created by PhpStorm
- * User: Franz
- * Date: 18/04/2019
+ * User: Lucho
+ * Date: 31/06/2020
  * Time: 21:00
  */
 
@@ -64,12 +64,13 @@ class Client{
     public function save($model){
         try {
             if(empty($model->id_client)){
-                $sql = 'insert into client(client_name, client_type, client_number, client_address, 
-                                    client_telephone) values(?,?,?,?,?)';
+                $sql = 'insert into client(client_name, client_type, id_tipodocumento, client_number, client_address, 
+                                    client_telephone) values(?,?,?,?,?,?)';
                 $stm = $this->pdo->prepare($sql);
                 $stm->execute([
                     $model->client_name,
                     $model->client_type,
+                    $model->client_tipodocumento,
                     $model->client_number,
                     $model->client_address,
                     $model->client_telephone
@@ -80,6 +81,7 @@ class Client{
                     set
                     client_name = ?,
                     client_type = ?,
+                    id_tipodocumento = ?,
                     client_number = ?,
                     client_address = ?,
                     client_telephone = ?
@@ -90,6 +92,7 @@ class Client{
                 $stm->execute([
                     $model->client_name,
                     $model->client_type,
+                    $model->client_tipodocumento,
                     $model->client_number,
                     $model->client_address,
                     $model->client_telephone,

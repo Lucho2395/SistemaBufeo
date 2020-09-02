@@ -7,12 +7,14 @@
  */
 
 require 'app/models/Client.php';
+require 'app/models/TipoDocumento.php';
 class ClientController{
     private $log;
     private $turn;
     private $menu;
     private $crypt;
     private $nav;
+    private $tipo_documento;
 
     public function __construct()
     {
@@ -20,6 +22,7 @@ class ClientController{
         $this->client = new Client();
 
         $this->crypt = new Crypt();
+        $this->tipo_documento = new TipoDocumento();
     }
 
     //Vistas
@@ -44,6 +47,7 @@ class ClientController{
         try{
             $this->nav = new Navbar();
             $navs = $this->nav->listMenu($this->crypt->decrypt($_SESSION['role'],_PASS_));
+            $tipodocumento = $this->tipo_documento->listAll();
             require _VIEW_PATH_ . 'header.php';
             require _VIEW_PATH_ . 'navbar.php';
 
@@ -60,6 +64,7 @@ class ClientController{
         try{
             $this->nav = new Navbar();
             $navs = $this->nav->listMenu($this->crypt->decrypt($_SESSION['role'],_PASS_));
+            $tipodocumento = $this->tipo_documento->listAll();
             $id = $_GET['id'] ?? 0;
             if($id == 0){
                 throw new Exception('ID Sin Declarar');
@@ -96,6 +101,7 @@ class ClientController{
                 $model->client_number = $_POST['client_number'];
                 $model->client_address = $_POST['client_address'];
                 $model->client_telephone = $_POST['client_telephone'];
+                $model->client_tipodocumento = $_POST['tipo_documento'];
                 $result = $this->client->save($model);
             }
         } catch (Exception $e){

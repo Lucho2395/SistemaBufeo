@@ -5,7 +5,16 @@ function save() {
     var client_number = $('#client_number').val();
     var client_address = $('#client_address').val();
     var client_telephone = $('#client_telephone').val();
+    var tipo_documento = $('#tipò_documento').val();
 
+
+    if(tipo_documento == ""){
+        alertify.error('El campo Nombre Cliente está vacío');
+        $('#tipò_documento').css('border','solid red');
+        valor = "incorrecto";
+    } else {
+        $('#tipò_documento').css('border','');
+    }
 
     if(client_name == ""){
         alertify.error('El campo Nombre Cliente está vacío');
@@ -46,7 +55,8 @@ function save() {
             "&client_type=" + client_type +
             "&client_number=" + client_number +
             "&client_address=" + client_address +
-            "&client_telephone=" + client_telephone;
+            "&client_telephone=" + client_telephone +
+            "&tipo_documento=" + tipo_documento;
         $.ajax({
             type:"POST",
             url: urlweb + "api/Client/save",

@@ -75,8 +75,17 @@
                                 <input type="text" class="form-control" id="product_description" placeholder="Ingresar Descripción Producto..." value="<?php echo $product->product_description;?>">
                             </div>
                             <div class="form-group">
-                                <label >Tipo de Unidad del Producto</label>
-                                <input type="text" class="form-control" id="product_unid_type" placeholder="Ingresar Tipo de Unidad del Producto..." value="<?php echo $product->product_unid_type;?>" >
+                                <label >Unidad de Medida</label>
+                                <select class="form-control" id="tipo_medida">
+                                    <option value="">Seleccione Una unidad de medida...</option>
+                                    <?php
+                                    foreach ($unimedida as $um){
+                                        ?>
+                                        <option <?php echo ($um->medida_id == $product->product_unid_type) ? 'selected' : '';?> value="<?php echo $um->medida_id;?>"><?php echo $um->medida_nombre;?></option>
+                                        <?php
+                                    }
+                                    ?>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label >Stock Producto</label>
@@ -115,7 +124,7 @@
         var id_proveedor = <?php echo $product->id_proveedor;?>;
         var product_barcode = $('#product_barcode').val();
         var product_description = $('#product_description').val();
-        var product_unid_type = $('#product_unid_type').val();
+        var product_unid_type = $('#tipo_medida').val();
         var product_stock = <?php echo $product->product_stock;?>;
         var product_price = $('#product_price').val();
 
@@ -153,10 +162,10 @@
 
         if(product_unid_type == ""){
             alertify.error('El campo Tipo de Unidad del Producto está vacío');
-            $('#product_unid_type').css('border','solid red');
+            $('#tipo_medida').css('border','solid red');
             valor = "incorrecto";
         } else {
-            $('#product_unid_type').css('border','');
+            $('#tipo_medida').css('border','');
         }
 
         if(product_price == ""){

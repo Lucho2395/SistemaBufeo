@@ -10,6 +10,7 @@ require 'app/models/Active.php';
 require 'app/models/Correlative.php';
 require 'app/models/Categoryp.php';
 require 'app/models/Proveedor.php';
+require 'app/models/UnidadMedida.php';
 class InventoryController{
     private $crypt;
     private $menu;
@@ -20,6 +21,7 @@ class InventoryController{
     private $categoryp;
     private $nav;
     private $proveedor;
+    private $unidad_medida;
     public function __construct()
     {
         $this->crypt = new Crypt();
@@ -30,6 +32,7 @@ class InventoryController{
         $this->correlative =  new Correlative();
         $this->categoryp =  new Categoryp();
         $this->proveedor = new Proveedor();
+        $this->unidad_medida = new UnidadMedida();
     }
     //Vistas
     //Producto
@@ -56,6 +59,7 @@ class InventoryController{
             $categoryp = $this->categoryp->listAll();
             $proveedor = $this->proveedor->listAll();
             $navs = $this->nav->listMenu($this->crypt->decrypt($_SESSION['role'],_PASS_));
+            $unimedida = $this->unidad_medida->listAllactivo();
             require _VIEW_PATH_ . 'header.php';
             require _VIEW_PATH_ . 'navbar.php';
             require _VIEW_PATH_ . 'inventory/add.php';
@@ -76,6 +80,7 @@ class InventoryController{
             $navs = $this->nav->listMenu($this->crypt->decrypt($_SESSION['role'],_PASS_));
             $product = $this->inventory->listProductwithprice($idp);
             $proveedor = $this->proveedor->listAll();
+            $unimedida = $this->unidad_medida->listAllactivo();
             require _VIEW_PATH_ . 'header.php';
             require _VIEW_PATH_ . 'navbar.php';
             require _VIEW_PATH_ . 'inventory/edit.php';
