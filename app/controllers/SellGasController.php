@@ -316,7 +316,7 @@ class SellGasController{
                 if(empty($result)){
                     $result = 2;
                 } else {
-                    $result = $result->product_name . '|' . $result->product_unid_type . '|' . $result->product_stock . '|' . $result->id_productforsale . '|' . $result->product_unid . '|' . $result->product_price;
+                    $result = $result->product_name . '|' . $result->medida_codigo_unidad . '|' . $result->product_stock . '|' . $result->id_productforsale . '|' . $result->product_unid . '|' . $result->product_price. '|' . $result->medida_id;
                 }
             } else {
                 $result = 2;
@@ -382,20 +382,23 @@ class SellGasController{
             $saleproduct_correlative = 1;
             $correlative = $this->correlative->list();
             if($saleproduct_type == "BOLETA"){
-                $saleproduct_correlative = "BN° " . $correlative->correlative_b;
+                $saleproduct_correlative = "B001-" . $correlative->correlative_b;
             } else {
-                $saleproduct_correlative = "FN° " . $correlative->correlative_f;
+                $saleproduct_correlative = "F001-" . $correlative->correlative_f;
             }
+            $saleproduct_gravada = $_POST['saleproduct_gravada'];
+            $saleproduct_igv = $_POST['saleproduct_igv'];
             $saleproduct_total = $_POST['saleproduct_total'];
             $saleproduct_date = date("Y-m-d H:i:s");
 
             $saleproduct_cancelled = 1;
 
-            $savesale = $this->sell->insertSale($id_client, $id_user, $id_turn, $saleproductgas_direccion, $saleproductgas_telefono, $saleproduct_type, $saleproductgas_naturaleza, $saleproduct_correlative, $saleproduct_total, $saleproduct_date, $saleproduct_estado, $saleproduct_cancelled);
+            $savesale = $this->sell->insertSale($id_client, $id_user, $id_turn, $saleproductgas_direccion, $saleproductgas_telefono, $saleproduct_type, $saleproductgas_naturaleza, $saleproduct_correlative, $saleproduct_gravada, $saleproduct_igv, $saleproduct_total, $saleproduct_date, $saleproduct_estado, $saleproduct_cancelled);
             $idsale = $savesale->id_saleproductgas;
 
 
             if($idsale != 2){ //despues de registrar la venta se sigue a registrar el detalle
+
                 foreach ($_SESSION['productos'] as $p){
                     $subtotal = round($p[3] * $p[4], 2);
                     $id_saleproduct = $savesale->id_saleproductgas;
@@ -404,9 +407,13 @@ class SellGasController{
                     $sale_unid = $p[2];
                     $sale_price= $p[3];
                     $sale_productscant = $p[4];
-                    $sale_productstotalselled = $p[2] * $p[4];
-                    $sale_productstotalprice = $subtotal; 
-                    $savedetail = $this->sell->insertSaledetail($id_saleproduct, $id_productforsale, $sale_productname, $sale_unid, $sale_price, $sale_productscant, $sale_productstotalselled, $sale_productstotalprice);
+                    $sale_productstotalselled = $p[4];
+                    $sale_productstotalprice = $subtotal;
+                    $precio_producto = $p[3];
+                    $precio_base = round($precio_producto / 1.18 , 2);
+                    $subtotal_base = round($subtotal / 1.18 , 2);
+                    $igv_total = round($subtotal - $subtotal_base , 2);
+                    $savedetail = $this->sell->insertSaledetail($id_saleproduct, $id_productforsale, $sale_productname, $sale_unid, $sale_price, $sale_productscant, $sale_productstotalselled, $sale_productstotalprice, $precio_producto, $precio_base, $subtotal_base, $igv_total);
                     if($savedetail == 1){
                         $reduce = $sale_unid * $sale_productscant;
                         $id_product = $this->inventory->listIdproducforproductsale($id_productforsale);

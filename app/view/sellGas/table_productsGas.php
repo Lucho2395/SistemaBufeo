@@ -28,10 +28,14 @@
             <?php
             $totales = count($_SESSION['productos']);
             $monto = 0;
+            $igv = 0;
+            $gravada = 0;
             if($totales != 0){
                 foreach ($_SESSION['productos'] as $p){
                     $subtotal = round($p[4] * $p[3],2);
                     $monto = $monto + $subtotal;
+                    $gravada = round($monto / 1.18, 2);
+                    $igv = round($monto - $gravada, 2);
                     ?>
                     <tr> <!--De esta tapla se jala los valores por la posicion de los arrays-->
                         <td><?php echo $p[0];?></td>
@@ -47,9 +51,13 @@
             ?>
             </tbody>
         </table>
-        <div class="row"  >
-            <div class="col-lg-7"></div>
+        <div class="row">
+            <div class="col-lg-8"></div>
             <div class="col-lg-4">
+                <h4>Gravada: s/. <?php echo $gravada;?></h4>
+                <input type="hidden" value="<?php echo $gravada;?>" id="gravada">
+                <h4>IGV: s/. <?php echo $igv;?></h4>
+                <input type="hidden" value="<?php echo $igv;?>" id="igv">
                 <h4>PRECIO TOTAL: s/. <?php echo $monto;?></h4>
                 <input type="hidden" value="<?php echo $monto;?>" id="montototal">
             </div>

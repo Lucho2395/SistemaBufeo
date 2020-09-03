@@ -32,7 +32,7 @@
                         <tbody>
                         <?php
                         foreach ($products as $product){
-                            $productnamefull = $product->product_name . ' X ' . $product->product_unid . ' '. $product->product_unid_type;
+                            $productnamefull = $product->product_name . ' ' . $product->medida_codigo_unidad;//' X ' . $product->product_unid . ' '. $product->product_unid_type;
                             ?>
                             <tr>
                                 <td><?php echo $product->id_productforsale;?></td>
@@ -215,7 +215,7 @@
 
         </div>
         <div class="row"  >
-            <div class="col-lg-7"></div>
+            <div class="col-lg-8"></div>
             <div class="col-lg-4">
                 <a type="button" id = "btn_generarventa" class="btn btn-danger" onclick="preguntarSiNo()" >
                     <i class="fa fa-money"></i> Generar Venta</a>
@@ -263,9 +263,9 @@
                         unid = "";
                     } else {
                         var productoinfo = r.split('|');
-                        var fullproductname = productoinfo[0] + ' X ' + productoinfo[4] + ' ' + productoinfo[1];
+                        var fullproductname = productoinfo[0] + ' ' + productoinfo[1];
                         productfull = fullproductname;
-                        unid =  productoinfo[4];
+                        unid =  productoinfo[6];
                         $('#product_nameb').val(fullproductname);
                         $('#id_productforsaleb').val(productoinfo[3]);
                         $('#product_stockb').val(productoinfo[2]);
@@ -311,7 +311,7 @@
         var stock = $("#product_stockb").val();
         var cadena = "codigo=" + cod +//[0]
             "&producto=" + productfull +//[1]
-            "&unids=" + unid +//[2]
+            "&unids=" + unid +//[2] unidad de medida
             "&precio=" + precio +//[3]
             "&cantidad=" + cant;//[4]
 

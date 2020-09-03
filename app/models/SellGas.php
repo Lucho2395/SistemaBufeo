@@ -32,7 +32,7 @@ class SellGas{
 
     public function search_by_barcode($product_barcode){
         try {
-            $sql = 'select * from product p inner join productforsale p2 on p.id_product = p2.id_product where p.product_barcode = ?';
+            $sql = 'select * from product p inner join productforsale p2 on p.id_product = p2.id_product inner join medida m on p.product_unid_type = m.medida_id where p.product_barcode = ?';
             $stm = $this->pdo->prepare($sql);
             $stm->execute([$product_barcode]);
             $result = $stm->fetch();
@@ -216,10 +216,10 @@ class SellGas{
     }
 
     //Insertar Datos En Detalle Venta
-    public function insertSale($id_client, $id_user, $id_turn, $saleproductgas_direccion, $saleproductgas_telefono, $saleproduct_type, $saleproductgas_naturaleza, $saleproduct_correlative, $saleproduct_total, $saleproduct_date, $saleproduct_estado, $saleproduct_cancelled){
+    public function insertSale($id_client, $id_user, $id_turn, $saleproductgas_direccion, $saleproductgas_telefono, $saleproduct_type, $saleproductgas_naturaleza, $saleproduct_correlative, $saleproduct_gravada, $saleproduct_igv, $saleproduct_total, $saleproduct_date, $saleproduct_estado, $saleproduct_cancelled){
         try{
             $date = date("Y-m-d H:i:s");
-            $sql = 'insert into saleproductgas(id_client, id_user, id_turn, saleproductgas_direccion, saleproductgas_telefono, saleproductgas_type, saleproductgas_naturaleza, saleproductgas_correlativo, saleproductgas_total, saleproductgas_date, saleproductgas_estado, saleproductgas_cancelled) values(?,?,?,?,?,?,?,?,?,?,?,?)';
+            $sql = 'insert into saleproductgas(id_client, id_user, id_turn, saleproductgas_direccion, saleproductgas_telefono, saleproductgas_type, saleproductgas_naturaleza, saleproductgas_correlativo, saleproductgas_totalgravada, saleproductgas_totaligv, saleproductgas_total, saleproductgas_date, saleproductgas_estado, saleproductgas_cancelled) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
             $stm = $this->pdo->prepare($sql);
             $stm->execute([
                 $id_client,
@@ -230,6 +230,8 @@ class SellGas{
                 $saleproduct_type,
                 $saleproductgas_naturaleza,
                 $saleproduct_correlative,
+                $saleproduct_gravada,
+                $saleproduct_igv,
                 $saleproduct_total,
                 $saleproduct_date,
                 $saleproduct_estado,
@@ -270,9 +272,9 @@ class SellGas{
     }
 
 
-    public function insertSaledetail($id_saleproduct, $id_productforsale, $sale_productname, $sale_unid, $sale_price, $sale_productscant, $sale_productstotalselled, $sale_productstotalprice){
+    public function insertSaledetail($id_saleproduct, $id_productforsale, $sale_productname, $sale_unid, $sale_price, $sale_productscant, $sale_productstotalselled, $sale_productstotalprice, $precio_producto, $precio_base, $subtotal_base, $igv_total){
         try{
-            $sql = 'insert into saledetailgas (id_saleproductgas, id_productforsale, sale_productnamegas, sale_unidgas, sale_pricegas, sale_productscantgas, sale_productstotalselledgas, sale_productstotalpricegas) values(?,?,?,?,?,?,?,?)';
+            $sql = 'insert into saledetailgas (id_saleproductgas, id_productforsale, sale_productnamegas, id_medida, sale_pricegas, sale_productscantgas, sale_productstotalselledgas, precio_base, precio_producto, subtotal, igv, sale_productstotalpricegas) values(?,?,?,?,?,?,?,?,?,?,?,?)';
             $stm = $this->pdo->prepare($sql);
             $stm->execute([
                 $id_saleproduct,
@@ -282,7 +284,12 @@ class SellGas{
                 $sale_price,
                 $sale_productscant,
                 $sale_productstotalselled,
+                $precio_base,
+                $precio_producto,
+                $subtotal_base,
+                $igv_total,
                 $sale_productstotalprice
+
             ]);
             $result = 1;
         } catch (Exception $e){

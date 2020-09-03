@@ -324,7 +324,7 @@ class Inventory{
     //Listar Datos Precio Productos
     public function listProductprices(){
         try{
-            $sql = "Select * from productforsale pr inner join product p on pr.id_product = p.id_product inner join categoryp c on p.id_categoryp = c.id_categoryp";
+            $sql = "Select * from productforsale pr inner join product p on pr.id_product = p.id_product inner join categoryp c on p.id_categoryp = c.id_categoryp inner join medida m on p.product_unid_type = m.medida_id";
             $stm = $this->pdo->prepare($sql);
             $stm->execute();
             $result = $stm->fetchAll();
