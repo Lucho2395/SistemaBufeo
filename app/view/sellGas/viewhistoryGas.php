@@ -114,6 +114,7 @@
             url: urlweb + "api/SellGas/crear_ArchivosPlanos",
             data : cadena,
             success:function (r) {
+                alert(r)
                 if(r==1){
                     alertify.success('Registro Enviado');
                     location.reload();

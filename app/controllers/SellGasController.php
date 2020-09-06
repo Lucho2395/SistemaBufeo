@@ -316,7 +316,7 @@ class SellGasController{
                 if(empty($result)){
                     $result = 2;
                 } else {
-                    $result = $result->product_name . '|' . $result->medida_codigo_unidad . '|' . $result->product_stock . '|' . $result->id_productforsale . '|' . $result->product_unid . '|' . $result->product_price. '|' . $result->medida_id;
+                    $result = $result->product_name . '|' . $result->product_unid_type . '|' . $result->product_stock . '|' . $result->id_productforsale . '|' . $result->product_unid . '|' . $result->product_price . '|' . $result->medida_codigo_unidad;
                 }
             } else {
                 $result = 2;
@@ -383,8 +383,10 @@ class SellGasController{
             $correlative = $this->correlative->list();
             if($saleproduct_type == "BOLETA"){
                 $saleproduct_correlative = "B001-" . $correlative->correlative_b;
+                $saleproduct_type = "03";
             } else {
                 $saleproduct_correlative = "F001-" . $correlative->correlative_f;
+                $saleproduct_type = "01";
             }
             $saleproduct_gravada = $_POST['saleproduct_gravada'];
             $saleproduct_igv = $_POST['saleproduct_igv'];
@@ -430,7 +432,7 @@ class SellGasController{
             if($return == 1){
                 $return = $savesale->id_saleproductgas;
 
-                if($saleproduct_type == "BOLETA"){
+                if($saleproduct_type == "03"){
                     $this->correlative->updatecorrelativeb();
                 } else {
                     $this->correlative->updatecorrelativef();
@@ -550,13 +552,236 @@ class SellGasController{
 
     //funcion para crear los archivos planos, para generar el xml en el facturador Electronico Sunat
     function crear_ArchivosPlanos(){
-        $id_productoventa = $_POST['id'];
-        $estado_enviado = $_POST['envio_sunat'];
-        //$cliente_data = $this->client->listAll();
-        $comprobante_data = $this->sell->todoslosdatos_comprobante($id_productoventa); //CONSULTA DONDE SE REALACIONA TODO LO QUE SE USA EN SELLPRODUCTGAS
+        try {
+            $id_productoventa = $_POST['id'];
+            $estado_enviado = $_POST['envio_sunat'];
+            //$cliente_data = $this->client->listAll();
+            $comprobante = $this->sell->datos_comprobante($id_productoventa); //CONSULTA DONDE SE REALACIONA TODO LO QUE SE USA EN SELLPRODUCTGAS
+            $comprobante_saleproduct = $this->sell->listSale($id_productoventa);
+            $saledetail_data = $this->sell->todos_saledetaill($id_productoventa);
+            $rutaArchivos = "C:/FacturadorBufeo/sunat_archivos/sfs/DATA/";
+            if ($estado_enviado == 0) {
+                if ($comprobante->saleproductgas_type < 4) {
+                    // FACTURA , BOLETA
+
+                    /*nombre archivo*/
+                    $fechaHoraEmision = new DateTime($comprobante->fecha_sunat);
+                    $fechaVencimiento = new DateTime($comprobante->fecha_de_vencimiento);
+                    $sql = $rutaArchivos . $comprobante->empresa_ruc . '-' . $comprobante->saleproductgas_type . '-' . $comprobante->saleproductgas_correlativo . '.CAB';
+                    $f = fopen($sql, 'w'); //crea la libreria (con nombre especificado)
+//HASTA ACA SE CREA EL ARCHIVO .CAB
+                    /*cuerpo documento cabecera*/
+                    $linea = "0101|";//tipo operacion
+                    $linea .= "{$fechaHoraEmision->format('Y-m-d')}|";//fecha emision
+                    $linea .= "{$fechaHoraEmision->format('H:i:s')}|";//hora emision
+                    $linea .= "{$fechaVencimiento->format('Y-m-d')}|";//:fecha vencimiento
+                    $linea .= "0000|";//codigo domicilio fiscal
+                    $linea .= "{$comprobante->tipodocumento_codigo}|";//tipo de documento de identidad
+                    $linea .= trim("{$comprobante->client_number}")."|";//:numero de documento identidad || trmi(Elimina espacio en blanco (u otro tipo de caracteres) del inicio y el final de la cadena)
+                    $linea .= "{$comprobante->client_razonsocial}"." {$comprobante->client_name}|";//apellidos y nombres o razon social
+                    $linea .= "{$comprobante->abrstandar}|";//:tipo de moneda
+                    $linea .= "{$comprobante->saleproductgas_totaligv}|";//:sumatoria tributos
+                    $linea .= "{$comprobante->saleproductgas_totalgravada}|";//:total valor venta
+                    $linea .= "{$comprobante->saleproductgas_total}|";//total precio venta
+                    $linea .= "$comprobante_saleproduct->total_descuentos.|";//total descuento
+                    $linea .= "0|";//sumatoria otros cargos
+                    /*buscamos si el comprobante a enviar tiene anticipos*/
+                    /*$this->db->from("comprobante_anticipo");
+                    $this->db->join("comprobantes", "comprobante_anticipo.comprobante_id=comprobantes.id");
+                    $this->db->where("comprobante_id" , $comprobante_id);
+                    $query = $this->db->get();
+                    $anticipos = $query->result();
+                    if(count($anticipos))
+                    {
+                        $totalAnticipos = 0;
+                        foreach($anticipos as $anticipo)
+                        {
+                            $totalAnticipo += $anticipo->total_a_pagar;
+                        }
+                        $linea .= "{$totalAnticipo}|";
+                    }else{
+                        $linea .= "0|";//total anticipo
+                    }*/
+                    $linea .= "0|";//total anticipo
+                    $linea .= "{$comprobante->saleproductgas_total}|";//importe total venta
+                    $linea .= "2.1|";//version UBL
+                    $linea .= "2.0|\r\n";//customization
+
+                    fwrite($f, $linea); // Escritura de un archivo en modo binario seguro
+                    fclose($f); //CERRAMOS EL FICHERO
+                    //empezamos con el archivo .DET
+                    $rut = $rutaArchivos . $comprobante->empresa_ruc . '-' . $comprobante->saleproductgas_type . '-' . $comprobante->saleproductgas_correlativo . '.DET';
+                    $f = fopen($rut, 'w');
+                    foreach ($saledetail_data as $value) {
+                        $result = $this->sell->Buscarproduct_detalle($value->id_productforsale);
+
+                        // $precioBaseUnidad = ($value['total']-$value['igv'])/$value['cantidad'];//precio unitario sin igv
+                        /*if($comprobante1->comprobante_anticipo == '1')
+                        {
+                            $precioBaseUnidad = (($value['subtotal']/$value['cantidad'])/1.18);
+                        }else{
+                            $precioBaseUnidad = ($value['subtotal']/$value['cantidad']);
+                        }
+
+                        $precioConIgv = $precioBaseUnidad*1.18;
+                        $igvUnitario = $precioConIgv-$precioBaseUnidad ; */
+
+                        // $igvPorUnidad = $precioBaseUnidad;
+                        $descripction = utf8_decode($value->sale_productnamegas);
+
+                        $linea = "{$result->medida_codigo_unidad}|";//Código de unidad de medida por ítem
+                        $linea .= "{$value->sale_productscantgas}|";//Cantidad de unidades por ítem
+                        $linea .= "{$result->product_barcode}|";//Código de producto
+                        $linea .= "-|";//Codigo producto SUNAT
+                        $linea .= str_replace("&", "Y", trim(utf8_decode($descripction)))."|";//Descripción detallada del servicio prestado, bien vendido o cedido en uso, indicando las características.
+                        $linea .= round($value->precio_producto, 2)."|";//Valor Unitario (cac:InvoiceLine/cac:Price/cbc:PriceAmount)
+                        $linea .= "{$value->igv}|";//Sumatoria Tributos por item
+                        //TRIBUTO IGV
+                        $linea .= "{$value->igv_codigo}|";//Tributo: Códigos de tipos de tributos IGV(1000 - 1016 - 9995 - 9996 - 9997 - 9998)
+                        $linea .= "{$value->igv}|";//Tributo: Monto de IGV por ítem
+                        if($value->igv_codigo == '40')//gratuitas la base es 0
+                        {
+                            $linea .= "0|";//Tributo: Base Imponible IGV por Item
+                        }else
+                        {
+                            $linea .= "{$value->subtotal}|";//Tributo: Base Imponible IGV por Item
+                        }
+
+                        $linea .= "{$value->igv_nombre}|";//Tributo: Nombre de tributo por item
+                        //$linea .= $this->tipoCodigoDeTributo($value['tipo_igv_codigo'])."|";//Tributo: Código de tipo de tributo por Item
+                        $linea .= "{$value->igv_codigoInternacional}|";//Tributo: Código de tipo de tributo por Item
+                        $linea .= "{$value->igv_codigoafectacion}|";//Tributo: Afectación al IGV por ítem
+                        $linea .= "18.00|";//Tributo: Porcentaje de IGV
+                        /*Tributo ISC (2000)*/
+                        $linea .= "-|";//Tributo ISC: Códigos de tipos de tributos ISC
+                        $linea .= "0.00|";//Tributo ISC: Monto de ISC por ítem
+                        $linea .= "0.00|";//Tributo ISC: Base Imponible ISC por Item
+                        $linea .= "|";//Tributo ISC: Nombre de tributo por item
+                        $linea .= "|";//Tributo ISC: Código de tipo de tributo por Item
+                        $linea .= "|";//Tributo ISC: Tipo de sistema ISC
+                        $linea .= "15.00|";//Tributo ISC: Porcentaje de ISC
+                        /*Tributo Otro 9999*/
+                        $linea .= "-|";//Tributo Otro: Códigos de tipos de tributos OTRO
+                        $linea .= "0.00|";//Tributo Otro: Monto de tributo OTRO por iItem
+                        $linea .= "0.00|";//Tributo Otro: Base Imponible de tributo OTRO por Item
+                        $linea .= "|";//Tributo Otro:  Nombre de tributo OTRO por item
+                        $linea .= "|";//Tributo Otro: Código de tipo de tributo OTRO por Item
+                        $linea .= "15.00|";//Tributo Otro: Porcentaje de tributo OTRO por Item
+                        //Tributo ICBPER 7152
+                        $linea .= "-|";//Tributo ICBPER: Códigos de tipos de tributos ICBPER
+                        $linea .= "|";//Tributo ICBPER: Monto de tributo ICBPER por iItem
+                        $linea .= "|";//Tributo ICBPER: Cantidad de bolsas plásticas por Item
+                        $linea .= "|";//Tributo ICBPER:  Nombre de tributo ICBPER por item
+                        $linea .= "|";//Tributo ICBPER: Código de tipo de tributo ICBPER por Item
+                        $linea .= "|";//Tributo ICBPER: Monto de tributo ICBPER por Unidad
+
+                        $linea .= ($value->precio_base * 1.18)."|";//Precio de venta unitario(base+igv)
+                        $linea .= round($value->subtotal, 2)."|";//Valor de venta por Item
+                        $linea .= "0.00|\r\n";//Valor REFERENCIAL unitario (gratuitos)*/
+                        fwrite($f, $linea);
+                    }
+                    fclose($f);
+                    /*DOCUMENTO TRIBUTO*/
+                    $rut_tributo = $rutaArchivos . $comprobante->empresa_ruc . '-' . $comprobante->saleproductgas_type . '-' . $comprobante->saleproductgas_correlativo . '.TRI';
+                    $f = fopen($rut_tributo, 'w');
+                    //si tributo es igv
+
+                    $return = 1;
+                } else{
+                    $return = 2;
+                }
+            }
+        }catch (Exception $e){
+            $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
+            $return = 2;
+        }
+        echo $return;
 
     }
-    
+
+    /*public function sanear_string($string) {
+
+        $string = trim(utf8_encode($string));
+//        $string = str_replace(
+//            array('á', 'à', 'ä', 'â', 'ª', 'Á', 'À', 'Â', 'Ä'),
+//            array('a', 'a', 'a', 'a', 'a', 'A', 'A', 'A', 'A'),
+//            $string
+//        );
+        $string = str_replace(
+            array('à', 'ä', 'â', 'ª', 'Á', 'À', 'Â', 'Ä'), array('a', 'a', 'a', 'a', 'A', 'A', 'A', 'A'), $string
+        );
+
+//        $string = str_replace(
+//            array('é', 'è', 'ë', 'ê', 'É', 'È', 'Ê', 'Ë'),
+//            array('e', 'e', 'e', 'e', 'E', 'E', 'E', 'E'),
+//            $string
+//        );
+        $string = str_replace(
+            array('è', 'ë', 'ê', 'É', 'È', 'Ê', 'Ë'), array('e', 'e', 'e', 'E', 'E', 'E', 'E'), $string
+        );
+
+//        $string = str_replace(
+//            array('í', 'ì', 'ï', 'î', 'Í', 'Ì', 'Ï', 'Î'),
+//            array('i', 'i', 'i', 'i', 'I', 'I', 'I', 'I'),
+//            $string
+//        );
+        $string = str_replace(
+            array('ì', 'ï', 'î', 'Í', 'Ì', 'Ï', 'Î'), array('i', 'i', 'i', 'I', 'I', 'I', 'I'), $string
+        );
+
+//        $string = str_replace(
+//            array('ó', 'ò', 'ö', 'ô', 'Ó', 'Ò', 'Ö', 'Ô'),
+//            array('o', 'o', 'o', 'o', 'O', 'O', 'O', 'O'),
+//            $string
+//        );
+        $string = str_replace(
+            array('ò', 'ö', 'ô', 'Ó', 'Ò', 'Ö', 'Ô'), array('o', 'o', 'o', 'O', 'O', 'O', 'O'), $string
+        );
+
+//        $string = str_replace(
+//            array('ú', 'ù', 'ü', 'û', 'Ú', 'Ù', 'Û', 'Ü'),
+//            array('u', 'u', 'u', 'u', 'U', 'U', 'U', 'U'),
+//            $string
+//        );
+        $string = str_replace(
+            array('ù', 'ü', 'û', 'Ú', 'Ù', 'Û', 'Ü'), array('u', 'u', 'u', 'U', 'U', 'U', 'U'), $string
+        );
+
+//        $string = str_replace(
+//            array('ñ', 'Ñ', 'ç', 'Ç'),
+//            array('n', 'N', 'c', 'C',),
+//            $string
+//        );
+        $string = str_replace(
+            array('ç', 'Ç'), array('c', 'C',), $string
+        );
+
+        //Esta parte se encarga de eliminar cualquier caracter extraño
+//        $string = str_replace(
+//            array("\\", "¨", "º", "-", "~",
+//                 "#", "@", "|", "!", "\"",
+//                 "·", "$", "%", "&", "/",
+//                 "(", ")", "?", "'", "¡",
+//                 "¿", "[", "^", "`", "]",
+//                 "+", "}", "{", "¨", "´",
+//                 ">", "< ", ";", ",", ":",
+//                 ".", " "),
+//            '',
+        $string = str_replace(
+            array("\\", "¨", "º", "-", "~",
+                "|", "!", "\"",
+                "·", "&", "/",
+                "(", ")", "'", "¡",
+                "¿", "[", "^", "`", "]",
+                "}", "{", "¨", "´"
+            ), '', $string
+        );
+        $string = str_replace(
+            array("\n"
+            ), ' ', $string
+        );
+        return $string;
+    }
 
 
     //ALQUILER PRODUCTO-------------------------------------------------->

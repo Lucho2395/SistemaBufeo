@@ -508,12 +508,49 @@ class SellGas{
         return $result;
     }
     //funcion donde selecciona todas las columnas
-    public function todoslosdatos_comprobante($id_productoventa){
+    public function datos_comprobante($id_productoventa){
         try {
-            $sql = '';
+            $sql = 'SELECT sp.saleproductgas_date AS fecha_sunat, DATE_FORMAT(sp.saleproductgas_date, \'%d-%m-%Y\') AS 
+                    fecha_de_emision, DATE_FORMAT(sp.saleproductgas_date, \'%d-%m-%Y\') AS fecha_de_vencimiento, 
+                    emp.empresa_ruc, emp.empresa_nombre, emp.empresa_domiciliofiscal, emp.empresa_celular1, emp.empresa_correo, 
+                    emp.empresa_descripcion, sp.id_saleproductgas, sp.id_empresa, sp.saleproductgas_type, sp.saleproductgas_correlativo, 
+                    sp.saleproductgas_total, sp.saleproductgas_totalgravada, sp.saleproductgas_totaligv, cl.id_client, sp.id_moneda, 
+                    cl.client_number, cl.id_tipodocumento, cl.client_name, cl.client_razonsocial, cl.client_razonsocial_sunat,
+                    cl.client_address, cl.client_correo, tid.tipodocumento_codigo, sp.saleproductgas_type, mo.moneda, mo.abrstandar, 
+                    mo.simbolo FROM saleproductgas sp INNER JOIN empresa emp ON sp.id_empresa = emp.id_empresa INNER JOIN client cl 
+                    ON sp.id_client = cl.id_client INNER JOIN monedas mo ON sp.id_moneda = mo.id INNER JOIN tipo_documento tid ON 
+                    cl.id_tipodocumento = tid.id_tipodocumento where sp.id_saleproductgas = ? limit 1';
             $stm = $this->pdo->prepare($sql);
             $stm->execute([$id_productoventa]);
-            $result = true;
+            $result = $stm->fetch();
+        } catch (Exception $e){
+            $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
+            $result = 2;
+        }
+        return $result;
+    }
+
+    public function todos_saledetaill($id_productoventa){
+        try {
+            $sql = 'SELECT *, spr.id_saleproductgas, sde.id_productforsale, sde.id_medida FROM saledetailgas sde 
+                    INNER JOIN saleproductgas spr ON sde.id_saleproductgas = spr.id_saleproductgas INNER JOIN igv igv ON sde.igv_tipoigv = igv.id_igv WHERE sde.id_saleproductgas = 75 ';
+            $stm = $this->pdo->prepare($sql);
+            $stm->execute([$id_productoventa]);
+            $result = $stm->fetchAll();
+        } catch (Exception $e){
+            $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
+            $result = 2;
+        }
+        return $result;
+    }
+
+    public function Buscarproduct_detalle($id_productforsale){
+        try {
+            $sql = 'SELECT * FROM productforsale pfs INNER JOIN product pr ON pfs.id_product = pr.id_product 
+                    INNER JOIN medida me ON pr.product_unid_type = me.medida_id WHERE id_productforsale = ?';
+            $stm = $this->pdo->prepare($sql);
+            $stm->execute([$id_productforsale]);
+            $result = $stm->fetch();
         } catch (Exception $e){
             $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
             $result = 2;

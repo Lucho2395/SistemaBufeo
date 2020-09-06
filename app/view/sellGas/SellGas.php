@@ -32,7 +32,7 @@
                         <tbody>
                         <?php
                         foreach ($products as $product){
-                            $productnamefull = $product->product_name . ' ' . $product->medida_codigo_unidad;//' X ' . $product->product_unid . ' '. $product->product_unid_type;
+                            $productnamefull = $product->product_name //. ' ' . $product->medida_codigo_unidad;//' X ' . $product->product_unid . ' '. $product->product_unid_type;
                             ?>
                             <tr>
                                 <td><?php echo $product->id_productforsale;?></td>
@@ -42,7 +42,7 @@
                                 <td>S/. <input type="text" class="form-control" onchange="onchangeundprice<?php echo $product->id_productforsale;?>()"  style="width: 80px;" onkeypress="return valida(event)" id="product_price<?php echo $product->id_productforsale;?>" value="<?php echo $product->product_price;?>"> </td>
                                 <td><input type="text" class="form-control" onchange="onchangeund<?php echo $product->id_productforsale;?>()" style="width: 70px;" id="total_product<?php echo $product->id_productforsale;?>" onkeypress="return valida(event)" value="1"></td>
                                 <td>S/. <input type="text" class="form-control" onchange="onchangetotalprice<?php echo $product->id_productforsale;?>()"  style="width: 80px;" id="total_price<?php echo $product->id_productforsale;?>" onkeypress="return valida(event)" value="<?php echo $product->product_price;?>"></td>
-                                <td><a class="btn btn-success btn-xs" type="button" onclick="agregarProducto<?php echo $product->id_productforsale;?>(<?php echo $product->id_productforsale;?>, '<?php echo $productnamefull;?>',<?php echo $product->product_unid;?>,<?php echo $product->product_stock;?>)"><i class="fa fa-check-circle"></i> Elegir Producto</a></td>
+                                <td><a class="btn btn-success btn-xs" type="button" onclick="agregarProducto<?php echo $product->id_productforsale;?>(<?php echo $product->id_productforsale;?>, '<?php echo $productnamefull;?>',<?php echo $product->product_unid_type;?>,<?php echo $product->product_stock;?>)"><i class="fa fa-check-circle"></i> Elegir Producto</a></td>
                             </tr>
                             <?php
                         }
@@ -263,9 +263,9 @@
                         unid = "";
                     } else {
                         var productoinfo = r.split('|');
-                        var fullproductname = productoinfo[0] + ' ' + productoinfo[1];
+                        var fullproductname = productoinfo[0];
                         productfull = fullproductname;
-                        unid =  productoinfo[6];
+                        unid =  productoinfo[1];
                         $('#product_nameb').val(fullproductname);
                         $('#id_productforsaleb').val(productoinfo[3]);
                         $('#product_stockb').val(productoinfo[2]);
