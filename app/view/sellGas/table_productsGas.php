@@ -27,25 +27,47 @@
             <tbody>
             <?php
             $totales = count($_SESSION['productos']);
-            $monto = 0;
-            $igv = 0;
-            $gravada = 0;
+            $monto = 0.00;
+            $igv = 0.00;
+            $gravada = 0.00;
+            $inafecta = 0.00;
             if($totales != 0){
                 foreach ($_SESSION['productos'] as $p){
-                    $subtotal = round($p[4] * $p[3],2);
-                    $monto = $monto + $subtotal;
-                    $gravada = round($monto / 1.18, 2);
-                    $igv = round($monto - $gravada, 2);
-                    ?>
-                    <tr> <!--De esta tapla se jala los valores por la posicion de los arrays-->
-                        <td><?php echo $p[0];?></td>
-                        <td><?php echo $p[1];?></td>
-                        <td>s/. <?php echo $p[3];?></td>
-                        <td><?php echo $p[4];?></td>
-                        <td>s/. <?php echo $subtotal;?></td>
-                        <td><a type="button" class="btn btn-xs btn-warning btne" onclick="quitarProducto(<?php echo $p[0];?>)" ><i class="fa fa-times"></i> Quitar</a></td>
-                    </tr>
-                    <?php
+                    if ($p[5] == 1){
+                        $subtotal = round($p[4] * $p[3],2);
+                        $monto = $monto + $subtotal;
+                        $inafecta = $inafecta;
+                        $gravada = $gravada + round($subtotal / 1.18, 2);
+                        $gravadaalmacenada = round($subtotal / 1.18, 2);
+                        $igv = $igv +  round($subtotal - $gravadaalmacenada, 2);
+                        ?>
+                        <tr> <!--De esta tapla se jala los valores por la posicion de los arrays-->
+                            <td><?php echo $p[0];?></td>
+                            <td><?php echo $p[1];?></td>
+                            <td>s/. <?php echo $p[3];?></td>
+                            <td><?php echo $p[4];?></td>
+                            <td>s/. <?php echo $subtotal;?></td>
+                            <td><a type="button" class="btn btn-xs btn-warning btne" onclick="quitarProducto(<?php echo $p[0];?>)" ><i class="fa fa-times"></i> Quitar</a></td>
+                        </tr>
+                        <?php
+                    } else{
+                        $subtotal = round($p[4] * $p[3],2);
+                        $monto = round($monto + $subtotal , 2);
+                        $inafecta = round($inafecta + $subtotal , 2);
+                        $gravada = round($gravada, 2);
+                        $igv =round($igv, 2);
+                        ?>
+                        <tr> <!--De esta tapla se jala los valores por la posicion de los arrays-->
+                            <td><?php echo $p[0];?></td>
+                            <td><?php echo $p[1];?></td>
+                            <td>s/. <?php echo $p[3];?></td>
+                            <td><?php echo $p[4];?></td>
+                            <td>s/. <?php echo $subtotal;?></td>
+                            <td><a type="button" class="btn btn-xs btn-warning btne" onclick="quitarProducto(<?php echo $p[0];?>)" ><i class="fa fa-times"></i> Quitar</a></td>
+                        </tr>
+                        <?php
+                    }
+
                 }
             }
             ?>
@@ -54,9 +76,11 @@
         <div class="row">
             <div class="col-lg-8"></div>
             <div class="col-lg-4">
-                <h4>Gravada: s/. <?php echo $gravada;?></h4>
+                <h5>OP. INAFECTA: s/. <?php echo $inafecta;?></h5>
+                <input type="hidden" value="<?php echo $inafecta;?>" id="gravada">
+                <h5>OP. GRAVADA: s/. <?php echo $gravada;?></h5>
                 <input type="hidden" value="<?php echo $gravada;?>" id="gravada">
-                <h4>IGV: s/. <?php echo $igv;?></h4>
+                <h5>IGV: s/. <?php echo $igv;?></h5>
                 <input type="hidden" value="<?php echo $igv;?>" id="igv">
                 <h4>PRECIO TOTAL: s/. <?php echo $monto;?></h4>
                 <input type="hidden" value="<?php echo $monto;?>" id="montototal">
@@ -65,6 +89,12 @@
 
     </div>
 </div>
+
+<script type="text/javascript">
+    function tipo_igv(){
+
+    }
+</script>
 
 
 

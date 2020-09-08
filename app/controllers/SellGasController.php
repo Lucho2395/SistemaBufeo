@@ -13,6 +13,7 @@ require 'app/models/Client.php';
 require 'app/models/Correlative.php';
 require 'app/models/User.php';
 require 'app/models/Nmletras.php';
+require 'app/models/Igv.php';
 //require 'app/view/report/fpdf/fpdf.php';
 class SellGasController{
     private $crypt;
@@ -26,6 +27,7 @@ class SellGasController{
     private $correlative;
     private $usuario;
     private $numLetra;
+    private $igv_tipo;
     //private $pdf;
 
     public function __construct()
@@ -41,6 +43,7 @@ class SellGasController{
         $this->correlative = new Correlative();
         $this->usuario = new User();
         $this->numLetra = new Nmletras();
+        $this->igv_tipo = new Igv();
         //$this->pdf = new FPDF();
     }
 
@@ -53,6 +56,7 @@ class SellGasController{
         $products = $this->inventory->listProductprices();
         //Cargamos Clientes
         $clients = $this->client->listAll();
+
         require _VIEW_PATH_ . 'header.php';
         require _VIEW_PATH_ . 'navbar.php';
         require _VIEW_PATH_ . 'sellGas/SellGas.php';
@@ -257,13 +261,14 @@ class SellGasController{
     }
 
     public function table_productsGas(){
+
         require _VIEW_PATH_ . 'sellGas/table_productsGas.php';
     }
 
     //Funciones
     public function addProductGas(){
         try{
-            if(isset($_POST['codigo']) && isset($_POST['producto']) && isset($_POST['unids']) && isset($_POST['precio']) && isset($_POST['cantidad'])){
+            if(isset($_POST['codigo']) && isset($_POST['producto']) && isset($_POST['unids']) && isset($_POST['precio']) && isset($_POST['cantidad']) && isset($_POST['tipo_igv'])){
                 $repeat = false;
                 foreach($_SESSION['productos'] as $p){
                     if($_POST['codigo'] == $p[0]){
@@ -271,7 +276,7 @@ class SellGasController{
                     }
                 }
                 if(!$repeat){
-                    array_push($_SESSION['productos'], [$_POST['codigo'], $_POST['producto'], $_POST['unids'], round($_POST['precio'], 2), $_POST['cantidad']]);
+                    array_push($_SESSION['productos'], [$_POST['codigo'], $_POST['producto'], $_POST['unids'], round($_POST['precio'], 2), $_POST['cantidad'], $_POST['tipo_igv']]);
                     $result = 1;
                 } else {
                     $result = 3;
@@ -417,7 +422,7 @@ class SellGasController{
                     $igv_total = round($subtotal - $subtotal_base , 2);
                     $savedetail = $this->sell->insertSaledetail($id_saleproduct, $id_productforsale, $sale_productname, $sale_unid, $sale_price, $sale_productscant, $sale_productstotalselled, $sale_productstotalprice, $precio_producto, $precio_base, $subtotal_base, $igv_total);
                     if($savedetail == 1){
-                        $reduce = $sale_unid * $sale_productscant;
+                        $reduce = $sale_productscant;
                         $id_product = $this->inventory->listIdproducforproductsale($id_productforsale);
                         $this->sell->saveProductstock($reduce, $id_product);
                         $return = 1;
@@ -583,7 +588,7 @@ class SellGasController{
                     $linea .= "{$comprobante->saleproductgas_totaligv}|";//:sumatoria tributos
                     $linea .= "{$comprobante->saleproductgas_totalgravada}|";//:total valor venta
                     $linea .= "{$comprobante->saleproductgas_total}|";//total precio venta
-                    $linea .= "$comprobante_saleproduct->total_descuentos.|";//total descuento
+                    $linea .= "$comprobante_saleproduct->total_descuentos|";//total descuento
                     $linea .= "0|";//sumatoria otros cargos
                     /*buscamos si el comprobante a enviar tiene anticipos*/
                     /*$this->db->from("comprobante_anticipo");
@@ -634,7 +639,7 @@ class SellGasController{
                         $linea .= "{$result->product_barcode}|";//Código de producto
                         $linea .= "-|";//Codigo producto SUNAT
                         $linea .= str_replace("&", "Y", trim(utf8_decode($descripction)))."|";//Descripción detallada del servicio prestado, bien vendido o cedido en uso, indicando las características.
-                        $linea .= round($value->precio_producto, 2)."|";//Valor Unitario (cac:InvoiceLine/cac:Price/cbc:PriceAmount)
+                        $linea .= round($value->precio_base, 2)."|";//Valor Unitario (cac:InvoiceLine/cac:Price/cbc:PriceAmount)
                         $linea .= "{$value->igv}|";//Sumatoria Tributos por item
                         //TRIBUTO IGV
                         $linea .= "{$value->igv_codigo}|";//Tributo: Códigos de tipos de tributos IGV(1000 - 1016 - 9995 - 9996 - 9997 - 9998)
@@ -685,7 +690,59 @@ class SellGasController{
                     $rut_tributo = $rutaArchivos . $comprobante->empresa_ruc . '-' . $comprobante->saleproductgas_type . '-' . $comprobante->saleproductgas_correlativo . '.TRI';
                     $f = fopen($rut_tributo, 'w');
                     //si tributo es igv
+                    if($comprobante->saleproductgas_totalgravada > 0)
+                    {
+                        $linea = "1000|";//Identificador de tributo
+                        $linea .= "IGV|";//Nombre de tributo
+                        $linea .= "VAT|";//Código de tipo de tributo
+                        $linea .= "{$comprobante->saleproductgas_totalgravada}|";//Base imponible
+                        $linea .= "{$comprobante->saleproductgas_totaligv}|\r\n";//Monto de Tirbuto por ítem
+                        fwrite($f, $linea);
+                    }
+                    //si tributo es exonerada
+                    /*if($comprobante['total_exonerada'] > 0)
+                    {
+                        $linea = "9997|";//Identificador de tributo
+                        $linea .= "EXO|";//Nombre de tributo
+                        $linea .= "VAT|";//Código de tipo de tributo
+                        $linea .= "{$comprobante['total_exonerada']}|";//Base imponible
+                        $linea .= "0|\r\n";//Monto de Tirbuto por ítem
+                        fwrite($f, $linea);
+                    }*/
+                    //si tributo es inafecto
+                    if($comprobante->saleproductgas_totalinafecta > 0)
+                    {
+                        $linea = "9998|";//Identificador de tributo
+                        $linea .= "INA|";//Nombre de tributo
+                        $linea .= "FRE|";//Código de tipo de tributo
+                        $linea .= "{$comprobante->saleproductgas_totalinafecta}|";//Base imponible
+                        $linea .= "0|\r\n";//Monto de Tirbuto por ítem
+                        fwrite($f, $linea);
+                    }
+                    //si tributo es gratuita/exportacion
+                    /*if($comprobante['total_gratuita'] > 0)
+                    {
+                        $linea = "9996|";//Identificador de tributo
+                        $linea .= "GRA|";//Nombre de tributo
+                        $linea .= "FRE|";//Código de tipo de tributo
+                        $linea .= "{$comprobante['total_gratuita']}|";//Base imponible
+                        $linea .= "0|\r\n";//Monto de Tirbuto por ítem
+                        fwrite($f, $linea);
+                    }*/
 
+                    fclose($f);
+                    /*DOCUMENTO LEYENDA*/
+                    $importe_letra = $this->numLetra->num2letras(intval($comprobante->saleproductgas_total));
+                    $arrayImporte = explode(".",$comprobante->saleproductgas_total);
+                    $montoLetras = $importe_letra.' con ' .$arrayImporte[1].'/100 '.$comprobante->moneda;
+                    $rut_leyenda = $rutaArchivos . $comprobante->empresa_ruc . '-' . $comprobante->saleproductgas_type . '-' . $comprobante->saleproductgas_correlativo . '.LEY';
+                    $f = fopen($rut_leyenda, 'w');
+                    $linea = "1000|";//Código de leyenda
+                    $linea .= "{$montoLetras}|";//Descripción de leyenda
+                    fwrite($f, $linea);
+                    fclose($f);
+                    
+                    $cambiar_enviosunat = $this->sell->envio_sunat($id_productoventa);
                     $return = 1;
                 } else{
                     $return = 2;

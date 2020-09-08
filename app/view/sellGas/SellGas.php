@@ -204,10 +204,24 @@
                 <label for="client_address">Total(S/.):</label><br>
                 <input class="form-control" type="text" id="product_totalb" onchange="onchangetotalpriceZ()">
             </div>
-            <div class="col-xs-3">
+            <div class="col-xs-2">
+                <label for="tipo_igv">Tipo de IGV</label><br>
+                <?php $igv = $this->igv_tipo->listAll(); ?>
+                <select class="form-control" onchange="tipo_igv()" id="tipo_igv" style="background: #C1BDBD; color: #000000" >
+                    <?php
+                    foreach ($igv as $ig){
+                        ?>
+                        <option <?php echo ($ig->id_igv == 2) ? 'selected' : '';?> value="<?php echo $ig->id_igv;?>"><?php echo $ig->tipodeafectacion_igv;?></option>
+                        <?php
+                    }
+                    ?>
+                </select>
+            </div>
+            <div class="col-xs-1">
                 <br>
                 <a class="btn btn-success" type="button" onclick="agregarProductoZ()" ><i class="fa fa-plus"></i> Agregar</a>
             </div>
+
         </div>
         <br>
         <!-- /.row (main row) -->
@@ -309,11 +323,13 @@
         var cant = $("#product_cantb").val();
         var precio = $("#product_priceb").val();
         var stock = $("#product_stockb").val();
-        var cadena = "codigo=" + cod +//[0]
-            "&producto=" + productfull +//[1]
-            "&unids=" + unid +//[2] unidad de medida
-            "&precio=" + precio +//[3]
-            "&cantidad=" + cant;//[4]
+        var tipo_igv = $("#tipo_igv").val();
+        var cadena = "codigo=" + cod +
+            "&producto=" + productfull +
+            "&unids=" + unid +
+            "&precio=" + precio +
+            "&cantidad=" + cant +
+            "&tipo_igv=" + tipo_igv;
 
         if(stock >= cant){
             $.ajax({
