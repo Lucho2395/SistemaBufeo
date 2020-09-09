@@ -21,11 +21,11 @@
                         <tr>
                             <th>Código</th>
                             <th style="width: 200px;">Producto</th>
-                            <th>Categoría</th>
                             <th>Stock</th>
                             <th>Precio</th>
                             <th>Cantidad</th>
                             <th>SubTotal</th>
+                            <th>Tipo de IGV</th>
                             <th>Acción</th>
                         </tr>
                         </thead>
@@ -37,12 +37,22 @@
                             <tr>
                                 <td><?php echo $product->id_productforsale;?></td>
                                 <td><?php echo $productnamefull;?></td>
-                                <td><?php echo $product->categoryp_name;?></td>
                                 <td><?php echo $product->product_stock;?></td>
                                 <td>S/. <input type="text" class="form-control" onchange="onchangeundprice<?php echo $product->id_productforsale;?>()"  style="width: 80px;" onkeypress="return valida(event)" id="product_price<?php echo $product->id_productforsale;?>" value="<?php echo $product->product_price;?>"> </td>
                                 <td><input type="text" class="form-control" onchange="onchangeund<?php echo $product->id_productforsale;?>()" style="width: 70px;" id="total_product<?php echo $product->id_productforsale;?>" onkeypress="return valida(event)" value="1"></td>
                                 <td>S/. <input type="text" class="form-control" onchange="onchangetotalprice<?php echo $product->id_productforsale;?>()"  style="width: 80px;" id="total_price<?php echo $product->id_productforsale;?>" onkeypress="return valida(event)" value="<?php echo $product->product_price;?>"></td>
-                                <td><a class="btn btn-success btn-xs" type="button" onclick="agregarProducto<?php echo $product->id_productforsale;?>(<?php echo $product->id_productforsale;?>, '<?php echo $productnamefull;?>',<?php echo $product->product_unid_type;?>,<?php echo $product->product_stock;?>)"><i class="fa fa-check-circle"></i> Elegir Producto</a></td>
+                                <td><?php $igv = $this->igv_tipo->listAll(); ?>
+                                    <select class="form-control" id="tipo_igv<?php echo $product->id_productforsale;?>" style="background: #C1BDBD; color: #000000" >
+                                        <?php
+                                        foreach ($igv as $ig){
+                                            ?>
+                                            <option <?php echo ($ig->id_igv == 2) ? 'selected' : '';?> value="<?php echo $ig->id_igv;?>"><?php echo $ig->tipodeafectacion_igv;?></option>
+                                            <?php
+                                        }
+                                        ?>
+                                    </select>
+                                </td>
+                                <td><a class="btn btn-success btn-xs" type="button" onclick="agregarProducto<?php echo $product->id_productforsale;?>(<?php echo $product->id_productforsale;?>, '<?php echo $productnamefull;?>',<?php echo $product->product_unid_type;?>,<?php echo $product->product_stock;?>, tipo_igv)"><i class="fa fa-check-circle"></i> Elegir Producto</a></td>
                             </tr>
                             <?php
                         }
@@ -207,11 +217,11 @@
             <div class="col-xs-2">
                 <label for="tipo_igv">Tipo de IGV</label><br>
                 <?php $igv = $this->igv_tipo->listAll(); ?>
-                <select class="form-control" onchange="tipo_igv()" id="tipo_igv" style="background: #C1BDBD; color: #000000" >
+                <select class="form-control" id="tipo_igv" style="background: #C1BDBD; color: #000000" >
                     <?php
                     foreach ($igv as $ig){
                         ?>
-                        <option <?php echo ($ig->id_igv == 2) ? 'selected' : '';?> value="<?php echo $ig->id_igv;?>"><?php echo $ig->tipodeafectacion_igv;?></option>
+                        <option <?php echo ($ig->id_igv == 3) ? 'selected' : '';?> value="<?php echo $ig->id_igv;?>"><?php echo $ig->tipodeafectacion_igv;?></option>
                         <?php
                     }
                     ?>
@@ -320,9 +330,9 @@
 
     function agregarProductoZ() {
         var cod = $('#id_productforsaleb').val();
-        var cant = $("#product_cantb").val();
-        var precio = $("#product_priceb").val();
-        var stock = $("#product_stockb").val();
+        var cant = $("#product_cantb").val() * 1;
+        var precio = $("#product_priceb").val() * 1;
+        var stock = $("#product_stockb").val() * 1;
         var tipo_igv = $("#tipo_igv").val();
         var cadena = "codigo=" + cod +
             "&producto=" + productfull +
@@ -376,12 +386,14 @@
     foreach ($products as $product){
     ?>
     function agregarProducto<?php echo $product->id_productforsale;?>(cod, producto, unids, stock) {
-        var cant = $("#total_product<?php echo $product->id_productforsale;?>").val();
-        var precio = $("#product_price<?php echo $product->id_productforsale;?>").val();
+        var cant = $("#total_product<?php echo $product->id_productforsale;?>").val() * 1;
+        var precio = $("#product_price<?php echo $product->id_productforsale;?>").val() * 1;
+        var tipo_igv = $("#tipo_igv<?php echo $product->id_productforsale;?>").val() * 1;
         var cadena = "codigo=" + cod +
             "&producto=" + producto +
             "&unids=" + unids +
             "&precio=" + precio +
+            "&tipo_igv=" + tipo_igv +
             "&cantidad=" + cant;
         if(stock >= cant){
             $.ajax({

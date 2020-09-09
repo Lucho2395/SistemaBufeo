@@ -216,10 +216,10 @@ class SellGas{
     }
 
     //Insertar Datos En Detalle Venta
-    public function insertSale($id_client, $id_user, $id_turn, $saleproductgas_direccion, $saleproductgas_telefono, $saleproduct_type, $saleproductgas_naturaleza, $saleproduct_correlative, $saleproduct_gravada, $saleproduct_igv, $saleproduct_total, $saleproduct_date, $saleproduct_estado, $saleproduct_cancelled){
+    public function insertSale($id_client, $id_user, $id_turn, $saleproductgas_direccion, $saleproductgas_telefono, $saleproduct_type, $saleproductgas_naturaleza, $saleproduct_correlative, $saleproduct_gravada, $saleproduct_igv, $saleproduct_total, $saleproduct_date, $saleproduct_estado, $saleproduct_cancelled, $saleproduct_inafecta, $saleproduct_exonerada){
         try{
             $date = date("Y-m-d H:i:s");
-            $sql = 'insert into saleproductgas(id_client, id_user, id_turn, saleproductgas_direccion, saleproductgas_telefono, saleproductgas_type, saleproductgas_naturaleza, saleproductgas_correlativo, saleproductgas_totalgravada, saleproductgas_totaligv, saleproductgas_total, saleproductgas_date, saleproductgas_estado, saleproductgas_cancelled) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
+            $sql = 'insert into saleproductgas(id_client, id_user, id_turn, saleproductgas_direccion, saleproductgas_telefono, saleproductgas_type, saleproductgas_naturaleza, saleproductgas_correlativo, saleproductgas_totalexonerada, saleproductgas_totalinafecta, saleproductgas_totalgravada, saleproductgas_totaligv, saleproductgas_total, saleproductgas_date, saleproductgas_estado, saleproductgas_cancelled) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
             $stm = $this->pdo->prepare($sql);
             $stm->execute([
                 $id_client,
@@ -230,6 +230,8 @@ class SellGas{
                 $saleproduct_type,
                 $saleproductgas_naturaleza,
                 $saleproduct_correlative,
+                $saleproduct_exonerada,
+                $saleproduct_inafecta,
                 $saleproduct_gravada,
                 $saleproduct_igv,
                 $saleproduct_total,
@@ -272,9 +274,9 @@ class SellGas{
     }
 
 
-    public function insertSaledetail($id_saleproduct, $id_productforsale, $sale_productname, $sale_unid, $sale_price, $sale_productscant, $sale_productstotalselled, $sale_productstotalprice, $precio_producto, $precio_base, $subtotal_base, $igv_total){
+    public function insertSaledetail($id_saleproduct, $id_productforsale, $sale_productname, $sale_unid, $sale_price, $sale_productscant, $sale_productstotalselled, $sale_productstotalprice, $precio_producto, $precio_base, $subtotal_base, $igv_total, $tipo_igv){
         try{
-            $sql = 'insert into saledetailgas (id_saleproductgas, id_productforsale, sale_productnamegas, id_medida, sale_pricegas, sale_productscantgas, sale_productstotalselledgas, precio_base, precio_producto, subtotal, igv, sale_productstotalpricegas) values(?,?,?,?,?,?,?,?,?,?,?,?)';
+            $sql = 'insert into saledetailgas (id_saleproductgas, id_productforsale, sale_productnamegas, id_medida, sale_pricegas, sale_productscantgas, sale_productstotalselledgas, precio_base, precio_producto, subtotal, igv, igv_tipoigv, sale_productstotalpricegas) values(?,?,?,?,?,?,?,?,?,?,?,?,?)';
             $stm = $this->pdo->prepare($sql);
             $stm->execute([
                 $id_saleproduct,
@@ -288,6 +290,7 @@ class SellGas{
                 $precio_producto,
                 $subtotal_base,
                 $igv_total,
+                $tipo_igv,
                 $sale_productstotalprice
 
             ]);
@@ -514,10 +517,10 @@ class SellGas{
                     fecha_de_emision, DATE_FORMAT(sp.saleproductgas_date, \'%d-%m-%Y\') AS fecha_de_vencimiento, 
                     emp.empresa_ruc, emp.empresa_nombre, emp.empresa_domiciliofiscal, emp.empresa_celular1, emp.empresa_correo, 
                     emp.empresa_descripcion, sp.id_saleproductgas, sp.id_empresa, sp.saleproductgas_type, sp.saleproductgas_correlativo, 
-                    sp.saleproductgas_total, sp.saleproductgas_totalinafecta, sp.saleproductgas_totalgravada, sp.saleproductgas_totaligv, cl.id_client, sp.id_moneda, 
+                    sp.saleproductgas_total, sp.saleproductgas_totalexonerada, sp.saleproductgas_totalinafecta, sp.saleproductgas_totalgravada, sp.saleproductgas_totaligv, cl.id_client, sp.id_moneda, 
                     cl.client_number, cl.id_tipodocumento, cl.client_name, cl.client_razonsocial, cl.client_razonsocial_sunat,
                     cl.client_address, cl.client_correo, tid.tipodocumento_codigo, sp.saleproductgas_type, mo.moneda, mo.abrstandar, 
-                    mo.simbolo, sp.igv_tipoigv FROM saleproductgas sp INNER JOIN empresa emp ON sp.id_empresa = emp.id_empresa INNER JOIN client cl 
+                    mo.simbolo FROM saleproductgas sp INNER JOIN empresa emp ON sp.id_empresa = emp.id_empresa INNER JOIN client cl 
                     ON sp.id_client = cl.id_client INNER JOIN monedas mo ON sp.id_moneda = mo.id INNER JOIN tipo_documento tid ON 
                     cl.id_tipodocumento = tid.id_tipodocumento where sp.id_saleproductgas = ? limit 1';
             $stm = $this->pdo->prepare($sql);

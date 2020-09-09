@@ -393,6 +393,8 @@ class SellGasController{
                 $saleproduct_correlative = "F001-" . $correlative->correlative_f;
                 $saleproduct_type = "01";
             }
+            $saleproduct_inafecta = $_POST['saleproduct_inafecta'];
+            $saleproduct_exonerada = $_POST['saleproduct_exonerada'];
             $saleproduct_gravada = $_POST['saleproduct_gravada'];
             $saleproduct_igv = $_POST['saleproduct_igv'];
             $saleproduct_total = $_POST['saleproduct_total'];
@@ -400,35 +402,88 @@ class SellGasController{
 
             $saleproduct_cancelled = 1;
 
-            $savesale = $this->sell->insertSale($id_client, $id_user, $id_turn, $saleproductgas_direccion, $saleproductgas_telefono, $saleproduct_type, $saleproductgas_naturaleza, $saleproduct_correlative, $saleproduct_gravada, $saleproduct_igv, $saleproduct_total, $saleproduct_date, $saleproduct_estado, $saleproduct_cancelled);
+            $savesale = $this->sell->insertSale($id_client, $id_user, $id_turn, $saleproductgas_direccion, $saleproductgas_telefono, $saleproduct_type, $saleproductgas_naturaleza, $saleproduct_correlative, $saleproduct_gravada, $saleproduct_igv, $saleproduct_total, $saleproduct_date, $saleproduct_estado, $saleproduct_cancelled, $saleproduct_inafecta, $saleproduct_exonerada);
             $idsale = $savesale->id_saleproductgas;
 
 
             if($idsale != 2){ //despues de registrar la venta se sigue a registrar el detalle
 
                 foreach ($_SESSION['productos'] as $p){
-                    $subtotal = round($p[3] * $p[4], 2);
-                    $id_saleproduct = $savesale->id_saleproductgas;
-                    $id_productforsale = $p[0];
-                    $sale_productname = $p[1];
-                    $sale_unid = $p[2];
-                    $sale_price= $p[3];
-                    $sale_productscant = $p[4];
-                    $sale_productstotalselled = $p[4];
-                    $sale_productstotalprice = $subtotal;
-                    $precio_producto = $p[3];
-                    $precio_base = round($precio_producto / 1.18 , 2);
-                    $subtotal_base = round($subtotal / 1.18 , 2);
-                    $igv_total = round($subtotal - $subtotal_base , 2);
-                    $savedetail = $this->sell->insertSaledetail($id_saleproduct, $id_productforsale, $sale_productname, $sale_unid, $sale_price, $sale_productscant, $sale_productstotalselled, $sale_productstotalprice, $precio_producto, $precio_base, $subtotal_base, $igv_total);
-                    if($savedetail == 1){
-                        $reduce = $sale_productscant;
-                        $id_product = $this->inventory->listIdproducforproductsale($id_productforsale);
-                        $this->sell->saveProductstock($reduce, $id_product);
-                        $return = 1;
-                    } else {
-                        $return = 2;
+                    if ($p[5] == 1){
+                        $subtotal = round($p[3] * $p[4], 2);
+                        $id_saleproduct = $savesale->id_saleproductgas;
+                        $id_productforsale = $p[0];
+                        $sale_productname = $p[1];
+                        $sale_unid = $p[2];
+                        $sale_price= $p[3];
+                        $sale_productscant = $p[4];
+                        $sale_productstotalselled = $p[4];
+                        $sale_productstotalprice = $subtotal;
+                        $precio_producto = $p[3];
+                        $precio_base = round($precio_producto / 1.18 , 2);
+                        $subtotal_base = round($subtotal / 1.18 , 2);
+                        $igv_total = round($subtotal - $subtotal_base , 2);
+                        $tipo_igv = $p[5];
+                        $savedetail = $this->sell->insertSaledetail($id_saleproduct, $id_productforsale, $sale_productname, $sale_unid, $sale_price, $sale_productscant, $sale_productstotalselled, $sale_productstotalprice, $precio_producto, $precio_base, $subtotal_base, $igv_total, $tipo_igv);
+                        if($savedetail == 1){
+                            $reduce = $sale_productscant;
+                            $id_product = $this->inventory->listIdproducforproductsale($id_productforsale);
+                            $this->sell->saveProductstock($reduce, $id_product);
+                            $return = 1;
+                        } else {
+                            $return = 2;
+                        }
+                    } else if($p[5] == 3){
+                        $subtotal = round($p[3] * $p[4], 2);
+                        $id_saleproduct = $savesale->id_saleproductgas;
+                        $id_productforsale = $p[0];
+                        $sale_productname = $p[1];
+                        $sale_unid = $p[2];
+                        $sale_price= $p[3];
+                        $sale_productscant = $p[4];
+                        $sale_productstotalselled = $p[4];
+                        $sale_productstotalprice = $subtotal;
+                        $precio_producto = $p[3];
+                        $precio_base = round($precio_producto , 2);
+                        $subtotal_base = round($subtotal , 2);
+                        $igv_total = "0.00";
+                        $tipo_igv = $p[5];
+                        $savedetail = $this->sell->insertSaledetail($id_saleproduct, $id_productforsale, $sale_productname, $sale_unid, $sale_price, $sale_productscant, $sale_productstotalselled, $sale_productstotalprice, $precio_producto, $precio_base, $subtotal_base, $igv_total, $tipo_igv);
+                        if($savedetail == 1){
+                            $reduce = $sale_productscant;
+                            $id_product = $this->inventory->listIdproducforproductsale($id_productforsale);
+                            $this->sell->saveProductstock($reduce, $id_product);
+                            $return = 1;
+                        } else {
+                            $return = 2;
+                        }
                     }
+                    else{
+                        $subtotal = round($p[3] * $p[4], 2);
+                        $id_saleproduct = $savesale->id_saleproductgas;
+                        $id_productforsale = $p[0];
+                        $sale_productname = $p[1];
+                        $sale_unid = $p[2];
+                        $sale_price= $p[3];
+                        $sale_productscant = $p[4];
+                        $sale_productstotalselled = $p[4];
+                        $sale_productstotalprice = $subtotal;
+                        $precio_producto = $p[3];
+                        $precio_base = round($precio_producto , 2);
+                        $subtotal_base = round($subtotal , 2);
+                        $igv_total = "0.00";
+                        $tipo_igv = $p[5];
+                        $savedetail = $this->sell->insertSaledetail($id_saleproduct, $id_productforsale, $sale_productname, $sale_unid, $sale_price, $sale_productscant, $sale_productstotalselled, $sale_productstotalprice, $precio_producto, $precio_base, $subtotal_base, $igv_total, $tipo_igv);
+                        if($savedetail == 1){
+                            $reduce = $sale_productscant;
+                            $id_product = $this->inventory->listIdproducforproductsale($id_productforsale);
+                            $this->sell->saveProductstock($reduce, $id_product);
+                            $return = 1;
+                        } else {
+                            $return = 2;
+                        }
+                    }
+
                 }
             } else {
                 $return = 2;
@@ -586,7 +641,12 @@ class SellGasController{
                     $linea .= "{$comprobante->client_razonsocial}"." {$comprobante->client_name}|";//apellidos y nombres o razon social
                     $linea .= "{$comprobante->abrstandar}|";//:tipo de moneda
                     $linea .= "{$comprobante->saleproductgas_totaligv}|";//:sumatoria tributos
-                    $linea .= "{$comprobante->saleproductgas_totalgravada}|";//:total valor venta
+                    if($comprobante->saleproductgas_totalgravada == "0.00"){
+                        $linea .= "{$comprobante->saleproductgas_total}|";//:total valor venta
+                    } else{
+                        $linea .= "{$comprobante->saleproductgas_totalgravada}|";//:total valor venta
+                    }
+
                     $linea .= "{$comprobante->saleproductgas_total}|";//total precio venta
                     $linea .= "$comprobante_saleproduct->total_descuentos|";//total descuento
                     $linea .= "0|";//sumatoria otros cargos
@@ -644,7 +704,7 @@ class SellGasController{
                         //TRIBUTO IGV
                         $linea .= "{$value->igv_codigo}|";//Tributo: Códigos de tipos de tributos IGV(1000 - 1016 - 9995 - 9996 - 9997 - 9998)
                         $linea .= "{$value->igv}|";//Tributo: Monto de IGV por ítem
-                        if($value->igv_codigo == '40')//gratuitas la base es 0
+                        if($value->igv_codigoafectacion == '40')//gratuitas la base es 0
                         {
                             $linea .= "0|";//Tributo: Base Imponible IGV por Item
                         }else
@@ -680,7 +740,12 @@ class SellGasController{
                         $linea .= "|";//Tributo ICBPER: Código de tipo de tributo ICBPER por Item
                         $linea .= "|";//Tributo ICBPER: Monto de tributo ICBPER por Unidad
 
-                        $linea .= ($value->precio_base * 1.18)."|";//Precio de venta unitario(base+igv)
+                        if($value->igv_tipoigv == 1){
+                            $linea .= ($value->precio_base * 1.18)."|";//Precio de venta unitario(base+igv)
+                        } else{
+                            $linea .= ($value->precio_base)."|";
+                        }
+
                         $linea .= round($value->subtotal, 2)."|";//Valor de venta por Item
                         $linea .= "0.00|\r\n";//Valor REFERENCIAL unitario (gratuitos)*/
                         fwrite($f, $linea);
@@ -700,15 +765,15 @@ class SellGasController{
                         fwrite($f, $linea);
                     }
                     //si tributo es exonerada
-                    /*if($comprobante['total_exonerada'] > 0)
+                    if($comprobante->saleproductgas_totalexonerada > 0)
                     {
                         $linea = "9997|";//Identificador de tributo
                         $linea .= "EXO|";//Nombre de tributo
                         $linea .= "VAT|";//Código de tipo de tributo
-                        $linea .= "{$comprobante['total_exonerada']}|";//Base imponible
+                        $linea .= "{$comprobante->saleproductgas_totalexonerada}|";//Base imponible
                         $linea .= "0|\r\n";//Monto de Tirbuto por ítem
                         fwrite($f, $linea);
-                    }*/
+                    }
                     //si tributo es inafecto
                     if($comprobante->saleproductgas_totalinafecta > 0)
                     {
