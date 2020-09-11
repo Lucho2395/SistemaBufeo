@@ -27,21 +27,37 @@
             <tbody>
             <?php
             $totales = count($_SESSION['productos']);
-            $monto = 0.00;
-            $igv = 0.00;
-            $gravada = 0.00;
-            $inafecta = 0.00;
-            $exonerada = 0.00;
+            $monto = 0;
+            $igv = 0;
+            $gravada = 0;
+            $inafecta = 0;
+            $exonerada = 0;
+            $ICBPER = 0;
+            $fecha_bolsa = date("Y");
+            if ($fecha_bolsa == "2020"){
+                $impuesto_icbper = 0.20;
+            } else if ($fecha_bolsa == "2021"){
+                $impuesto_icbper = 0.30;
+            } else if ($fecha_bolsa == "2022") {
+                $impuesto_icbper = 0.40;
+            } else{
+                $impuesto_icbper = 0.50;
+            }
+
             if($totales != 0){
                 foreach ($_SESSION['productos'] as $p){
                     if ($p[5] == 1){
                         $subtotal = round($p[4] * $p[3],2);
-                        $monto = $monto + $subtotal;
+
                         $inafecta = $inafecta;
                         $exonerada = $exonerada;
                         $gravada = $gravada + round($subtotal / 1.18, 2);
                         $gravadaalmacenada = round($subtotal / 1.18, 2);
                         $igv = $igv +  round($subtotal - $gravadaalmacenada, 2);
+                        if ($p[0] == "11" || $p[0] == "12" ){
+                            $ICBPER = $ICBPER + round($p[4] * $impuesto_icbper , 2);
+                        }
+                        $monto = round($monto + $subtotal + $ICBPER , 2);
                         ?>
                         <tr> <!--De esta tapla se jala los valores por la posicion de los arrays-->
                             <td><?php echo $p[0];?></td>
@@ -54,11 +70,15 @@
                         <?php
                     } else if($p[5] == 3){
                         $subtotal = round($p[4] * $p[3],2);
-                        $monto = round($monto + $subtotal , 2);
+
                         $inafecta = $inafecta;
                         $exonerada = round($exonerada + $subtotal , 2);
                         $gravada = round($gravada, 2);
                         $igv =round($igv, 2);
+                        if ($p[0] == "11" || $p[0] == "12" ){
+                            $ICBPER = $ICBPER + round($p[4] * $impuesto_icbper , 2);
+                        }
+                        $monto = round($monto + $subtotal + $ICBPER , 2);
                         ?>
                         <tr> <!--De esta tapla se jala los valores por la posicion de los arrays-->
                             <td><?php echo $p[0];?></td>
@@ -71,11 +91,15 @@
                         <?php
                     } else{
                         $subtotal = round($p[4] * $p[3],2);
-                        $monto = round($monto + $subtotal , 2);
+
                         $inafecta = round($inafecta + $subtotal , 2);
                         $exonerada = $exonerada;
                         $gravada = round($gravada, 2);
                         $igv =round($igv, 2);
+                        if ($p[0] == "11" || $p[0] == "12" ){
+                            $ICBPER = $ICBPER + round($p[4] * $impuesto_icbper , 2);
+                        }
+                        $monto = round($monto + $subtotal + $ICBPER , 2);
                         ?>
                         <tr> <!--De esta tapla se jala los valores por la posicion de los arrays-->
                             <td><?php echo $p[0];?></td>
@@ -96,15 +120,21 @@
         <div class="row">
             <div class="col-lg-8"></div>
             <div class="col-lg-4">
-                <h5>OP. EXONERADA: s/. <?php echo $exonerada;?></h5>
+                <h5>OP. EXONERADA: s/. <?php echo number_format($exonerada ,2);?></h5>
                 <input type="hidden" value="<?php echo $exonerada;?>" id="exonerada">
-                <h5>OP. INAFECTA: s/. <?php echo $inafecta;?></h5>
+                <h5>OP. INAFECTA: s/. <?php echo number_format($inafecta , 2);?></h5>
                 <input type="hidden" value="<?php echo $inafecta;?>" id="inafecta">
-                <h5>OP. GRAVADA: s/. <?php echo $gravada;?></h5>
+                <h5>OP. GRAVADA: s/. <?php echo number_format($gravada , 2);?></h5>
                 <input type="hidden" value="<?php echo $gravada;?>" id="gravada">
-                <h5>IGV: s/. <?php echo $igv;?></h5>
+                <h5>IGV: s/. <?php echo number_format($igv , 2);?></h5>
                 <input type="hidden" value="<?php echo $igv;?>" id="igv">
-                <h4>PRECIO TOTAL: s/. <?php echo $monto;?></h4>
+                <?php
+                if ($ICBPER > 0){ ?>
+                    <h5>ICBPER: s/. <?php echo number_format($ICBPER , 2);?></h5>
+                <?php }
+                ?>
+                <input type="hidden" value="<?php echo $ICBPER;?>" id="icbper">
+                <h4>PRECIO TOTAL: s/. <?php echo number_format($monto , 2);?></h4>
                 <input type="hidden" value="<?php echo $monto;?>" id="montototal">
             </div>
         </div>

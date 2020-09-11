@@ -51,13 +51,17 @@
         </table>
     </div>
 </div>
+<input type="hidden" id = "montototal" value="<?= $monto; ?>" >
 <?php if($monto!=0){
    ?>
     <div class="row">
         <div class="col-lg-7"></div>
         <div class="col-lg-4">
             <h4>PRECIO TOTAL: s/. <?php echo $monto;?></h4>
+
+            <h5>Vuelto: s/. <span id="vuelto">0.00</span></h5>
             <a type="button" class="btn btn-danger" onclick="preguntarSiNo(<?php echo $monto;?>)" ><i class="fa fa-money"></i> Generar Venta</a>
+
         </div>
     </div>
 

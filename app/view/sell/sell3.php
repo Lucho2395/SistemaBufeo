@@ -193,9 +193,13 @@
                 <label for="client_address">Total(S/.):</label><br>
                 <input class="form-control" type="text" id="product_totalb" onchange="onchangetotalpriceZ()">
             </div>
-            <div class="col-xs-3">
+            <div class="col-xs-2">
                 <br>
                 <a class="btn btn-success" type="button" onclick="agregarProductoZ()" ><i class="fa fa-plus"></i> Agregar</a>
+            </div>
+            <div class="col-xs-2">
+                <label for="client_address">Pago del Cliente</label><br>
+                <input class="form-control" type="text" id="pago_cliente" onchange="onchangepagocliente()">
             </div>
         </div>
         <br>
@@ -258,6 +262,13 @@
                 }
             });
         }
+    }
+    function onchangepagocliente() {
+        var pagocliente = $("#pago_cliente").val();
+        var montototal = $("#montototal").val();
+        var vuelto = pagocliente - montototal;
+        vuelto.toFixed(2);
+        $("#vuelto").html(vuelto);
     }
 
     function onchangeundZ() {

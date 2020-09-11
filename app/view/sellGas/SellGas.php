@@ -46,7 +46,7 @@
                                         <?php
                                         foreach ($igv as $ig){
                                             ?>
-                                            <option <?php echo ($ig->id_igv == 2) ? 'selected' : '';?> value="<?php echo $ig->id_igv;?>"><?php echo $ig->tipodeafectacion_igv;?></option>
+                                            <option <?php echo ($ig->id_igv == 3) ? 'selected' : '';?> value="<?php echo $ig->id_igv;?>"><?php echo $ig->tipodeafectacion_igv;?></option>
                                             <?php
                                         }
                                         ?>

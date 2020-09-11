@@ -396,18 +396,29 @@ class SellGasController{
             $saleproduct_inafecta = $_POST['saleproduct_inafecta'];
             $saleproduct_exonerada = $_POST['saleproduct_exonerada'];
             $saleproduct_gravada = $_POST['saleproduct_gravada'];
+            $saleproduct_icbper = $_POST['saleproduct_icbper'];
             $saleproduct_igv = $_POST['saleproduct_igv'];
             $saleproduct_total = $_POST['saleproduct_total'];
             $saleproduct_date = date("Y-m-d H:i:s");
 
             $saleproduct_cancelled = 1;
 
-            $savesale = $this->sell->insertSale($id_client, $id_user, $id_turn, $saleproductgas_direccion, $saleproductgas_telefono, $saleproduct_type, $saleproductgas_naturaleza, $saleproduct_correlative, $saleproduct_gravada, $saleproduct_igv, $saleproduct_total, $saleproduct_date, $saleproduct_estado, $saleproduct_cancelled, $saleproduct_inafecta, $saleproduct_exonerada);
+            $savesale = $this->sell->insertSale($id_client, $id_user, $id_turn, $saleproductgas_direccion, $saleproductgas_telefono, $saleproduct_type, $saleproductgas_naturaleza, $saleproduct_correlative, $saleproduct_gravada, $saleproduct_igv, $saleproduct_total, $saleproduct_date, $saleproduct_estado, $saleproduct_cancelled, $saleproduct_inafecta, $saleproduct_exonerada, $saleproduct_icbper);
             $idsale = $savesale->id_saleproductgas;
 
 
             if($idsale != 2){ //despues de registrar la venta se sigue a registrar el detalle
-
+                $fecha_bolsa = date("Y");
+                if ($fecha_bolsa == "2020"){
+                    $impuesto_icbper = 0.20;
+                } else if ($fecha_bolsa == "2021"){
+                    $impuesto_icbper = 0.30;
+                } else if ($fecha_bolsa == "2022") {
+                    $impuesto_icbper = 0.40;
+                } else{
+                    $impuesto_icbper = 0.50;
+                }
+                $ICBPER = 0;
                 foreach ($_SESSION['productos'] as $p){
                     if ($p[5] == 1){
                         $subtotal = round($p[3] * $p[4], 2);
@@ -418,13 +429,19 @@ class SellGasController{
                         $sale_price= $p[3];
                         $sale_productscant = $p[4];
                         $sale_productstotalselled = $p[4];
-                        $sale_productstotalprice = $subtotal;
+
                         $precio_producto = $p[3];
                         $precio_base = round($precio_producto / 1.18 , 2);
                         $subtotal_base = round($subtotal / 1.18 , 2);
                         $igv_total = round($subtotal - $subtotal_base , 2);
                         $tipo_igv = $p[5];
-                        $savedetail = $this->sell->insertSaledetail($id_saleproduct, $id_productforsale, $sale_productname, $sale_unid, $sale_price, $sale_productscant, $sale_productstotalselled, $sale_productstotalprice, $precio_producto, $precio_base, $subtotal_base, $igv_total, $tipo_igv);
+                        if ($p[0] == "11" || $p[0] == "12" ){
+                            $ICBPER = $ICBPER + round($p[4] * $impuesto_icbper , 2);
+                        } else{
+                            $ICBPER = $ICBPER;
+                        }
+                        $sale_productstotalprice = round($subtotal + $ICBPER , 2);
+                        $savedetail = $this->sell->insertSaledetail($id_saleproduct, $id_productforsale, $sale_productname, $sale_unid, $sale_price, $sale_productscant, $sale_productstotalselled, $sale_productstotalprice, $precio_producto, $precio_base, $subtotal_base, $igv_total, $tipo_igv, $ICBPER);
                         if($savedetail == 1){
                             $reduce = $sale_productscant;
                             $id_product = $this->inventory->listIdproducforproductsale($id_productforsale);
@@ -442,13 +459,19 @@ class SellGasController{
                         $sale_price= $p[3];
                         $sale_productscant = $p[4];
                         $sale_productstotalselled = $p[4];
-                        $sale_productstotalprice = $subtotal;
+
                         $precio_producto = $p[3];
                         $precio_base = round($precio_producto , 2);
                         $subtotal_base = round($subtotal , 2);
                         $igv_total = "0.00";
                         $tipo_igv = $p[5];
-                        $savedetail = $this->sell->insertSaledetail($id_saleproduct, $id_productforsale, $sale_productname, $sale_unid, $sale_price, $sale_productscant, $sale_productstotalselled, $sale_productstotalprice, $precio_producto, $precio_base, $subtotal_base, $igv_total, $tipo_igv);
+                        if ($p[0] == "11" || $p[0] == "12" ){
+                            $ICBPER = $ICBPER + round($p[4] * $impuesto_icbper , 2);
+                        } else{
+                            $ICBPER = $ICBPER;
+                        }
+                        $sale_productstotalprice = round($subtotal + $ICBPER , 2);
+                        $savedetail = $this->sell->insertSaledetail($id_saleproduct, $id_productforsale, $sale_productname, $sale_unid, $sale_price, $sale_productscant, $sale_productstotalselled, $sale_productstotalprice, $precio_producto, $precio_base, $subtotal_base, $igv_total, $tipo_igv, $ICBPER);
                         if($savedetail == 1){
                             $reduce = $sale_productscant;
                             $id_product = $this->inventory->listIdproducforproductsale($id_productforsale);
@@ -467,13 +490,18 @@ class SellGasController{
                         $sale_price= $p[3];
                         $sale_productscant = $p[4];
                         $sale_productstotalselled = $p[4];
-                        $sale_productstotalprice = $subtotal;
                         $precio_producto = $p[3];
                         $precio_base = round($precio_producto , 2);
                         $subtotal_base = round($subtotal , 2);
                         $igv_total = "0.00";
                         $tipo_igv = $p[5];
-                        $savedetail = $this->sell->insertSaledetail($id_saleproduct, $id_productforsale, $sale_productname, $sale_unid, $sale_price, $sale_productscant, $sale_productstotalselled, $sale_productstotalprice, $precio_producto, $precio_base, $subtotal_base, $igv_total, $tipo_igv);
+                        if ($p[0] == "11" || $p[0] == "12" ){
+                            $ICBPER = $ICBPER + round($p[4] * $impuesto_icbper , 2);
+                        } else{
+                            $ICBPER = 0;
+                        }
+                        $sale_productstotalprice = round($subtotal + $ICBPER , 2);
+                        $savedetail = $this->sell->insertSaledetail($id_saleproduct, $id_productforsale, $sale_productname, $sale_unid, $sale_price, $sale_productscant, $sale_productstotalselled, $sale_productstotalprice, $precio_producto, $precio_base, $subtotal_base, $igv_total, $tipo_igv, $ICBPER);
                         if($savedetail == 1){
                             $reduce = $sale_productscant;
                             $id_product = $this->inventory->listIdproducforproductsale($id_productforsale);
@@ -619,6 +647,16 @@ class SellGasController{
             $comprobante = $this->sell->datos_comprobante($id_productoventa); //CONSULTA DONDE SE REALACIONA TODO LO QUE SE USA EN SELLPRODUCTGAS
             $comprobante_saleproduct = $this->sell->listSale($id_productoventa);
             $saledetail_data = $this->sell->todos_saledetaill($id_productoventa);
+            $fecha_bolsa = date("Y");
+            if ($fecha_bolsa == "2020"){
+                $impuesto_icbper = 0.20;
+            } else if ($fecha_bolsa == "2021"){
+                $impuesto_icbper = 0.30;
+            } else if ($fecha_bolsa == "2022") {
+                $impuesto_icbper = 0.40;
+            } else{
+                $impuesto_icbper = 0.50;
+            }
             $rutaArchivos = "C:/FacturadorBufeo/sunat_archivos/sfs/DATA/";
             if ($estado_enviado == 0) {
                 if ($comprobante->saleproductgas_type < 4) {
@@ -719,26 +757,37 @@ class SellGasController{
                         $linea .= "18.00|";//Tributo: Porcentaje de IGV
                         /*Tributo ISC (2000)*/
                         $linea .= "-|";//Tributo ISC: Códigos de tipos de tributos ISC
-                        $linea .= "0.00|";//Tributo ISC: Monto de ISC por ítem
-                        $linea .= "0.00|";//Tributo ISC: Base Imponible ISC por Item
+                        $linea .= "|";//Tributo ISC: Monto de ISC por ítem
+                        $linea .= "|";//Tributo ISC: Base Imponible ISC por Item
                         $linea .= "|";//Tributo ISC: Nombre de tributo por item
                         $linea .= "|";//Tributo ISC: Código de tipo de tributo por Item
                         $linea .= "|";//Tributo ISC: Tipo de sistema ISC
-                        $linea .= "15.00|";//Tributo ISC: Porcentaje de ISC
+                        $linea .= "|";//Tributo ISC: Porcentaje de ISC
                         /*Tributo Otro 9999*/
                         $linea .= "-|";//Tributo Otro: Códigos de tipos de tributos OTRO
-                        $linea .= "0.00|";//Tributo Otro: Monto de tributo OTRO por iItem
-                        $linea .= "0.00|";//Tributo Otro: Base Imponible de tributo OTRO por Item
+                        $linea .= "|";//Tributo Otro: Monto de tributo OTRO por iItem
+                        $linea .= "|";//Tributo Otro: Base Imponible de tributo OTRO por Item
                         $linea .= "|";//Tributo Otro:  Nombre de tributo OTRO por item
                         $linea .= "|";//Tributo Otro: Código de tipo de tributo OTRO por Item
-                        $linea .= "15.00|";//Tributo Otro: Porcentaje de tributo OTRO por Item
+                        $linea .= "|";//Tributo Otro: Porcentaje de tributo OTRO por Item
                         //Tributo ICBPER 7152
-                        $linea .= "-|";//Tributo ICBPER: Códigos de tipos de tributos ICBPER
-                        $linea .= "|";//Tributo ICBPER: Monto de tributo ICBPER por iItem
-                        $linea .= "|";//Tributo ICBPER: Cantidad de bolsas plásticas por Item
-                        $linea .= "|";//Tributo ICBPER:  Nombre de tributo ICBPER por item
-                        $linea .= "|";//Tributo ICBPER: Código de tipo de tributo ICBPER por Item
-                        $linea .= "|";//Tributo ICBPER: Monto de tributo ICBPER por Unidad
+
+                        if ($value->total_icbper > 0){
+                            $linea .= "7152|";//Tributo ICBPER: Códigos de tipos de tributos ICBPER
+                            $linea .= "{$value->total_icbper}|";//Tributo ICBPER: Monto de tributo ICBPER por iItem
+                            $linea .= "{$value->sale_productscantgas}|";//Tributo ICBPER: Cantidad de bolsas plásticas por Item
+                            $linea .= "ICBPER|";//Tributo ICBPER:  Nombre de tributo ICBPER por item
+                            $linea .= "OTH|";//Tributo ICBPER: Código de tipo de tributo ICBPER por Item
+                            $linea .= number_format($impuesto_icbper , 2)."|";//Tributo ICBPER: Monto de tributo ICBPER por Unidad
+                        } else {
+                            $linea .= "-|";//Tributo ICBPER: Códigos de tipos de tributos ICBPER
+                            $linea .= "|";//Tributo ICBPER: Monto de tributo ICBPER por iItem
+                            $linea .= "|";//Tributo ICBPER: Cantidad de bolsas plásticas por Item
+                            $linea .= "|";//Tributo ICBPER:  Nombre de tributo ICBPER por item
+                            $linea .= "|";//Tributo ICBPER: Código de tipo de tributo ICBPER por Item
+                            $linea .= "|";//Tributo ICBPER: Monto de tributo ICBPER por Unidad
+
+                        }
 
                         if($value->igv_tipoigv == 1){
                             $linea .= ($value->precio_base * 1.18)."|";//Precio de venta unitario(base+igv)
@@ -794,6 +843,16 @@ class SellGasController{
                         $linea .= "0|\r\n";//Monto de Tirbuto por ítem
                         fwrite($f, $linea);
                     }*/
+                    //tributo de bolsa
+                    if($comprobante->saleproductgas_icbper > 0)
+                    {
+                        $linea = "7152|";//Identificador de tributo
+                        $linea .= "ICBPER|";//Nombre de tributo
+                        $linea .= "OTH|";//Código de tipo de tributo
+                        $linea .= "{$comprobante->saleproductgas_total}|";//Base imponible
+                        $linea .= "{$comprobante->saleproductgas_icbper}|\r\n";//Monto de Tirbuto por ítem
+                        fwrite($f, $linea);
+                    }
 
                     fclose($f);
                     /*DOCUMENTO LEYENDA*/

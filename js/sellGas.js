@@ -40,12 +40,13 @@ function preguntarSiNo(){
     var igv = $('#igv').val();
     var saleproduct_inafecta = $('#inafecta').val();
     var saleproduct_exonerada = $('#exonerada').val();
+    var saleproduct_icbper = $('#icbper').val();
     var saleproduct_total = total;
     var saleproduct_gravada = gravada;
     var saleproduct_igv = igv;
 
     alertify.confirm('Realizar Venta', '¿Esta seguro que desea realizar esta venta? Monto Total: s/.' + saleproduct_total,
-        function(){ vender(client_number, saleproductgas_direccion, saleproductgas_telefono, saleproduct_type, saleproduct_naturaleza, saleproduct_exonerada, saleproduct_inafecta, saleproduct_total, saleproduct_gravada, saleproduct_igv) }
+        function(){ vender(client_number, saleproductgas_direccion, saleproductgas_telefono, saleproduct_type, saleproduct_naturaleza, saleproduct_exonerada, saleproduct_inafecta, saleproduct_icbper, saleproduct_total, saleproduct_gravada, saleproduct_igv) }
         , function(){ alertify.error('Operacion Cancelada')});
 }
 
@@ -55,7 +56,7 @@ function preguntarSiNoA(id_saleproductgas){
         , function(){ alertify.error('Operacion Cancelada')});
 }
 
-function vender(client_number, saleproductgas_direccion, saleproductgas_telefono, saleproduct_type, saleproduct_naturaleza, saleproduct_exonerada, saleproduct_inafecta, saleproduct_total, saleproduct_gravada, saleproduct_igv){
+function vender(client_number, saleproductgas_direccion, saleproductgas_telefono, saleproduct_type, saleproduct_naturaleza, saleproduct_exonerada, saleproduct_inafecta, saleproduct_icbper, saleproduct_total, saleproduct_gravada, saleproduct_igv){
     var cadena = "client_number=" + client_number +
         "&saleproductgas_direccion=" + saleproductgas_direccion +
         "&saleproductgas_telefono=" + saleproductgas_telefono +
@@ -63,6 +64,7 @@ function vender(client_number, saleproductgas_direccion, saleproductgas_telefono
         "&saleproduct_naturaleza=" + saleproduct_naturaleza +
         "&saleproduct_exonerada=" + saleproduct_exonerada +
         "&saleproduct_inafecta=" + saleproduct_inafecta +
+        "&saleproduct_icbper=" + saleproduct_icbper +
         "&saleproduct_total=" + saleproduct_total +
         "&saleproduct_gravada=" + saleproduct_gravada +
         "&saleproduct_igv=" + saleproduct_igv;
