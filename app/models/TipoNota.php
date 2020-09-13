@@ -2,12 +2,12 @@
 /**
  * Created by PhpStorm
  * User: Lucho
- * Date: 07/09/2020
- * Time: 16:50
+ * Date: 13/09/2020
+ * Time: 13:05
  */
 
-class Igv{
-
+class TipoNota
+{
     private $pdo;
     private $log;
     public function __construct(){
@@ -16,9 +16,23 @@ class Igv{
     }
 
     //Listar Toda La Info
-    public function listAll(){
+    public function listAllCredito(){
         try{
-            $sql = 'select * from igv where igv_estado = 1 order by igv_codigoafectacion ASC ';
+            $sql = 'select * from tipo_ncreditos';
+            $stm = $this->pdo->prepare($sql);
+            $stm->execute();
+            $result = $stm->fetchAll();
+
+        } catch (Exception $e){
+            $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
+            $result = [];
+        }
+        return $result;
+    }
+
+    public function listAllDebito(){
+        try{
+            $sql = 'select * from tipo_ndebitos';
             $stm = $this->pdo->prepare($sql);
             $stm->execute();
             $result = $stm->fetchAll();

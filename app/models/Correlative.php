@@ -101,4 +101,30 @@ class Correlative{
         }
         return $return;
     }
+
+    public function updatecorrelativenc(){
+        try{
+            $sql = 'update correlative set correlative_nc = correlative_nc+ 1 where id_correlative = 1';
+            $stm = $this->pdo->prepare($sql);
+            $stm->execute();
+            $return = 1;
+        } catch (Exception $e){
+            $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
+            $return = 2;
+        }
+        return $return;
+    }
+
+    public function updatecorrelativend(){
+        try{
+            $sql = 'update correlative set correlative_nd = correlative_nd+ 1 where id_correlative = 1';
+            $stm = $this->pdo->prepare($sql);
+            $stm->execute();
+            $return = 1;
+        } catch (Exception $e){
+            $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
+            $return = 2;
+        }
+        return $return;
+    }
 }

@@ -216,10 +216,10 @@ class SellGas{
     }
 
     //Insertar Datos En Detalle Venta
-    public function insertSale($id_client, $id_user, $id_turn, $saleproductgas_direccion, $saleproductgas_telefono, $saleproduct_type, $saleproductgas_naturaleza, $saleproduct_correlative, $saleproduct_gravada, $saleproduct_igv, $saleproduct_total, $saleproduct_date, $saleproduct_estado, $saleproduct_cancelled, $saleproduct_inafecta, $saleproduct_exonerada , $saleproduct_icbper){
+    public function insertSale($id_client, $id_user, $id_turn, $saleproductgas_direccion, $saleproductgas_telefono, $saleproduct_type, $saleproductgas_naturaleza, $saleproduct_correlative, $saleproduct_gravada, $saleproduct_igv, $saleproduct_total, $saleproduct_date, $saleproduct_estado, $saleproduct_cancelled, $saleproduct_inafecta, $saleproduct_exonerada , $saleproduct_icbper, $tipo_nota){
         try{
             $date = date("Y-m-d H:i:s");
-            $sql = 'insert into saleproductgas(id_client, id_user, id_turn, saleproductgas_direccion, saleproductgas_telefono, saleproductgas_type, saleproductgas_naturaleza, saleproductgas_correlativo, saleproductgas_totalexonerada, saleproductgas_totalinafecta, saleproductgas_totalgravada, saleproductgas_totaligv, saleproductgas_icbper, saleproductgas_total, saleproductgas_date, saleproductgas_estado, saleproductgas_cancelled) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
+            $sql = 'insert into saleproductgas(id_client, id_user, id_turn, saleproductgas_direccion, saleproductgas_telefono, saleproductgas_type, saleproductgas_naturaleza, saleproductgas_correlativo, saleproductgas_totalexonerada, saleproductgas_totalinafecta, saleproductgas_totalgravada, saleproductgas_totaligv, saleproductgas_icbper, saleproductgas_total, saleproductgas_date, tipo_nota_id, saleproductgas_estado, saleproductgas_cancelled) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
             $stm = $this->pdo->prepare($sql);
             $stm->execute([
                 $id_client,
@@ -237,6 +237,7 @@ class SellGas{
                 $saleproduct_icbper,
                 $saleproduct_total,
                 $saleproduct_date,
+                $tipo_nota,
                 $saleproduct_estado,
                 $saleproduct_cancelled
             ]);
@@ -569,6 +570,34 @@ class SellGas{
             $stm = $this->pdo->prepare($sql);
             $stm->execute([$id_productoventa]);
             $result = true;
+        } catch (Exception $e){
+            $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
+            $result = 2;
+        }
+        return $result;
+    }
+
+    public function tipo_nota_credito($id_productoventa){
+        try {
+            $sql = 'SELECT * FROM saleproductgas sp INNER JOIN tipo_ncreditos tnc ON sp.tipo_nota_id = tnc.id 
+                     WHERE sp.id_saleproductgas = ?';
+            $stm = $this->pdo->prepare($sql);
+            $stm->execute([$id_productoventa]);
+            $result = $stm->fetch();
+        } catch (Exception $e){
+            $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
+            $result = 2;
+        }
+        return $result;
+    }
+
+    public function tipo_nota_debito($id_productoventa){
+        try {
+            $sql = 'SELECT * FROM saleproductgas sp INNER JOIN tipo_ncdebitos tnc ON sp.tipo_nota_id = tnc.id 
+                     WHERE sp.id_saleproductgas = ?';
+            $stm = $this->pdo->prepare($sql);
+            $stm->execute([$id_productoventa]);
+            $result = $stm->fetch();
         } catch (Exception $e){
             $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
             $result = 2;

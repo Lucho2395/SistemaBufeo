@@ -118,7 +118,10 @@
             </tbody>
         </table>
         <div class="row">
-            <div class="col-lg-8"></div>
+
+            <div id="espacio" class = "col-lg-8">
+            </div>
+
             <div class="col-lg-4">
                 <h5>OP. EXONERADA: s/. <?php echo number_format($exonerada ,2);?></h5>
                 <input type="hidden" value="<?php echo $exonerada;?>" id="exonerada">

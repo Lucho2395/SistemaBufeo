@@ -140,7 +140,7 @@
             <div class="col-xs-1"></div>
             <div class="col-xs-2">
                 <label for="client_number">DNI ó RUC:</label>
-                <input class="form-control" type="text" id="client_number" readonly value="11111111">
+                <input class="form-control" type="text" id="client_number" readonly value="11111111" onchange="buscador_cliente()">
             </div>
             <div class="col-xs-4">
                 <label for="client_name">Nombre:</label>
@@ -148,9 +148,11 @@
             </div>
             <div class="col-xs-2">
                 <label>Tipo de Venta</label>
-                <select  id="type_sell" class="form-control">
-                    <option value="BOLETA">BOLETA</option>
-                    <option value="FACTURA">FACTURA</option>
+                <select  id="type_sell" class="form-control" onchange = "selecttipoventa(this.value)">
+                    <option value="03">BOLETA</option>
+                    <option value="01">FACTURA</option>
+                    <option value= "07">NOTA DE CREDITO</option>
+                    <option value= "08">NOTA DE DEBITO</option>
                 </select>
             </div>
             <div class="col-xs-2">
@@ -234,6 +236,47 @@
 
         </div>
         <br>
+
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div id="credito_debito">
+                <div class="col-lg-3">
+                    <label>Documento a modificar</label>
+                    <select name="" class="form-control" id="">
+                        <option value="">DNI</option>
+                        <option value="">RUC</option>
+                    </select>
+                </div>
+                <div class="col-lg-4">
+                    <label>Tipo Nota de Crédito</label>
+                    <select name="" class="form-control" id="TipoNotaCredito">
+                        <?php
+                        foreach ($tiponotacredito as $nc){
+                        ?>
+                            <option value="<?= $nc->id; ?>"><?= $nc->tipo_ncredito; ?></option>
+                        <?php
+                        }
+                        ?>
+
+                    </select>
+                </div>
+                <div class = "col-lg-3">
+                    <label>Tipo Nota de Débito</label>
+                    <select name="" class="form-control" id="TipoNotaDebito">
+                        <?php
+                        foreach ($tiponotadebito as $nd){
+                            ?>
+                            <option value="<?= $nd->id; ?>"><?= $nd->tipo_ndebito; ?></option>
+                            <?php
+                        }
+                        ?>
+                    </select>
+                </div>
+                <div class="col-lg-1"></div>
+            </div>
+        </div>
+
+        <br>
         <!-- /.row (main row) -->
         <div id="table_products">
 
@@ -250,9 +293,27 @@
     <!-- /.content -->
 </div>
 <script type="text/javascript">
+    //para mostrar
+    function selecttipoventa(valor){
+        if (valor == "07" || valor == "08"){
+            $('#credito_debito').show();
+
+            if(valor == "07"){
+                $('#TipoNotaCredito').prop('disabled', false);
+                $('#TipoNotaDebito').prop('disabled', true);
+            }else{
+                $('#TipoNotaCredito').prop('disabled', true);
+                $('#TipoNotaDebito').prop('disabled', false);
+            }
+        } else{
+            $('#credito_debito').hide();
+        }
+    }
+
     $(document).ready(function(){
         $('#table_products').load('<?php echo _SERVER_;?>SellGas/table_productsGas');
         $("#product_barcode").focus(); //Con focus el cursor en el elemento indicado
+        $("#credito_debito").hide();
     });
     var productfull = "";
     var unid = "";

@@ -14,6 +14,8 @@ require 'app/models/Correlative.php';
 require 'app/models/User.php';
 require 'app/models/Nmletras.php';
 require 'app/models/Igv.php';
+require 'app/models/TipoNota.php';
+//require 'app/models/simple_html_dom.php';
 //require 'app/view/report/fpdf/fpdf.php';
 class SellGasController{
     private $crypt;
@@ -28,6 +30,8 @@ class SellGasController{
     private $usuario;
     private $numLetra;
     private $igv_tipo;
+    private $tipo_nota;
+    private $simple_dom; //para buscar por dni
     //private $pdf;
 
     public function __construct()
@@ -44,6 +48,7 @@ class SellGasController{
         $this->usuario = new User();
         $this->numLetra = new Nmletras();
         $this->igv_tipo = new Igv();
+        $this->tipo_nota = new TipoNota();
         //$this->pdf = new FPDF();
     }
 
@@ -56,6 +61,8 @@ class SellGasController{
         $products = $this->inventory->listProductprices();
         //Cargamos Clientes
         $clients = $this->client->listAll();
+        $tiponotacredito = $this->tipo_nota->listAllCredito();
+        $tiponotadebito = $this->tipo_nota->listAllDebito();
 
         require _VIEW_PATH_ . 'header.php';
         require _VIEW_PATH_ . 'navbar.php';
@@ -365,6 +372,26 @@ class SellGasController{
 
     //Funciones
 
+    // consultar con la reniec para el dni o ruc
+    /*public function consulta_reniec(){
+        $num_doc = $_POST['buscar_cliente'];
+
+        $consulta_documento = file_get_html('https://eldni.com/buscar-por-dni?dni='.$num_doc);
+        $datosnombres = array();
+        foreach ($consulta_documento->find('td') as $header){
+            $datosnombres[] = $header->plaintext;
+        }
+
+        //LA LOGICA DE LA PAGINAS ES APELLIDO PATERNO | APELLIDO MATERNO | NOMBRES
+        $result = array(
+            0 => $num_doc,
+            1 => $datosnombres[0],
+            2 => $datosnombres[1],
+            3 => $datosnombres[2],
+        );
+        echo $result;
+    }*/
+
     //VENDER PRODUCTO----------------------------------------------->
     public function sellProduct(){
         try{
@@ -386,13 +413,16 @@ class SellGasController{
             }
             $saleproduct_correlative = 1;
             $correlative = $this->correlative->list();
-            if($saleproduct_type == "BOLETA"){
+            if($saleproduct_type == "03"){
                 $saleproduct_correlative = "B001-" . $correlative->correlative_b;
-                $saleproduct_type = "03";
-            } else {
+            } else if ($saleproduct_type == "01"){
                 $saleproduct_correlative = "F001-" . $correlative->correlative_f;
-                $saleproduct_type = "01";
+            } else if($saleproduct_type == "07"){
+                $saleproduct_correlative = "C001-" . $correlative->correlative_nc;
+            } else{
+                $saleproduct_correlative = "D001-" . $correlative->correlative_nd;
             }
+
             $saleproduct_inafecta = $_POST['saleproduct_inafecta'];
             $saleproduct_exonerada = $_POST['saleproduct_exonerada'];
             $saleproduct_gravada = $_POST['saleproduct_gravada'];
@@ -400,10 +430,11 @@ class SellGasController{
             $saleproduct_igv = $_POST['saleproduct_igv'];
             $saleproduct_total = $_POST['saleproduct_total'];
             $saleproduct_date = date("Y-m-d H:i:s");
+            $tipo_nota = $_POST['tipo_nota'];
 
             $saleproduct_cancelled = 1;
 
-            $savesale = $this->sell->insertSale($id_client, $id_user, $id_turn, $saleproductgas_direccion, $saleproductgas_telefono, $saleproduct_type, $saleproductgas_naturaleza, $saleproduct_correlative, $saleproduct_gravada, $saleproduct_igv, $saleproduct_total, $saleproduct_date, $saleproduct_estado, $saleproduct_cancelled, $saleproduct_inafecta, $saleproduct_exonerada, $saleproduct_icbper);
+            $savesale = $this->sell->insertSale($id_client, $id_user, $id_turn, $saleproductgas_direccion, $saleproductgas_telefono, $saleproduct_type, $saleproductgas_naturaleza, $saleproduct_correlative, $saleproduct_gravada, $saleproduct_igv, $saleproduct_total, $saleproduct_date, $saleproduct_estado, $saleproduct_cancelled, $saleproduct_inafecta, $saleproduct_exonerada, $saleproduct_icbper, $tipo_nota);
             $idsale = $savesale->id_saleproductgas;
 
 
@@ -522,8 +553,12 @@ class SellGasController{
 
                 if($saleproduct_type == "03"){
                     $this->correlative->updatecorrelativeb();
-                } else {
+                } else if($saleproduct_type == "01"){
                     $this->correlative->updatecorrelativef();
+                } else if($saleproduct_type == "07"){
+                    $this->correlative->updatecorrelativenc();
+                } else{
+                    $this->correlative->updatecorrelativend();
                 }
             }
         } catch (Exception $e){
@@ -730,7 +765,7 @@ class SellGasController{
                         $igvUnitario = $precioConIgv-$precioBaseUnidad ; */
 
                         // $igvPorUnidad = $precioBaseUnidad;
-                        $descripction = utf8_decode($value->sale_productnamegas);
+                        $descripction = $this->sanear_string(utf8_decode($value->sale_productnamegas));
 
                         $linea = "{$result->medida_codigo_unidad}|";//Código de unidad de medida por ítem
                         $linea .= "{$value->sale_productscantgas}|";//Cantidad de unidades por ítem
@@ -869,8 +904,17 @@ class SellGasController{
                     $cambiar_enviosunat = $this->sell->envio_sunat($id_productoventa);
                     $return = 1;
                 } else{
-                    $return = 2;
+                    //NOTA DE CREDITO , DEBITO
+                    /*obtenemos el archivo adjunto a esa nota de credito o debito*/
+                    if($comprobante->saleproductgas_type == "07"){
+                        $rsAdjunto = $this->sell->tipo_nota_credito($id_productoventa);
+                    } else{
+                        $rsAdjunto = $this->sell->tipo_nota_debito($id_productoventa);
+                    }
+                    $fechaHoraEmision = new DateTime($comprobante->fecha_sunat);
                 }
+            } else{
+
             }
         }catch (Exception $e){
             $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
@@ -880,7 +924,7 @@ class SellGasController{
 
     }
 
-    /*public function sanear_string($string) {
+    public function sanear_string($string) {
 
         $string = trim(utf8_encode($string));
 //        $string = str_replace(

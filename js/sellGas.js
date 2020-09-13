@@ -44,9 +44,17 @@ function preguntarSiNo(){
     var saleproduct_total = total;
     var saleproduct_gravada = gravada;
     var saleproduct_igv = igv;
+    if (saleproduct_type == "07" || saleproduct_type == "08"){
+        if (saleproduct_type == "07"){
+            var tipo_nota = $('#TipoNotaCredito').val();
+        } else{
+            var tipo_nota = $('#TipoNotaDebito').val();
+        }
+    }
+
 
     alertify.confirm('Realizar Venta', '¿Esta seguro que desea realizar esta venta? Monto Total: s/.' + saleproduct_total,
-        function(){ vender(client_number, saleproductgas_direccion, saleproductgas_telefono, saleproduct_type, saleproduct_naturaleza, saleproduct_exonerada, saleproduct_inafecta, saleproduct_icbper, saleproduct_total, saleproduct_gravada, saleproduct_igv) }
+        function(){ vender(client_number, saleproductgas_direccion, saleproductgas_telefono, saleproduct_type, saleproduct_naturaleza, saleproduct_exonerada, saleproduct_inafecta, saleproduct_icbper, saleproduct_total, saleproduct_gravada, saleproduct_igv, tipo_nota) }
         , function(){ alertify.error('Operacion Cancelada')});
 }
 
@@ -56,7 +64,7 @@ function preguntarSiNoA(id_saleproductgas){
         , function(){ alertify.error('Operacion Cancelada')});
 }
 
-function vender(client_number, saleproductgas_direccion, saleproductgas_telefono, saleproduct_type, saleproduct_naturaleza, saleproduct_exonerada, saleproduct_inafecta, saleproduct_icbper, saleproduct_total, saleproduct_gravada, saleproduct_igv){
+function vender(client_number, saleproductgas_direccion, saleproductgas_telefono, saleproduct_type, saleproduct_naturaleza, saleproduct_exonerada, saleproduct_inafecta, saleproduct_icbper, saleproduct_total, saleproduct_gravada, saleproduct_igv, tipo_nota){
     var cadena = "client_number=" + client_number +
         "&saleproductgas_direccion=" + saleproductgas_direccion +
         "&saleproductgas_telefono=" + saleproductgas_telefono +
@@ -67,6 +75,7 @@ function vender(client_number, saleproductgas_direccion, saleproductgas_telefono
         "&saleproduct_icbper=" + saleproduct_icbper +
         "&saleproduct_total=" + saleproduct_total +
         "&saleproduct_gravada=" + saleproduct_gravada +
+        "&tipo_nota=" + tipo_nota +
         "&saleproduct_igv=" + saleproduct_igv;
     $.ajax({
         type:"POST",
