@@ -593,7 +593,7 @@ class SellGas{
 
     public function tipo_nota_debito($id_productoventa){
         try {
-            $sql = 'SELECT * FROM saleproductgas sp INNER JOIN tipo_ncdebitos tnc ON sp.tipo_nota_id = tnc.id 
+            $sql = 'SELECT * FROM saleproductgas sp INNER JOIN tipo_ndebitos tnc ON sp.tipo_nota_id = tnc.id 
                      WHERE sp.id_saleproductgas = ?';
             $stm = $this->pdo->prepare($sql);
             $stm->execute([$id_productoventa]);

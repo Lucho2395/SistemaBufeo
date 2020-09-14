@@ -253,7 +253,7 @@
                         <?php
                         foreach ($tiponotacredito as $nc){
                         ?>
-                            <option value="<?= $nc->id; ?>"><?= $nc->tipo_ncredito; ?></option>
+                            <option value="<?= $nc->id; ?>"><?= $nc->tipo_nota_descripcion; ?></option>
                         <?php
                         }
                         ?>
@@ -266,7 +266,7 @@
                         <?php
                         foreach ($tiponotadebito as $nd){
                             ?>
-                            <option value="<?= $nd->id; ?>"><?= $nd->tipo_ndebito; ?></option>
+                            <option value="<?= $nd->id; ?>"><?= $nd->tipo_nota_descripcion; ?></option>
                             <?php
                         }
                         ?>

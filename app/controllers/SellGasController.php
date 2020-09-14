@@ -711,7 +711,11 @@ class SellGasController{
                     $linea .= "0000|";//codigo domicilio fiscal
                     $linea .= "{$comprobante->tipodocumento_codigo}|";//tipo de documento de identidad
                     $linea .= trim("{$comprobante->client_number}")."|";//:numero de documento identidad || trmi(Elimina espacio en blanco (u otro tipo de caracteres) del inicio y el final de la cadena)
-                    $linea .= "{$comprobante->client_razonsocial}"." {$comprobante->client_name}|";//apellidos y nombres o razon social
+                    if ($comprobante->client_razonsocial == ""){
+                        $linea .= "{$comprobante->client_name}|";//apellidos y nombres o razon social
+                    } else{
+                        $linea .= "{$comprobante->client_razonsocial}|";//apellidos y nombres o razon social
+                    }
                     $linea .= "{$comprobante->abrstandar}|";//:tipo de moneda
                     $linea .= "{$comprobante->saleproductgas_totaligv}|";//:sumatoria tributos
                     if($comprobante->saleproductgas_totalgravada == "0.00"){
@@ -722,7 +726,7 @@ class SellGasController{
 
                     $linea .= "{$comprobante->saleproductgas_total}|";//total precio venta
                     $linea .= "$comprobante_saleproduct->total_descuentos|";//total descuento
-                    $linea .= "0|";//sumatoria otros cargos
+                    $linea .= "0.00|";//sumatoria otros cargos
                     /*buscamos si el comprobante a enviar tiene anticipos*/
                     /*$this->db->from("comprobante_anticipo");
                     $this->db->join("comprobantes", "comprobante_anticipo.comprobante_id=comprobantes.id");
@@ -740,8 +744,9 @@ class SellGasController{
                     }else{
                         $linea .= "0|";//total anticipo
                     }*/
-                    $linea .= "0|";//total anticipo
-                    $linea .= "{$comprobante->saleproductgas_total}|";//importe total venta
+                    $linea .= "0.00|";//total anticipo
+                    $importetotal = $comprobante->saleproductgas_total - $comprobante_saleproduct->total_descuentos + 0 - 0;
+                    $linea .= "{$importetotal}|";//Importe total de la venta, cesión en uso o del servicio prestado
                     $linea .= "2.1|";//version UBL
                     $linea .= "2.0|\r\n";//customization
 
@@ -789,7 +794,11 @@ class SellGasController{
                         //$linea .= $this->tipoCodigoDeTributo($value['tipo_igv_codigo'])."|";//Tributo: Código de tipo de tributo por Item
                         $linea .= "{$value->igv_codigoInternacional}|";//Tributo: Código de tipo de tributo por Item
                         $linea .= "{$value->igv_codigoafectacion}|";//Tributo: Afectación al IGV por ítem
-                        $linea .= "18.00|";//Tributo: Porcentaje de IGV
+                        if($value->igv == "0.00"){
+                            $linea .= "0.00|";//Tributo: Porcentaje de IGV
+                        } else{
+                            $linea .= "18.00|";//Tributo: Porcentaje de IGV
+                        }
                         /*Tributo ISC (2000)*/
                         $linea .= "-|";//Tributo ISC: Códigos de tipos de tributos ISC
                         $linea .= "|";//Tributo ISC: Monto de ISC por ítem
@@ -912,7 +921,206 @@ class SellGasController{
                         $rsAdjunto = $this->sell->tipo_nota_debito($id_productoventa);
                     }
                     $fechaHoraEmision = new DateTime($comprobante->fecha_sunat);
+                    $linea = "0101|"; //Tipo de Operacion
+                    $linea .= "{$fechaHoraEmision->format('Y-m-d')}|";//Fecha de Emision
+                    $linea .= "{$fechaHoraEmision->format('H:i:s')}|"; //Hora de Emision
+                    $linea .= "0000|"; //Código del domicilio fiscal o de local anexo del emisor
+                    $linea .= "{$comprobante->tipodocumento_codigo}|"; //Tipo de documento de identidad del adquirente o usuario
+                    $linea .= trim("{$comprobante->client_number}")."|";//:numero de documento identidad || trmi(Elimina espacio en blanco (u otro tipo de caracteres) del inicio y el final de la cadena)
+                    if ($comprobante->client_razonsocial == ""){
+                        $linea .= "{$comprobante->client_name}|";//apellidos y nombres o razon social
+                    } else{
+                        $linea .= "{$comprobante->client_razonsocial}|";//apellidos y nombres o razon social
+                    }
+                    $linea .= "{$comprobante->abrstandar}|";//:tipo de moneda
+                    $linea .= "{$rsAdjunto->codigo}|";//Código del tipo de Nota  electrónica
+                    $linea .= "{$rsAdjunto->tipo_nota_descripcion}|";//Descripción de motivo o sustento
+                    $linea .= " |";//Tipo de documento del documento que modifica
+                    $linea .= "-|";//Serie y número del documento que modifica
+                    $linea .= "{$comprobante->saleproductgas_totaligv}|";//:sumatoria tributos
+                    if($comprobante->saleproductgas_totalgravada == "0.00"){
+                        $linea .= "{$comprobante->saleproductgas_total}|";//:total valor venta -
+                    } else{
+                        $linea .= "{$comprobante->saleproductgas_totalgravada}|";//:total valor venta -
+                    }
+
+                    $linea .= "{$comprobante->saleproductgas_total}|";//total precio venta - 15
+                    $linea .= "$comprobante_saleproduct->total_descuentos|";//total descuento - 16
+                    $linea .= "0.00|";//sumatoria otros cargos - 17
+                    $linea .= "0.00|";//Total Anticipos - 18
+                    $importetotal = $comprobante->saleproductgas_total - $comprobante_saleproduct->total_descuentos + 0 - 0;
+                    $linea .= "{$importetotal}|";//Importe total de la venta, cesión en uso o del servicio prestado
+                    $linea .= "2.1|";//version UBL
+                    $linea .= "2.0|\r\n";//customization
+                    /*creamos archivo nota*/
+                    $sql = $rutaArchivos . $comprobante->empresa_ruc . '-' . $comprobante->saleproductgas_type . '-' . $comprobante->saleproductgas_correlativo . '.NOT';
+                    $f = fopen($sql, 'w');
+                    fwrite($f, $linea);
+                    fclose($f);
+
+                    //empezamos con el archivo .DET
+                    $rut = $rutaArchivos . $comprobante->empresa_ruc . '-' . $comprobante->saleproductgas_type . '-' . $comprobante->saleproductgas_correlativo . '.DET';
+                    $f = fopen($rut, 'w');
+                    foreach ($saledetail_data as $value) {
+                        $result = $this->sell->Buscarproduct_detalle($value->id_productforsale);
+
+                        // $precioBaseUnidad = ($value['total']-$value['igv'])/$value['cantidad'];//precio unitario sin igv
+                        /*if($comprobante1->comprobante_anticipo == '1')
+                        {
+                            $precioBaseUnidad = (($value['subtotal']/$value['cantidad'])/1.18);
+                        }else{
+                            $precioBaseUnidad = ($value['subtotal']/$value['cantidad']);
+                        }
+
+                        $precioConIgv = $precioBaseUnidad*1.18;
+                        $igvUnitario = $precioConIgv-$precioBaseUnidad ; */
+
+                        // $igvPorUnidad = $precioBaseUnidad;
+                        $descripction = $this->sanear_string(utf8_decode($value->sale_productnamegas));
+
+                        $linea = "{$result->medida_codigo_unidad}|";//Código de unidad de medida por ítem
+                        $linea .= "{$value->sale_productscantgas}|";//Cantidad de unidades por ítem
+                        $linea .= "{$result->product_barcode}|";//Código de producto
+                        $linea .= "-|";//Codigo producto SUNAT
+                        $linea .= str_replace("&", "Y", trim(utf8_decode($descripction)))."|";//Descripción detallada del servicio prestado, bien vendido o cedido en uso, indicando las características.
+                        $linea .= round($value->precio_base, 2)."|";//Valor Unitario (cac:InvoiceLine/cac:Price/cbc:PriceAmount)
+                        $linea .= "{$value->igv}|";//Sumatoria Tributos por item
+                        //TRIBUTO IGV
+                        $linea .= "{$value->igv_codigo}|";//Tributo: Códigos de tipos de tributos IGV(1000 - 1016 - 9995 - 9996 - 9997 - 9998)
+                        $linea .= "{$value->igv}|";//Tributo: Monto de IGV por ítem
+                        if($value->igv_codigoafectacion == '40')//gratuitas la base es 0
+                        {
+                            $linea .= "0|";//Tributo: Base Imponible IGV por Item
+                        }else
+                        {
+                            $linea .= "{$value->subtotal}|";//Tributo: Base Imponible IGV por Item
+                        }
+
+                        $linea .= "{$value->igv_nombre}|";//Tributo: Nombre de tributo por item
+                        //$linea .= $this->tipoCodigoDeTributo($value['tipo_igv_codigo'])."|";//Tributo: Código de tipo de tributo por Item
+                        $linea .= "{$value->igv_codigoInternacional}|";//Tributo: Código de tipo de tributo por Item
+                        $linea .= "{$value->igv_codigoafectacion}|";//Tributo: Afectación al IGV por ítem
+                        if($value->igv == "0.00"){
+                            $linea .= "0.00|";//Tributo: Porcentaje de IGV
+                        } else{
+                            $linea .= "18.00|";//Tributo: Porcentaje de IGV
+                        }
+                        /*Tributo ISC (2000)*/
+                        $linea .= "-|";//Tributo ISC: Códigos de tipos de tributos ISC
+                        $linea .= "|";//Tributo ISC: Monto de ISC por ítem
+                        $linea .= "|";//Tributo ISC: Base Imponible ISC por Item
+                        $linea .= "|";//Tributo ISC: Nombre de tributo por item
+                        $linea .= "|";//Tributo ISC: Código de tipo de tributo por Item
+                        $linea .= "|";//Tributo ISC: Tipo de sistema ISC
+                        $linea .= "|";//Tributo ISC: Porcentaje de ISC
+                        /*Tributo Otro 9999*/
+                        $linea .= "-|";//Tributo Otro: Códigos de tipos de tributos OTRO
+                        $linea .= "|";//Tributo Otro: Monto de tributo OTRO por iItem
+                        $linea .= "|";//Tributo Otro: Base Imponible de tributo OTRO por Item
+                        $linea .= "|";//Tributo Otro:  Nombre de tributo OTRO por item
+                        $linea .= "|";//Tributo Otro: Código de tipo de tributo OTRO por Item
+                        $linea .= "|";//Tributo Otro: Porcentaje de tributo OTRO por Item
+                        //Tributo ICBPER 7152
+
+                        if ($value->total_icbper > 0){
+                            $linea .= "7152|";//Tributo ICBPER: Códigos de tipos de tributos ICBPER
+                            $linea .= "{$value->total_icbper}|";//Tributo ICBPER: Monto de tributo ICBPER por iItem
+                            $linea .= "{$value->sale_productscantgas}|";//Tributo ICBPER: Cantidad de bolsas plásticas por Item
+                            $linea .= "ICBPER|";//Tributo ICBPER:  Nombre de tributo ICBPER por item
+                            $linea .= "OTH|";//Tributo ICBPER: Código de tipo de tributo ICBPER por Item
+                            $linea .= number_format($impuesto_icbper , 2)."|";//Tributo ICBPER: Monto de tributo ICBPER por Unidad
+                        } else {
+                            $linea .= "-|";//Tributo ICBPER: Códigos de tipos de tributos ICBPER
+                            $linea .= "|";//Tributo ICBPER: Monto de tributo ICBPER por iItem
+                            $linea .= "|";//Tributo ICBPER: Cantidad de bolsas plásticas por Item
+                            $linea .= "|";//Tributo ICBPER:  Nombre de tributo ICBPER por item
+                            $linea .= "|";//Tributo ICBPER: Código de tipo de tributo ICBPER por Item
+                            $linea .= "|";//Tributo ICBPER: Monto de tributo ICBPER por Unidad
+
+                        }
+
+                        if($value->igv_tipoigv == 1){
+                            $linea .= ($value->precio_base * 1.18)."|";//Precio de venta unitario(base+igv)
+                        } else{
+                            $linea .= ($value->precio_base)."|";
+                        }
+
+                        $linea .= round($value->subtotal, 2)."|";//Valor de venta por Item
+                        $linea .= "0.00|\r\n";//Valor REFERENCIAL unitario (gratuitos)*/
+                        fwrite($f, $linea);
+                    }
+                    fclose($f);
+                    /*DOCUMENTO TRIBUTO*/
+                    $rut_tributo = $rutaArchivos . $comprobante->empresa_ruc . '-' . $comprobante->saleproductgas_type . '-' . $comprobante->saleproductgas_correlativo . '.TRI';
+                    $f = fopen($rut_tributo, 'w');
+                    //si tributo es igv
+                    if($comprobante->saleproductgas_totalgravada > 0)
+                    {
+                        $linea = "1000|";//Identificador de tributo
+                        $linea .= "IGV|";//Nombre de tributo
+                        $linea .= "VAT|";//Código de tipo de tributo
+                        $linea .= "{$comprobante->saleproductgas_totalgravada}|";//Base imponible
+                        $linea .= "{$comprobante->saleproductgas_totaligv}|\r\n";//Monto de Tirbuto por ítem
+                        fwrite($f, $linea);
+                    }
+                    //si tributo es exonerada
+                    if($comprobante->saleproductgas_totalexonerada > 0)
+                    {
+                        $linea = "9997|";//Identificador de tributo
+                        $linea .= "EXO|";//Nombre de tributo
+                        $linea .= "VAT|";//Código de tipo de tributo
+                        $linea .= "{$comprobante->saleproductgas_totalexonerada}|";//Base imponible
+                        $linea .= "0.00|\r\n";//Monto de Tirbuto por ítem
+                        fwrite($f, $linea);
+                    }
+                    //si tributo es inafecto
+                    if($comprobante->saleproductgas_totalinafecta > 0)
+                    {
+                        $linea = "9998|";//Identificador de tributo
+                        $linea .= "INA|";//Nombre de tributo
+                        $linea .= "FRE|";//Código de tipo de tributo
+                        $linea .= "{$comprobante->saleproductgas_totalinafecta}|";//Base imponible
+                        $linea .= "0|\r\n";//Monto de Tirbuto por ítem
+                        fwrite($f, $linea);
+                    }
+                    //si tributo es gratuita/exportacion
+                    /*if($comprobante['total_gratuita'] > 0)
+                    {
+                        $linea = "9996|";//Identificador de tributo
+                        $linea .= "GRA|";//Nombre de tributo
+                        $linea .= "FRE|";//Código de tipo de tributo
+                        $linea .= "{$comprobante['total_gratuita']}|";//Base imponible
+                        $linea .= "0|\r\n";//Monto de Tirbuto por ítem
+                        fwrite($f, $linea);
+                    }*/
+                    //tributo de bolsa
+                    if($comprobante->saleproductgas_icbper > 0)
+                    {
+                        $linea = "7152|";//Identificador de tributo
+                        $linea .= "ICBPER|";//Nombre de tributo
+                        $linea .= "OTH|";//Código de tipo de tributo
+                        $linea .= "{$comprobante->saleproductgas_total}|";//Base imponible
+                        $linea .= "{$comprobante->saleproductgas_icbper}|\r\n";//Monto de Tirbuto por ítem
+                        fwrite($f, $linea);
+                    }
+
+                    fclose($f);
+                    /*DOCUMENTO LEYENDA*/
+                    $importe_letra = $this->numLetra->num2letras(intval($comprobante->saleproductgas_total));
+                    $arrayImporte = explode(".",$comprobante->saleproductgas_total);
+                    $montoLetras = $importe_letra.' con ' .$arrayImporte[1].'/100 '.$comprobante->moneda;
+                    $rut_leyenda = $rutaArchivos . $comprobante->empresa_ruc . '-' . $comprobante->saleproductgas_type . '-' . $comprobante->saleproductgas_correlativo . '.LEY';
+                    $f = fopen($rut_leyenda, 'w');
+                    $linea = "1000|";//Código de leyenda
+                    $linea .= "{$montoLetras}|";//Descripción de leyenda
+                    fwrite($f, $linea);
+                    fclose($f);
+
+                    $cambiar_enviosunat = $this->sell->envio_sunat($id_productoventa);
+                    $return = 1;
+
                 }
+
             } else{
 
             }
