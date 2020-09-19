@@ -577,12 +577,12 @@ class SellGas{
         return $result;
     }
 
-    public function tipo_nota_credito($id_productoventa){
+    public function tipo_nota_credito($id_productoventa, $tipo_docuemnto){
         try {
             $sql = 'SELECT * FROM saleproductgas sp INNER JOIN tipo_ncreditos tnc ON sp.tipo_nota_id = tnc.id 
-                     WHERE sp.id_saleproductgas = ?';
+                     WHERE sp.id_saleproductgas = ? and sp.saleproductgas_type = ?';
             $stm = $this->pdo->prepare($sql);
-            $stm->execute([$id_productoventa]);
+            $stm->execute([$id_productoventa, $tipo_docuemnto]);
             $result = $stm->fetch();
         } catch (Exception $e){
             $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
@@ -591,13 +591,27 @@ class SellGas{
         return $result;
     }
 
-    public function tipo_nota_debito($id_productoventa){
+    public function tipo_nota_debito($id_productoventa, $tipo_docuemnto){
         try {
             $sql = 'SELECT * FROM saleproductgas sp INNER JOIN tipo_ndebitos tnc ON sp.tipo_nota_id = tnc.id 
-                     WHERE sp.id_saleproductgas = ?';
+                     WHERE sp.id_saleproductgas = ? and sp.saleproductgas_type = ?';
             $stm = $this->pdo->prepare($sql);
-            $stm->execute([$id_productoventa]);
+            $stm->execute([$id_productoventa, $tipo_docuemnto]);
             $result = $stm->fetch();
+        } catch (Exception $e){
+            $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
+            $result = 2;
+        }
+        return $result;
+    }
+
+    //Anular un comprobante
+    public function anular_sunat($id_productoventa , $fechaanulado){
+        try {
+            $sql = 'update saleproductgas set anulado_sunat = 1, fecha_de_baja = ? where id_saleproductgas = ? ';
+            $stm = $this->pdo->prepare($sql);
+            $stm->execute([$fechaanulado , $id_productoventa ]);
+            $result = true;
         } catch (Exception $e){
             $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
             $result = 2;

@@ -57,7 +57,7 @@
                         if ($p[0] == "11" || $p[0] == "12" ){
                             $ICBPER = $ICBPER + round($p[4] * $impuesto_icbper , 2);
                         }
-                        $monto = round($monto + $subtotal + $ICBPER , 2);
+                        $monto = round($monto + $subtotal , 2);
                         ?>
                         <tr> <!--De esta tapla se jala los valores por la posicion de los arrays-->
                             <td><?php echo $p[0];?></td>
@@ -78,7 +78,7 @@
                         if ($p[0] == "11" || $p[0] == "12" ){
                             $ICBPER = $ICBPER + round($p[4] * $impuesto_icbper , 2);
                         }
-                        $monto = round($monto + $subtotal + $ICBPER , 2);
+                        $monto = round($monto + $subtotal , 2);
                         ?>
                         <tr> <!--De esta tapla se jala los valores por la posicion de los arrays-->
                             <td><?php echo $p[0];?></td>
@@ -99,7 +99,7 @@
                         if ($p[0] == "11" || $p[0] == "12" ){
                             $ICBPER = $ICBPER + round($p[4] * $impuesto_icbper , 2);
                         }
-                        $monto = round($monto + $subtotal + $ICBPER , 2);
+                        $monto = round($monto + $subtotal , 2);
                         ?>
                         <tr> <!--De esta tapla se jala los valores por la posicion de los arrays-->
                             <td><?php echo $p[0];?></td>

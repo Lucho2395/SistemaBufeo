@@ -15,6 +15,7 @@ require 'app/models/User.php';
 require 'app/models/Nmletras.php';
 require 'app/models/Igv.php';
 require 'app/models/TipoNota.php';
+require 'app/models/SellGasAnulados.php';
 //require 'app/models/simple_html_dom.php';
 //require 'app/view/report/fpdf/fpdf.php';
 class SellGasController{
@@ -31,6 +32,7 @@ class SellGasController{
     private $numLetra;
     private $igv_tipo;
     private $tipo_nota;
+    private $sell_anulados;
     private $simple_dom; //para buscar por dni
     //private $pdf;
 
@@ -414,13 +416,13 @@ class SellGasController{
             $saleproduct_correlative = 1;
             $correlative = $this->correlative->list();
             if($saleproduct_type == "03"){
-                $saleproduct_correlative = "B001-" . $correlative->correlative_b;
+                $saleproduct_correlative = "BBB1-" . $correlative->correlative_b;
             } else if ($saleproduct_type == "01"){
-                $saleproduct_correlative = "F001-" . $correlative->correlative_f;
+                $saleproduct_correlative = "FFF1-" . $correlative->correlative_f;
             } else if($saleproduct_type == "07"){
-                $saleproduct_correlative = "C001-" . $correlative->correlative_nc;
+                $saleproduct_correlative = "FFF1-" . $correlative->correlative_nc;
             } else{
-                $saleproduct_correlative = "D001-" . $correlative->correlative_nd;
+                $saleproduct_correlative = "BBB1-" . $correlative->correlative_nd;
             }
 
             $saleproduct_inafecta = $_POST['saleproduct_inafecta'];
@@ -501,7 +503,7 @@ class SellGasController{
                         } else{
                             $ICBPER = $ICBPER;
                         }
-                        $sale_productstotalprice = round($subtotal + $ICBPER , 2);
+                        $sale_productstotalprice = round($subtotal + $ICBPER, 2);
                         $savedetail = $this->sell->insertSaledetail($id_saleproduct, $id_productforsale, $sale_productname, $sale_unid, $sale_price, $sale_productscant, $sale_productstotalselled, $sale_productstotalprice, $precio_producto, $precio_base, $subtotal_base, $igv_total, $tipo_igv, $ICBPER);
                         if($savedetail == 1){
                             $reduce = $sale_productscant;
@@ -531,7 +533,7 @@ class SellGasController{
                         } else{
                             $ICBPER = 0;
                         }
-                        $sale_productstotalprice = round($subtotal + $ICBPER , 2);
+                        $sale_productstotalprice = round($subtotal + $ICBPER ,2);
                         $savedetail = $this->sell->insertSaledetail($id_saleproduct, $id_productforsale, $sale_productname, $sale_unid, $sale_price, $sale_productscant, $sale_productstotalselled, $sale_productstotalprice, $precio_producto, $precio_base, $subtotal_base, $igv_total, $tipo_igv, $ICBPER);
                         if($savedetail == 1){
                             $reduce = $sale_productscant;
@@ -676,6 +678,7 @@ class SellGasController{
     //funcion para crear los archivos planos, para generar el xml en el facturador Electronico Sunat
     function crear_ArchivosPlanos(){
         try {
+            $id_user = $this->crypt->decrypt($_SESSION['id_user'],_PASS_);// llama la clase crypt de decrypt para decodificar los 2 parametros
             $id_productoventa = $_POST['id'];
             $estado_enviado = $_POST['envio_sunat'];
             //$cliente_data = $this->client->listAll();
@@ -915,10 +918,11 @@ class SellGasController{
                 } else{
                     //NOTA DE CREDITO , DEBITO
                     /*obtenemos el archivo adjunto a esa nota de credito o debito*/
+                    $tipo_docuemnto = $comprobante->saleproductgas_type;
                     if($comprobante->saleproductgas_type == "07"){
-                        $rsAdjunto = $this->sell->tipo_nota_credito($id_productoventa);
+                        $rsAdjunto = $this->sell->tipo_nota_credito($id_productoventa,$tipo_docuemnto);
                     } else{
-                        $rsAdjunto = $this->sell->tipo_nota_debito($id_productoventa);
+                        $rsAdjunto = $this->sell->tipo_nota_debito($id_productoventa, $tipo_docuemnto);
                     }
                     $fechaHoraEmision = new DateTime($comprobante->fecha_sunat);
                     $linea = "0101|"; //Tipo de Operacion
@@ -1122,13 +1126,267 @@ class SellGasController{
                 }
 
             } else{
+            // COMUNICACION DE BAJA
+                $this->sell_anulados = new SellGasAnulados();
+                $fecha1 = date("Ymd"); //fecha que ira en el nombre del archivo
+                $fechaanulado = date("Y-m-d"); //fecha que ira a la base de datos
+                $resultado_fecha = $this->sell_anulados->seleccionar($fechaanulado);
+                if ($resultado_fecha->numero > 0){
+                    $numero_correlativo = $resultado_fecha->numero + 1;
+                } else{
+                    $numero_correlativo = 1;
+                }
+                $f = fopen($rutaArchivos . $comprobante->empresa_ruc . '-RA-' .  $fecha1 . '-' . $numero_correlativo . '.CBA', 'w');
 
+                $linea = (new DateTime($comprobante_saleproduct->saleproductgas_date))->format('Y-m-d').'|';
+                $linea .= (new DateTime())->format('Y-m-d')."|";
+                $linea .= $comprobante->saleproductgas_type."|";
+                $linea .= $comprobante->saleproductgas_correlativo.'|';
+                $linea .= "anulacion|";
+                fwrite($f, $linea);
+                fclose($f);
+
+                $this->sell_anulados->insertar_anulacion($fechaanulado, $numero_correlativo, $id_productoventa, $id_user);
+                $this->sell->anular_sunat($id_productoventa , $fechaanulado);
+                $return = 3;
             }
         }catch (Exception $e){
             $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
             $return = 2;
         }
         echo $return;
+
+    }
+
+    function enviar_facturador_json(){
+        try {
+            $id_user = $this->crypt->decrypt($_SESSION['id_user'],_PASS_);// llama la clase crypt de decrypt para decodificar los 2 parametros
+            $id_productoventa = $_POST['id'];
+            $estado_enviado = $_POST['envio_sunat'];
+            $comprobante = $this->sell->datos_comprobante($id_productoventa); //CONSULTA DONDE SE REALACIONA TODO LO QUE SE USA EN SELLPRODUCTGAS
+            $comprobante_saleproduct = $this->sell->listSale($id_productoventa);
+            $saledetail_data = $this->sell->todos_saledetaill($id_productoventa);
+            // RUTA para enviar documentos
+            $ruta = "https://api.nubefact.com/api/v1/fb1c528e-a350-41f5-b493-8e4f500efedc";
+            //TOKEN para enviar documentos
+            $token = "6fbd41af33af454a8dcfae87dfcdb72e517a6fe16f0541a4a2a4e018c8e96384";
+
+            $fecha_bolsa = date("Y");
+            if ($fecha_bolsa == "2020"){
+                $impuesto_icbper = 0.20;
+            } else if ($fecha_bolsa == "2021"){
+                $impuesto_icbper = 0.30;
+            } else if ($fecha_bolsa == "2022") {
+                $impuesto_icbper = 0.40;
+            } else{
+                $impuesto_icbper = 0.50;
+            }
+            //cambiamos el tipo de comprobante
+            if($comprobante->saleproductgas_type == "01"){
+                $tipo_de_comprobante = 1;
+            } else if($comprobante->saleproductgas_type == "03"){
+                $tipo_de_comprobante = 2;
+            } elseif($comprobante->saleproductgas_type == "07"){
+                $tipo_de_comprobante = 3;
+            } else{
+                $tipo_de_comprobante = 4;
+            }
+            //convertir en un array el correlativo
+            $explode = explode("-", $comprobante->saleproductgas_correlativo);
+            $serie = $explode[0];
+            $numero_correlativo = $explode[1];
+            //nombre o razon social
+            if ($comprobante->client_razonsocial == ""){
+                $cliente_denominacion = $comprobante->client_name;//apellidos y nombres o razon social
+            } else{
+                $cliente_denominacion = $comprobante->client_razonsocial;//apellidos y nombres o razon social
+            }
+            if ($estado_enviado == 0) {
+                if ($comprobante->saleproductgas_type < 4) {
+                    $tipo_docuemnto = $comprobante->saleproductgas_type;
+                    $tipo_nota_credito = "";
+                    $tipo_nota_debito = "";
+                    if($comprobante->saleproductgas_type == "07"){
+                        $rsAdjunto = $this->sell->tipo_nota_credito($id_productoventa,$tipo_docuemnto);
+                        $tipo_nota_credito = $rsAdjunto->tipo_nota_id;
+                    } else{
+                        $rsAdjunto = $this->sell->tipo_nota_debito($id_productoventa, $tipo_docuemnto);
+                        $tipo_nota_debito = $rsAdjunto->tipo_nota_id;
+                    }
+                    $exp = explode("-", $rsAdjunto->correlativo_modificar);
+                    $serie_modificar = $exp[0];
+                    $numero_modificar = $exp[1];
+
+                    foreach($saledetail_data as $sd){
+                        $result = $this->sell->Buscarproduct_detalle($sd->id_productforsale);
+
+                        if($sd->total_icbper > 0){
+                            $array_items[] = array(
+                                "unidad_de_medida"          => "$result->medida_codigo_unidad",
+                                "codigo"                    => "$result->product_barcode",
+                                "descripcion"               => "$result->product_name",
+                                "cantidad"                  => "$sd->sale_productscantgas",
+                                "valor_unitario"            => "$sd->precio_base",
+                                "precio_unitario"           => "$sd->precio_producto",
+                                "descuento"                 => "$sd->total_descuento",
+                                "subtotal"                  => "$sd->subtotal",
+                                "tipo_de_igv"               => "$sd->tipo_igv_json",
+                                "igv"                       => "$sd->igv",
+                                "impuesto_bolsas"           => "$sd->total_icbper",
+                                "total"                     => "$sd->sale_productstotalpricegas",
+                                "anticipo_regularizacion"   => "false",
+                                "anticipo_documento_serie"  => "",
+                                "anticipo_documento_numero" => ""
+                            );
+                        } else{
+                            $array_items[] = array(
+                                "unidad_de_medida"          => "$result->medida_codigo_unidad",
+                                "codigo"                    => "$result->product_barcode",
+                                "descripcion"               => "$result->product_name",
+                                "cantidad"                  => "$sd->sale_productscantgas",
+                                "valor_unitario"            => "$sd->precio_base",
+                                "precio_unitario"           => "$sd->precio_producto",
+                                "descuento"                 => "$sd->total_descuento",
+                                "subtotal"                  => "$sd->subtotal",
+                                "tipo_de_igv"               => "$sd->tipo_igv_json",
+                                "igv"                       => "$sd->igv",
+                                "total"                     => "$sd->sale_productstotalpricegas",
+                                "anticipo_regularizacion"   => "false",
+                                "anticipo_documento_serie"  => "",
+                                "anticipo_documento_numero" => ""
+                            );
+                        }
+
+                    }
+
+                    $data = array(
+                        "operacion"				=> "generar_comprobante",
+                        "tipo_de_comprobante"               => "$tipo_de_comprobante",
+                        "serie"                             => "$serie",
+                        "numero"				            => "$numero_correlativo",
+                        "sunat_transaction"			        => "1",
+                        "cliente_tipo_de_documento"		    => "$comprobante->tipodocumento_codigo",
+                        "cliente_numero_de_documento"	    => "$comprobante->client_number",
+                        "cliente_denominacion"              => "$cliente_denominacion",
+                        "cliente_direccion"                 => "$comprobante->client_address",
+                        "cliente_email"                     => "$comprobante->client_correo",
+                        "cliente_email_1"                   => "",
+                        "cliente_email_2"                   => "",
+                        "fecha_de_emision"                  => date('d-m-Y'),
+                        "fecha_de_vencimiento"              => "",
+                        "moneda"                            => "$comprobante->id_moneda",
+                        "tipo_de_cambio"                    => "",
+                        "porcentaje_de_igv"                 => "18.00",
+                        "descuento_global"                  => "",
+                        "total_descuento"                   => "",
+                        "total_anticipo"                    => "",
+                        "total_gravada"                     => "$comprobante->saleproductgas_totalgravada",
+                        "total_inafecta"                    => "$comprobante->saleproductgas_totalinafecta",
+                        "total_exonerada"                   => "$comprobante->saleproductgas_totalexonerada",
+                        "total_igv"                         => "$comprobante->saleproductgas_totaligv",
+                        "total_gratuita"                    => "$comprobante->saleproductgas_totalgratuita",
+                        "total_otros_cargos"                => "",
+                        "total"                             => "$comprobante->saleproductgas_total",
+                        "percepcion_tipo"                   => "",
+                        "percepcion_base_imponible"         => "",
+                        "total_percepcion"                  => "",
+                        "total_incluido_percepcion"         => "",
+                        "total_impuesto_bolsa"              => "$comprobante->saleproductgas_icbper",
+                        "detraccion"                        => "false",
+                        "observaciones"                     => "",
+                        "documento_que_se_modifica_tipo"    => "$rsAdjunto->tipo_documento_modificar",
+                        "documento_que_se_modifica_serie"   => "$serie_modificar",
+                        "documento_que_se_modifica_numero"  => "$numero_modificar",
+                        "tipo_de_nota_de_credito"           => "$tipo_nota_credito",
+                        "tipo_de_nota_de_debito"            => "$tipo_nota_debito",
+                        "enviar_automaticamente_a_la_sunat" => "true",
+                        "enviar_automaticamente_al_cliente" => "false",
+                        "codigo_unico"                      => "",
+                        "condiciones_de_pago"               => "",
+                        "medio_de_pago"                     => "",
+                        "placa_vehiculo"                    => "",
+                        "orden_compra_servicio"             => "",
+                        "tabla_personalizada_codigo"        => "",
+                        "formato_de_pdf"                    => "",
+                        "items" => $array_items
+                    );
+
+
+                    $data_json = json_encode($data);
+
+                    //Invocamos el servicio de NUBEFACT
+                    $ch = curl_init();
+                    curl_setopt($ch, CURLOPT_URL, $ruta);
+                    curl_setopt(
+                        $ch, CURLOPT_HTTPHEADER, array(
+                            'Authorization: Token token="'.$token.'"',
+                            'Content-Type: application/json',
+                        )
+                    );
+                    curl_setopt($ch, CURLOPT_POST, 1);
+                    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                    curl_setopt($ch, CURLOPT_POSTFIELDS,$data_json);
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                    $respuesta  = curl_exec($ch);
+                    curl_close($ch);
+
+                    /*
+             #########################################################
+            #### PASO 4: LEER RESPUESTA DE NUBEFACT ####
+            +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            # Recibirás una respuesta de NUBEFACT inmediatamente lo cual se debe leer, verificando que no haya errores.
+            # Debes guardar en la base de datos la respuesta que te devolveremos.
+            # Escríbenos a soporte@nubefact.com o llámanos al teléfono: 01 468 3535 (opción 2) o celular (WhatsApp) 955 598762
+            # Puedes imprimir el PDF que nosotros generamos como también generar tu propia representación impresa previa coordinación con nosotros.
+            # La impresión del documento seguirá haciéndose desde tu sistema. Enviaremos el documento por email a tu cliente si así lo indicas en el archivo JSON o TXT.
+            +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+             */
+
+                    $leer_respuesta = json_decode($respuesta, true);
+                    if (isset($leer_respuesta['errors'])) {
+                        //Mostramos los errores si los hay
+                        echo $leer_respuesta['errors'];
+                    } else {
+                        //Mostramos la respuesta
+                        $linea="";
+                        $linea .="<h2>RESPUESTA DE SUNAT</h2>";
+                        $linea .="<table border=\"1\" style=\"border-collapse: collapse\">";
+                        $linea .="<tbody>";
+                        $linea .="<tr><th>tipo:</th><td>".$leer_respuesta['tipo_de_comprobante']."</td></tr>";
+                        $linea .="<tr><th>serie:</th><td>".$leer_respuesta['serie']."</td></tr>";
+                        $linea .="<tr><th>numero:</th><td>".$leer_respuesta['numero']."</td></tr>";
+                        $linea .="<tr><th>enlace:</th><td>".$leer_respuesta['enlace']."</td></tr>";
+                        $linea .="<tr><th>aceptada_por_sunat:</th><td>".$leer_respuesta['aceptada_por_sunat']."</td></tr>";
+                        $linea .="<tr><th>sunat_description:</th><td>".$leer_respuesta['sunat_description']."</td></tr>";
+                        $linea .="<tr><th>sunat_note:</th><td>".$leer_respuesta['sunat_note']."</td></tr>";
+                        $linea .="<tr><th>sunat_responsecode:</th><td>".$leer_respuesta['sunat_responsecode']."</td></tr>";
+                        $linea .="<tr><th>sunat_soap_error:</th><td>".$leer_respuesta['sunat_soap_error']."</td></tr>";
+                        $linea .="<tr><th>pdf_zip_base64:</th><td>".$leer_respuesta['pdf_zip_base64']."</td></tr>";
+                        $linea .="<tr><th>xml_zip_base64:</th><td>".$leer_respuesta['xml_zip_base64']."</td></tr>";
+                        $linea .="<tr><th>cdr_zip_base64:</th><td>".$leer_respuesta['cdr_zip_base64']."</td></tr>";
+                        $linea .="<tr><th>codigo_hash:</th><td>".$leer_respuesta['cadena_para_codigo_qr']."</td></tr>";
+                        $linea .="<tr><th>codigo_hash:</th><td>".$leer_respuesta['codigo_hash']."</td></tr>";
+                        $linea .="</tbody>";
+                        $linea .="</table>";
+                        ?>
+
+                        <?php
+                        $this->sell->envio_sunat($id_productoventa);
+                    }
+
+
+                } else{
+                    $linea = 2;
+                }
+
+            }
+            echo $linea;
+
+        } catch (Throwable $e){
+            $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
+            echo "<script language=\"javascript\">alert(\"Error Al Mostrar Contenido. Redireccionando Al Inicio\");</script>";
+            echo "<script language=\"javascript\">window.location.href=\"". _SERVER_ ."\";</script>";
+        }
 
     }
 
@@ -1216,6 +1474,23 @@ class SellGasController{
         return $string;
     }
 
+    //vista de historial de comprobantes electronicos
+    public function comprobantes_electronicos(){
+        try{
+            $this->nav = new Navbar();
+            $navs = $this->nav->listMenu($this->crypt->decrypt($_SESSION['role'],_PASS_));
+
+            require _VIEW_PATH_ . 'header.php';
+            require _VIEW_PATH_ . 'navbar.php';
+            require _VIEW_PATH_ . 'sellGas/comprobantes_electronicos.php';
+            require _VIEW_PATH_ . 'footer.php';
+        } catch (Throwable $e){
+            $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
+            echo "<script language=\"javascript\">alert(\"Error Al Mostrar Contenido. Redireccionando Al Inicio\");</script>";
+            echo "<script language=\"javascript\">window.location.href=\"". _SERVER_ ."\";</script>";
+
+        }
+    }
 
     //ALQUILER PRODUCTO-------------------------------------------------->
     /*public function sellRent(){

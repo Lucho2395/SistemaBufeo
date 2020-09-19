@@ -32,6 +32,7 @@
                 <center><a class="btn btn-block btn-info btne" href="http://localhost:9000/#" target="_blank">FACTURADOR SUNAT</a></center> <!--target para abrir una pestaña-->
             </div>
         </div>
+
         <br>
         <!-- /.row (main row) -->
         <div class="row">
@@ -60,8 +61,12 @@
                         if($m->saleproductgas_cancelled == 1){
                             $show = "<a class=\"btn btn-xs btn-outline-success\">VENDIDO</a>";
                         }
+                        $stylee="";
+                        if($m->anulado_sunat == 1){
+                            $stylee = "style= 'background: lightcoral;'";
+                        }
                         ?>
-                        <tr>
+                        <tr <?= $stylee ?>>
                             <td><?php echo $totalsales;?></td>
                             <td><?php echo $m->saleproductgas_date;?></td>
                             <td><?php echo $m->saleproductgas_correlativo;?></td>
@@ -78,9 +83,14 @@
                                     <a type="button" class="btn btn-xs btn-success btne" onclick="preguntarSiNoEnviarSunat(<?php echo $m->id_saleproductgas;?>,<?php echo $m->enviado_sunat;?>)" target="_blank" >Enviar a Facturador</a></td>
                                 <?php
                                 } else {
+                                    if($m->anulado_sunat == 0){
                                     ?>
-                                    <a type="button" class="btn btn-xs btn-danger btne" onclick="preguntarSiNoAnular(<?php echo $m->id_saleproductgas;?>,<?php echo $m->enviado_sunat;?>)" target="_blank" >Anular</a></td>
-                                <?php
+                                        <a type="button" class="btn btn-xs btn-danger btne" onclick="preguntarSiNoAnular(<?php echo $m->id_saleproductgas;?>,<?php echo $m->enviado_sunat;?>)" target="_blank" >Anular</a></td>
+                                        <?php
+                                    } else { ?>
+                                        <a type="button" class="btn btn-xs btn-danger btne" target="_blank" >Anulado</a></td>
+                                    <?php
+                                    }
                                 }
                                 ?>
 
@@ -93,6 +103,12 @@
                 </table>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-12" id="respuesta_json">
+
+
+            </div>
+        </div>
 
     </section>
     <!-- /.content -->
@@ -101,9 +117,29 @@
 <script src="<?php echo _SERVER_ . _JS_;?>sellGas.js"></script>
 
 <script type="text/javascript">
+
+    function enviar_facturador_json(id, envio_sunat) {
+        var cadena = "id=" + id +
+            "&envio_sunat=" + envio_sunat;
+        $.ajax({
+            type:"POST",
+            url: urlweb + "api/SellGas/enviar_facturador_json",
+            data : cadena,
+            success:function (r) {
+                if(r!=2){
+                    $('#respuesta_json').html(r);
+                    alertify.success('Registro Enviado');
+                } else{
+                    alertify.error('error al enviar');
+                }
+
+            }
+        });
+    }
+
     function preguntarSiNoEnviarSunat(id, envio_sunat){
         alertify.confirm('Enviar a Facturador', '¿Esta seguro de Enivar al Facturador de la Sunat?',
-            function(){ crear_ArchivosPlanos(id, envio_sunat) }
+            function(){ enviar_facturador_json(id, envio_sunat) }
             , function(){ alertify.error('Operacion Cancelada')});
     }
     function crear_ArchivosPlanos(id, envio_sunat){
@@ -111,16 +147,25 @@
                     "&envio_sunat=" + envio_sunat;
         $.ajax({
             type:"POST",
-            url: urlweb + "api/SellGas/crear_ArchivosPlanos",
+            url: urlweb + "api/SellGas/enviar_facturador_json",
             data : cadena,
             success:function (r) {
                 if(r==1){
                     alertify.success('Registro Enviado');
                     location.reload();
-                } else {
+                } else if(r==3){
+                    alertify.success('Registro Anulado');
+                    location.reload();
+                }else{
                     alertify.error('No se pudo realizar');
                 }
             }
         });
+    }
+
+    function preguntarSiNoAnular(id, envio_sunat){
+        alertify.confirm('Anular Factura', '¿Esta seguro de Anular la Factura de la Sunat?',
+            function(){ crear_ArchivosPlanos(id, envio_sunat) }
+            , function(){ alertify.error('Operacion Cancelada')});
     }
 </script>
