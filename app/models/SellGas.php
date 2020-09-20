@@ -116,7 +116,7 @@ class SellGas{
 
     public function listSales(){
         try {
-            $sql = 'select * from saleproductgas s inner join user u on s.id_user = u.id_user inner join client c on s.id_client = c.id_client order by saleproductgas_date asc'; // where saleproductgas_naturaleza = "PEDIDO"
+            $sql = 'select * from saleproductgas s inner join user u on s.id_user = u.id_user inner join client c on s.id_client = c.id_client inner join monedas mo on s.id_moneda = mo.id order by saleproductgas_date asc '; // where saleproductgas_naturaleza = "PEDIDO"
             $stm = $this->pdo->prepare($sql);
             $stm->execute();
             $result = $stm->fetchAll();
@@ -216,10 +216,10 @@ class SellGas{
     }
 
     //Insertar Datos En Detalle Venta
-    public function insertSale($id_client, $id_user, $id_turn, $saleproductgas_direccion, $saleproductgas_telefono, $saleproduct_type, $saleproductgas_naturaleza, $saleproduct_correlative, $saleproduct_gravada, $saleproduct_igv, $saleproduct_total, $saleproduct_date, $saleproduct_estado, $saleproduct_cancelled, $saleproduct_inafecta, $saleproduct_exonerada , $saleproduct_icbper, $tipo_nota){
+    public function insertSale($id_client, $id_user, $id_turn, $saleproductgas_direccion, $saleproductgas_telefono, $saleproduct_type, $saleproductgas_naturaleza, $saleproduct_correlative, $saleproduct_gravada, $saleproduct_igv, $saleproduct_total, $saleproduct_date, $saleproduct_estado, $saleproduct_cancelled, $saleproduct_inafecta, $saleproduct_exonerada , $saleproduct_icbper, $tipo_nota, $Serie_Numero, $Tipo_documento_modificar){
         try{
             $date = date("Y-m-d H:i:s");
-            $sql = 'insert into saleproductgas(id_client, id_user, id_turn, saleproductgas_direccion, saleproductgas_telefono, saleproductgas_type, saleproductgas_naturaleza, saleproductgas_correlativo, saleproductgas_totalexonerada, saleproductgas_totalinafecta, saleproductgas_totalgravada, saleproductgas_totaligv, saleproductgas_icbper, saleproductgas_total, saleproductgas_date, tipo_nota_id, saleproductgas_estado, saleproductgas_cancelled) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
+            $sql = 'insert into saleproductgas(id_client, id_user, id_turn, saleproductgas_direccion, saleproductgas_telefono, saleproductgas_type, saleproductgas_naturaleza, saleproductgas_correlativo, saleproductgas_totalexonerada, saleproductgas_totalinafecta, saleproductgas_totalgravada, saleproductgas_totaligv, saleproductgas_icbper, saleproductgas_total, saleproductgas_date, tipo_documento_modificar, correlativo_modificar, tipo_nota_id, saleproductgas_estado, saleproductgas_cancelled) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
             $stm = $this->pdo->prepare($sql);
             $stm->execute([
                 $id_client,
@@ -237,6 +237,8 @@ class SellGas{
                 $saleproduct_icbper,
                 $saleproduct_total,
                 $saleproduct_date,
+                $Tipo_documento_modificar,
+                $Serie_Numero,
                 $tipo_nota,
                 $saleproduct_estado,
                 $saleproduct_cancelled
@@ -564,11 +566,14 @@ class SellGas{
         return $result;
     }
 
-    public function envio_sunat($id_productoventa){
+    public function envio_sunat($id_productoventa, $pdf_comprobante, $respuesta_sunat){
         try {
-            $sql = 'update saleproductgas set enviado_sunat = 1 where id_saleproductgas = ? ';
+            $sql = 'update saleproductgas set enviado_sunat = 1, link_pdf_comprobante = ? , respuesta_sunat = ? where id_saleproductgas = ? ';
             $stm = $this->pdo->prepare($sql);
-            $stm->execute([$id_productoventa]);
+            $stm->execute([$pdf_comprobante,
+                            $respuesta_sunat,
+                            $id_productoventa
+                            ]);
             $result = true;
         } catch (Exception $e){
             $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
@@ -576,6 +581,21 @@ class SellGas{
         }
         return $result;
     }
+
+    public function envio_respuesta_error($resultado_error , $id_productoventa){
+        try {
+            $sql = 'update saleproductgas set respuesta_sunat = ? where id_saleproductgas = ? ';
+            $stm = $this->pdo->prepare($sql);
+            $stm->execute([$resultado_error,
+                            $id_productoventa
+            ]);
+            $result = true;
+        } catch (Exception $e){
+            $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
+            $result = 2;
+        }
+        return $result;
+}
 
     public function tipo_nota_credito($id_productoventa, $tipo_docuemnto){
         try {
@@ -611,6 +631,20 @@ class SellGas{
             $sql = 'update saleproductgas set anulado_sunat = 1, fecha_de_baja = ? where id_saleproductgas = ? ';
             $stm = $this->pdo->prepare($sql);
             $stm->execute([$fechaanulado , $id_productoventa ]);
+            $result = true;
+        } catch (Exception $e){
+            $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
+            $result = 2;
+        }
+        return $result;
+    }
+    public function envio_sunat_anulacion($id_productoventa, $respuesta_sunat){
+        try {
+            $sql = 'update saleproductgas set respuesta_sunat = ? where id_saleproductgas = ? ';
+            $stm = $this->pdo->prepare($sql);
+            $stm->execute([ $respuesta_sunat,
+                            $id_productoventa
+            ]);
             $result = true;
         } catch (Exception $e){
             $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);

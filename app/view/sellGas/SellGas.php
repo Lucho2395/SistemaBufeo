@@ -242,12 +242,16 @@
             <div id="credito_debito">
                 <div class="col-lg-3">
                     <label>Documento a modificar</label>
-                    <select name="" class="form-control" id="">
-                        <option value="">DNI</option>
-                        <option value="">RUC</option>
+                    <select name="" class="form-control" id="Tipo_documento_modificar">
+                        <option value="2">BOLETA</option>
+                        <option value="1">FACTURA</option>
                     </select>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-3" id="SerieyNumero">
+                    <label>Serie y numero</label>
+                    <input class="form-control" type="text" id="serie_numero_modifiar" >
+                </div>
+                <div class="col-lg-4" id="notaCredito">
                     <label>Tipo Nota de Crédito</label>
                     <select name="" class="form-control" id="TipoNotaCredito">
                         <?php
@@ -259,7 +263,7 @@
                         ?>
                     </select>
                 </div>
-                <div class = "col-lg-3">
+                <div class = "col-lg-4" id="notaDebito">
                     <label>Tipo Nota de Débito</label>
                     <select name="" class="form-control" id="TipoNotaDebito">
                         <?php
@@ -298,11 +302,11 @@
             $('#credito_debito').show();
 
             if(valor == "07"){
-                $('#TipoNotaCredito').prop('disabled', false);
-                $('#TipoNotaDebito').prop('disabled', true);
+                $('#notaCredito').show();
+                $('#notaDebito').hide();
             }else{
-                $('#TipoNotaCredito').prop('disabled', true);
-                $('#TipoNotaDebito').prop('disabled', false);
+                $('#notaCredito').hide();
+                $('#notaDebito').show();
             }
         } else{
             $('#credito_debito').hide();

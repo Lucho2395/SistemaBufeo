@@ -30,14 +30,30 @@ class SellGasAnulados
         return $result;
     }
 
-    public function insertar_anulacion($fechaanulado, $numero_correlativo, $id_productoventa, $id_user){
+    public function seleccionarnumero(){
+        try{
+            $sql = 'SELECT MAX(numero) numero FROM saleproductgas_anulados ';
+            $stm = $this->pdo->prepare($sql);
+            $stm->execute([]);
+            $result = $stm->fetch();
+
+        } catch (Exception $e){
+            $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
+            $result = [];
+        }
+        return $result;
+    }
+
+    public function insertar_anulacion($fechaanulado, $codigo_unico, $id_productoventa, $id_user, $ticket_sunat, $pdf_comprobante_Anulado){
         try {
-            $sql = 'insert into saleproductgas_anulados (fecha_anulado, numero, saleproductgas_id, empleado_user_id) values (?,?,?,?)';
+            $sql = 'insert into saleproductgas_anulados (fecha_anulado, numero, saleproductgas_id, ticket_sunat, pdf_comprobante_anulado, empleado_user_id) values (?,?,?,?,?,?)';
             $stm = $this->pdo->prepare($sql);
             $stm->execute([
                 $fechaanulado,
-                $numero_correlativo,
+                $codigo_unico,
                 $id_productoventa,
+                $ticket_sunat,
+                $pdf_comprobante_Anulado,
                 $id_user
             ]);
             $result = true;

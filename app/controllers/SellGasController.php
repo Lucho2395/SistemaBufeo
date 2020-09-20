@@ -433,10 +433,12 @@ class SellGasController{
             $saleproduct_total = $_POST['saleproduct_total'];
             $saleproduct_date = date("Y-m-d H:i:s");
             $tipo_nota = $_POST['tipo_nota'];
+            $Serie_Numero = $_POST['Serie_Numero'];
+            $Tipo_documento_modificar = $_POST['Tipo_documento_modificar'];
 
             $saleproduct_cancelled = 1;
 
-            $savesale = $this->sell->insertSale($id_client, $id_user, $id_turn, $saleproductgas_direccion, $saleproductgas_telefono, $saleproduct_type, $saleproductgas_naturaleza, $saleproduct_correlative, $saleproduct_gravada, $saleproduct_igv, $saleproduct_total, $saleproduct_date, $saleproduct_estado, $saleproduct_cancelled, $saleproduct_inafecta, $saleproduct_exonerada, $saleproduct_icbper, $tipo_nota);
+            $savesale = $this->sell->insertSale($id_client, $id_user, $id_turn, $saleproductgas_direccion, $saleproductgas_telefono, $saleproduct_type, $saleproductgas_naturaleza, $saleproduct_correlative, $saleproduct_gravada, $saleproduct_igv, $saleproduct_total, $saleproduct_date, $saleproduct_estado, $saleproduct_cancelled, $saleproduct_inafecta, $saleproduct_exonerada, $saleproduct_icbper, $tipo_nota, $Serie_Numero, $Tipo_documento_modificar);
             $idsale = $savesale->id_saleproductgas;
 
 
@@ -1171,16 +1173,7 @@ class SellGasController{
             //TOKEN para enviar documentos
             $token = "6fbd41af33af454a8dcfae87dfcdb72e517a6fe16f0541a4a2a4e018c8e96384";
 
-            $fecha_bolsa = date("Y");
-            if ($fecha_bolsa == "2020"){
-                $impuesto_icbper = 0.20;
-            } else if ($fecha_bolsa == "2021"){
-                $impuesto_icbper = 0.30;
-            } else if ($fecha_bolsa == "2022") {
-                $impuesto_icbper = 0.40;
-            } else{
-                $impuesto_icbper = 0.50;
-            }
+
             //cambiamos el tipo de comprobante
             if($comprobante->saleproductgas_type == "01"){
                 $tipo_de_comprobante = 1;
@@ -1202,7 +1195,7 @@ class SellGasController{
                 $cliente_denominacion = $comprobante->client_razonsocial;//apellidos y nombres o razon social
             }
             if ($estado_enviado == 0) {
-                if ($comprobante->saleproductgas_type < 4) {
+                if ($tipo_de_comprobante < 4) {
                     $tipo_docuemnto = $comprobante->saleproductgas_type;
                     $tipo_nota_credito = "";
                     $tipo_nota_debito = "";
@@ -1345,10 +1338,20 @@ class SellGasController{
                     $leer_respuesta = json_decode($respuesta, true);
                     if (isset($leer_respuesta['errors'])) {
                         //Mostramos los errores si los hay
-                        echo $leer_respuesta['errors'];
+                        $resultado_error = $leer_respuesta['errors'];
+                        $this->sell->envio_respuesta_error($resultado_error , $id_productoventa);
+                        $result = 2;
+
                     } else {
+                        $pdf_comprobante = $leer_respuesta['enlace'] . ".pdf";
+                        $respuesta_array = explode("," , $leer_respuesta['sunat_description']);
+                        $respuesta_sunat = $respuesta_array[1];
+
+                        $this->sell->envio_sunat($id_productoventa, $pdf_comprobante, $respuesta_sunat);
+                        $result = 1;
+
                         //Mostramos la respuesta
-                        $linea="";
+                        /*$linea="";
                         $linea .="<h2>RESPUESTA DE SUNAT</h2>";
                         $linea .="<table border=\"1\" style=\"border-collapse: collapse\">";
                         $linea .="<tbody>";
@@ -1371,16 +1374,88 @@ class SellGasController{
                         ?>
 
                         <?php
-                        $this->sell->envio_sunat($id_productoventa);
+                        $this->sell->envio_sunat($id_productoventa);*/
                     }
 
-
                 } else{
-                    $linea = 2;
+                    $result = 2;
+                }
+
+            } else{
+                // COMUNICACION DE BAJA
+                $this->sell_anulados = new SellGasAnulados();
+                $fecha1 = date("Ymd"); //fecha que ira en el nombre del archivo
+                $fechaanulado = date("Y-m-d"); //fecha que ira a la base de datos
+                $numero = $this->sell_anulados->seleccionarnumero();
+                if ($numero->numero > 0){
+                    $numero_correlativo_anulado = $numero->numero + 1;
+                } else{
+                    $numero_correlativo_anulado = 1;
+                }
+                $codigo_unico = $fecha1 . "-" . $numero_correlativo_anulado;
+
+                $data_array = array("operacion"             => "generar_anulacion",
+	                                "tipo_de_comprobante"   => $tipo_de_comprobante,
+	                                "serie"                 => $serie,
+	                                "numero"                => $numero_correlativo,
+                                    "motivo"                => "ERROR DEL SISTEMA",
+                                    "codigo_unico"          => "$codigo_unico"
+                );
+
+                $data_json = json_encode($data_array);
+
+                //Invocamos el servicio de NUBEFACT
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, $ruta);
+                curl_setopt(
+                    $ch, CURLOPT_HTTPHEADER, array(
+                        'Authorization: Token token="'.$token.'"',
+                        'Content-Type: application/json',
+                    )
+                );
+                curl_setopt($ch, CURLOPT_POST, 1);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                curl_setopt($ch, CURLOPT_POSTFIELDS,$data_json);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                $respuesta  = curl_exec($ch);
+                curl_close($ch);
+
+                /*
+         #########################################################
+        #### PASO 4: LEER RESPUESTA DE NUBEFACT ####
+        +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        # Recibirás una respuesta de NUBEFACT inmediatamente lo cual se debe leer, verificando que no haya errores.
+        # Debes guardar en la base de datos la respuesta que te devolveremos.
+        # Escríbenos a soporte@nubefact.com o llámanos al teléfono: 01 468 3535 (opción 2) o celular (WhatsApp) 955 598762
+        # Puedes imprimir el PDF que nosotros generamos como también generar tu propia representación impresa previa coordinación con nosotros.
+        # La impresión del documento seguirá haciéndose desde tu sistema. Enviaremos el documento por email a tu cliente si así lo indicas en el archivo JSON o TXT.
+        +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+         */
+
+                $leer_respuesta = json_decode($respuesta, true);
+                if (isset($leer_respuesta['errors'])) {
+                    //Mostramos los errores si los hay
+                    $resultado_error = $leer_respuesta['errors'];
+                    $this->sell->envio_respuesta_error($resultado_error , $id_productoventa);
+                    $result = 2;
+
+                } else {
+                    $pdf_comprobante = $leer_respuesta['enlace'] . ".pdf";
+                    //$respuesta_array = explode("," , $leer_respuesta['sunat_description']);
+                    if($leer_respuesta['sunat_description'] != NULL){
+                        $respuesta_sunat = $leer_respuesta['sunat_description'];
+                        $this->sell->envio_sunat_anulacion($id_productoventa, $respuesta_sunat);
+                    }
+                    $ticket_sunat = $leer_respuesta['sunat_ticket_numero'];
+
+                    $this->sell_anulados->insertar_anulacion($fechaanulado, $codigo_unico, $id_productoventa, $id_user, $ticket_sunat, $pdf_comprobante);
+                    $this->sell->anular_sunat($id_productoventa , $fechaanulado);
+                    $result = 3;
+
                 }
 
             }
-            echo $linea;
+            echo $result;
 
         } catch (Throwable $e){
             $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
@@ -1479,6 +1554,7 @@ class SellGasController{
         try{
             $this->nav = new Navbar();
             $navs = $this->nav->listMenu($this->crypt->decrypt($_SESSION['role'],_PASS_));
+            $sales = $this->sell->listSales();
 
             require _VIEW_PATH_ . 'header.php';
             require _VIEW_PATH_ . 'navbar.php';
