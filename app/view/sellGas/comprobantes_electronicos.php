@@ -6,6 +6,71 @@
  * Time: 13:28
  */
 ?>
+<!--Modal para buscar comprobante-->
+<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Buscar Comprobante</h4>
+            </div>
+            <div class="modal-body">
+                <div class="col-lg-12">
+                    <div class="col-xs-3">
+                        <label>Tipo de Venta</label>
+                        <select  id="type_comprobante" class="form-control" >
+                            <option value="2">BOLETA</option>
+                            <option value="1">FACTURA</option>
+                            <option value= "3">NOTA DE CREDITO</option>
+                            <option value= "4">NOTA DE DEBITO</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-3">
+                        <label for="client_telefono">Serie:</label>
+                        <input class="form-control" type="text" id="comprobante_serie" ">
+                    </div>
+                    <div class="col-xs-3">
+                        <label for="client_telefono">Numero:</label>
+                        <input class="form-control" type="text" id="comprobante_numero" ">
+                    </div>
+                    <br>
+                    <div class="col-xs-2">
+                        <a class="btn btn-success" type="button" onclick="buscar_comprobante()" ><i class="fa fa-search"></i> Buscar</a>
+                    </div>
+
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <table id="example3" class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>Tipo de Venta</th>
+                                <th>Serie</th>
+                                <th>Numero</th>
+                                <th>Estado CDR</th>
+                                <th>PDF</th>
+                                <th>Respuesta</th>
+                                <th>link de consulta</th>
+                            </tr>
+                            </thead>
+                            <tbody id = "respuesta_consulta">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -25,9 +90,14 @@
         <!-- /.row -->
         <!-- Main row -->
         <div class="row">
-            <div class="col-xs-10">
+            <div class="col-xs-9">
                 <center><h2>COMPROBANTES ELECTRONICOS</h2></center>
             </div>
+            <div class="col-xs-2">
+                <br>
+                <a class="btn btn-success" type="button"  data-toggle="modal" data-target="#basicModal"><i class="fa fa-search"></i> Buscar Comprobante</a>
+            </div>
+
         </div>
         <br>
         <!-- /.row (main row) -->
@@ -151,6 +221,53 @@
             function(){ enviar_facturador_json(id, envio_sunat) }
             , function(){ alertify.error('Operacion Cancelada')});
     }
+
+    function buscar_comprobante(){
+        var valor = "correcto";
+        var tipo_comprobante = $('#type_comprobante'). val();
+        var serie = $('#comprobante_serie'). val();
+        var numero = $('#comprobante_numero'). val();
+
+        if(serie == ""){
+            alertify.error('El campo Código de Barra está vacío');
+            $('#comprobante_serie').css('border','solid red');
+            valor = "incorrecto";
+        } else {
+            $('#comprobante_serie').css('border','');
+        }
+
+        if(numero == ""){
+            alertify.error('El campo Código de Barra está vacío');
+            $('#comprobante_numero').css('border','solid red');
+            valor = "incorrecto";
+        } else {
+            $('#comprobante_numero').css('border','');
+        }
+
+        if(valor == "correcto"){
+            var cadena = "tipo_comprobante=" + tipo_comprobante +
+                "&serie=" + serie +
+                "&numero=" + numero;
+
+            $.ajax({
+                type:"POST",
+                url: urlweb + "api/SellGas/consultar_comprobante",
+                data : cadena,
+                success:function (r) {
+                    if(r!=1){
+                        $('#respuesta_consulta').html(r);
+
+                    } else{
+                        alertify.success('NO ENCONTRADO');
+                        location.reload();
+                    }
+
+                }
+            });
+        }
+    }
+
+
 
 </script>
 

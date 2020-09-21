@@ -1399,7 +1399,7 @@ class SellGasController{
 	                                "serie"                 => $serie,
 	                                "numero"                => $numero_correlativo,
                                     "motivo"                => "ERROR DEL SISTEMA",
-                                    "codigo_unico"          => "$codigo_unico"
+                                    "codigo_unico"          => $codigo_unico
                 );
 
                 $data_json = json_encode($data_array);
@@ -1568,62 +1568,147 @@ class SellGasController{
         }
     }
 
-    //ALQUILER PRODUCTO-------------------------------------------------->
-    /*public function sellRent(){
-        try{
-            $id_turn = $this->active->getTurnactive();
-            $id_user = $this->crypt->decrypt($_COOKIE['id_user'],_PASS_) ?? $this->crypt->decrypt($_SESSION['id_user'],_PASS_);
-            $id_rent = $_POST['id_rent'];
-            $id_person = $_POST['id_person'];
-            $minutes_to_rent = $_POST['minutes_to_rent'];
-            $totalprice = $_POST['totalprice'];
-            $id_location = $_POST['id_location'];
-            $type_sell = 'VENDER';
-            $cancelled = 'true';
+    public function consultar_comprobante(){
+        try {
 
-            if(isset($_POST['type_sell'])){
-                $type_sell = $_POST['type_sell'];
-                $cancelled = 'false';
-            }
+            // RUTA para enviar documentos
+            $ruta = "https://api.nubefact.com/api/v1/fb1c528e-a350-41f5-b493-8e4f500efedc";
+            //TOKEN para enviar documentos
+            $token = "6fbd41af33af454a8dcfae87dfcdb72e517a6fe16f0541a4a2a4e018c8e96384";
 
-            if($type_sell == 'REGALAR'){
-                $totalprice = 0;
-                $cancelled = 'true';
-            }
+            $tipo_comprobante = $_POST['tipo_comprobante'];
+            $serie = $_POST['serie'];
+            $numero = $_POST['numero'];
 
-            $saverent = $this->sell->insertRent($id_rent,$id_person,$id_user,$id_turn,$id_location,$totalprice,$cancelled,$minutes_to_rent);
-            $updatelocation = $this->sell->updateLocationstatus($id_location,1);
+            $data_array = array("operacion" => "consultar_comprobante",
+                "tipo_de_comprobante" => $tipo_comprobante,
+                "serie" => $serie,
+                "numero" => $numero,
+            );
 
-            $savelocationrent = $this->sell->insertLocacionrent($saverent[0]->id_salerent, $saverent[0]->id_location);
+            $data_json = json_encode($data_array);
 
-            if($updatelocation == 1){
-                if($type_sell == 'FIAR'){
-                    $this->sell->insertDebtrent($saverent[0]->id_salerent, $totalprice);
-                }
-                $return = 1;
+            //Invocamos el servicio de NUBEFACT
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $ruta);
+            curl_setopt(
+                $ch, CURLOPT_HTTPHEADER, array(
+                    'Authorization: Token token="' . $token . '"',
+                    'Content-Type: application/json',
+                )
+            );
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $data_json);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            $respuesta = curl_exec($ch);
+            curl_close($ch);
+
+            /*
+     #########################################################
+    #### PASO 4: LEER RESPUESTA DE NUBEFACT ####
+    +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    # Recibirás una respuesta de NUBEFACT inmediatamente lo cual se debe leer, verificando que no haya errores.
+    # Debes guardar en la base de datos la respuesta que te devolveremos.
+    # Escríbenos a soporte@nubefact.com o llámanos al teléfono: 01 468 3535 (opción 2) o celular (WhatsApp) 955 598762
+    # Puedes imprimir el PDF que nosotros generamos como también generar tu propia representación impresa previa coordinación con nosotros.
+    # La impresión del documento seguirá haciéndose desde tu sistema. Enviaremos el documento por email a tu cliente si así lo indicas en el archivo JSON o TXT.
+    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+     */
+
+            $leer_respuesta = json_decode($respuesta, true);
+            if (isset($leer_respuesta['errors'])) {
+                //Mostramos los errores si los hay
+                $error = $leer_respuesta['errors'];
+                $result = "<h5 style='color: red'>$error</h5>";
+
             } else {
-                $return = 2;
+                //Mostramos la respuesta
+                if($leer_respuesta['enlace'] != ""){
+
+                    $enlace_pdf = $leer_respuesta['enlace'] . ".pdf";
+                    $enlace_cdr = $leer_respuesta['enlace'] . ".cdr";
+                    $enlace_link = $leer_respuesta['enlace'];
+                    $pdf = "<a type=\"button\" href=\"$enlace_pdf \" style=\"color: green\" ><i class=\"fa fa-file-pdf-o\"></i></a>";
+                    $cdr = "<a type=\"button\" href=\"$enlace_cdr \" style=\"color: red\" >CDR</a>";
+                    $link_consulta = "<a type=\"button\" href=\"$enlace_link \" style=\"color: blue\" >CONSULTA EN NUBEFACT.COM</a>";
+
+                }
+                $result = "<tr>
+                    <td>".$leer_respuesta['tipo_de_comprobante']."</td>
+                        <td>".$leer_respuesta['serie']."</td>
+                        <td>".$leer_respuesta['numero']."</td>
+                        <td>".$cdr."</td>
+                        <td>".$pdf."</td>
+                        <td>".$leer_respuesta['sunat_description']."</td>
+                        <td>".$link_consulta."</td>
+                       </tr>";
+
             }
-        } catch (Exception $e){
-            $this->log->insert($e->getMessage(), 'SellController|sellRent');
-            $return = 2;
+            echo $result;
+        } catch (Throwable $e){
+            $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
+            echo "<script language=\"javascript\">alert(\"Error Al Mostrar Contenido. Redireccionando Al Inicio\");</script>";
+            echo "<script language=\"javascript\">window.location.href=\"". _SERVER_ ."\";</script>";
         }
-        echo $return;
     }
 
+//ALQUILER PRODUCTO-------------------------------------------------->
+/*public function sellRent(){
+try{
+    $id_turn = $this->active->getTurnactive();
+    $id_user = $this->crypt->decrypt($_COOKIE['id_user'],_PASS_) ?? $this->crypt->decrypt($_SESSION['id_user'],_PASS_);
+    $id_rent = $_POST['id_rent'];
+    $id_person = $_POST['id_person'];
+    $minutes_to_rent = $_POST['minutes_to_rent'];
+    $totalprice = $_POST['totalprice'];
+    $id_location = $_POST['id_location'];
+    $type_sell = 'VENDER';
+    $cancelled = 'true';
 
-    public function finishRent(){
-        try{
-            $id_salerent = $_POST['id_salerent'];
-            $id_location = $_POST['id_location'];
-            $id_locationrent = $_POST['id_locationrent'];
+    if(isset($_POST['type_sell'])){
+        $type_sell = $_POST['type_sell'];
+        $cancelled = 'false';
+    }
 
-            $return = $this->sell->updateStatuslocationrent($id_salerent,$id_location,$id_locationrent);
-        } catch (Exception $e){
-            $this->log->insert($e->getMessage(), 'SellController|finishRent');
-            $return = 2;
+    if($type_sell == 'REGALAR'){
+        $totalprice = 0;
+        $cancelled = 'true';
+    }
+
+    $saverent = $this->sell->insertRent($id_rent,$id_person,$id_user,$id_turn,$id_location,$totalprice,$cancelled,$minutes_to_rent);
+    $updatelocation = $this->sell->updateLocationstatus($id_location,1);
+
+    $savelocationrent = $this->sell->insertLocacionrent($saverent[0]->id_salerent, $saverent[0]->id_location);
+
+    if($updatelocation == 1){
+        if($type_sell == 'FIAR'){
+            $this->sell->insertDebtrent($saverent[0]->id_salerent, $totalprice);
         }
+        $return = 1;
+    } else {
+        $return = 2;
+    }
+} catch (Exception $e){
+    $this->log->insert($e->getMessage(), 'SellController|sellRent');
+    $return = 2;
+}
+echo $return;
+}
 
-        echo $return;
-    }*/
+
+public function finishRent(){
+try{
+    $id_salerent = $_POST['id_salerent'];
+    $id_location = $_POST['id_location'];
+    $id_locationrent = $_POST['id_locationrent'];
+
+    $return = $this->sell->updateStatuslocationrent($id_salerent,$id_location,$id_locationrent);
+} catch (Exception $e){
+    $this->log->insert($e->getMessage(), 'SellController|finishRent');
+    $return = 2;
+}
+
+echo $return;
+}*/
 }

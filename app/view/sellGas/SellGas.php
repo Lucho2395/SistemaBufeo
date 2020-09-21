@@ -150,7 +150,7 @@
                 <label>Tipo de Venta</label>
                 <select  id="type_sell" class="form-control" onchange = "selecttipoventa(this.value)">
                     <option value="03">BOLETA</option>
-                    <option value="01">FACTURA</option>
+                    <option value="01" selected>FACTURA</option>
                     <option value= "07">NOTA DE CREDITO</option>
                     <option value= "08">NOTA DE DEBITO</option>
                 </select>
