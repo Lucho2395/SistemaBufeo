@@ -65,7 +65,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="salir_modal()">Cerrar</button>
             </div>
         </div>
     </div>
@@ -132,7 +132,7 @@
                         if ($s->link_pdf_comprobante == NULL){
                             $comprobante_pdf = "X";
                         } else{
-                            $comprobante_pdf = "<a type=\"button\" href=\"$s->link_pdf_comprobante\" style=\"color: red\" ><i class=\"fa fa-file-pdf-o\"></i></a>";
+                            $comprobante_pdf = "<a type=\"button\" target='_blank' href=\"$s->link_pdf_comprobante\" style=\"color: red\" ><i class=\"fa fa-file-pdf-o\"></i></a>";
                         }
                         if($s->respuesta_sunat == NULL){
                             $respuesta_sunat = "X";
@@ -200,7 +200,13 @@
             type:"POST",
             url: urlweb + "api/SellGas/enviar_facturador_json",
             data : cadena,
+            beforeSend: function(){
+                $(".loader").show();
+
+            }
+            ,
             success:function (r) {
+                $('.loader').hide();
                 if(r==1){
                     alertify.success('Comprobante Enviado');
                     location.reload();
@@ -253,7 +259,11 @@
                 type:"POST",
                 url: urlweb + "api/SellGas/consultar_comprobante",
                 data : cadena,
+                beforeSend: function(){
+                    $('.loader').show();
+                },
                 success:function (r) {
+                    $('.loader').hide();
                     if(r!=1){
                         $('#respuesta_consulta').html(r);
 
@@ -265,6 +275,10 @@
                 }
             });
         }
+    }
+    function salir_modal() {
+
+        location.reload();
     }
 
 

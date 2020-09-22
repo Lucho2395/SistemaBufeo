@@ -1,5 +1,20 @@
 
 <body class="hold-transition skin-blue sidebar-mini">
+<div class="loader"
+     style="position: fixed;
+     left: 0px;
+     top: 0px;
+     width: 100%;
+     height: 100%;
+     z-index: 999999999;
+     display: none;
+     opacity: .8;
+     background: #fff center no-repeat ">
+    <div class="loader_gif" style="position: fixed; left: 47% ; top: 47% ">
+        <center><img src="<?= _SERVER_ ?>media/loading-6.gif" alt="" width="150"></center>
+    </div>
+
+</div>
 <div class="wrapper">
 
   <header class="main-header">

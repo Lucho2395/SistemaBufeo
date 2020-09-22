@@ -1629,9 +1629,9 @@ class SellGasController{
                     $enlace_pdf = $leer_respuesta['enlace'] . ".pdf";
                     $enlace_cdr = $leer_respuesta['enlace'] . ".cdr";
                     $enlace_link = $leer_respuesta['enlace'];
-                    $pdf = "<a type=\"button\" href=\"$enlace_pdf \" style=\"color: green\" ><i class=\"fa fa-file-pdf-o\"></i></a>";
-                    $cdr = "<a type=\"button\" href=\"$enlace_cdr \" style=\"color: red\" >CDR</a>";
-                    $link_consulta = "<a type=\"button\" href=\"$enlace_link \" style=\"color: blue\" >CONSULTA EN NUBEFACT.COM</a>";
+                    $pdf = "<a type=\"button\" target='_blank' href=\"$enlace_pdf \" style=\"color: green\" ><i class=\"fa fa-file-pdf-o\"></i></a>";
+                    $cdr = "<a type=\"button\" target='_blank' href=\"$enlace_cdr \" style=\"color: red\" >CDR</a>";
+                    $link_consulta = "<a type=\"button\" target='_blank' href=\"$enlace_link \" style=\"color: blue\" >CONSULTA EN NUBEFACT.COM</a>";
 
                 }
                 $result = "<tr>
