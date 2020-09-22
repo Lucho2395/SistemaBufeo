@@ -32,6 +32,7 @@
             $gravada = 0;
             $inafecta = 0;
             $exonerada = 0;
+            $gratuita = 0;
             $ICBPER = 0;
             $fecha_bolsa = date("Y");
             if ($fecha_bolsa == "2020"){
@@ -46,11 +47,12 @@
 
             if($totales != 0){
                 foreach ($_SESSION['productos'] as $p){
-                    if ($p[5] == 1){
+                    if ($p[5] == 1 || $p[5] == 10){
                         $subtotal = round($p[4] * $p[3],2);
 
                         $inafecta = $inafecta;
                         $exonerada = $exonerada;
+                        $gratuita = $gratuita;
                         $gravada = $gravada + round($subtotal / 1.18, 2);
                         $gravadaalmacenada = round($subtotal / 1.18, 2);
                         $igv = $igv +  round($subtotal - $gravadaalmacenada, 2);
@@ -69,9 +71,11 @@
                         </tr>
                         <?php
                     } else if($p[5] == 3){
+                        //EXONERADO
                         $subtotal = round($p[4] * $p[3],2);
 
                         $inafecta = $inafecta;
+                        $gratuita = $gratuita;
                         $exonerada = round($exonerada + $subtotal , 2);
                         $gravada = round($gravada, 2);
                         $igv =round($igv, 2);
@@ -89,11 +93,36 @@
                             <td><a type="button" class="btn btn-xs btn-warning btne" onclick="quitarProducto(<?php echo $p[0];?>)" ><i class="fa fa-times"></i> Quitar</a></td>
                         </tr>
                         <?php
-                    } else{
+                    }//GRATUITA
+                    else if($p[5] == 4 || $p[5] == 5 || $p[5] == 6 || $p[5] == 7 || $p[5] == 8 || $p[5] == 9 || $p[5] == 11 || $p[5] == 12 || $p[5] == 13 || $p[5] == 14 || $p[5] == 15 || $p[5] == 16 || $p[5] == 17 || $p[5] == 18 || $p[5] == 20){
+                        $subtotal = round($p[4] * $p[3],2);
+
+                        $inafecta = $inafecta;
+                        $exonerada = $exonerada;
+                        $gratuita = round($gratuita + $subtotal , 2);
+                        $gravada = round($gravada, 2);
+                        $igv =round($igv, 2);
+                        if ($p[0] == "11" || $p[0] == "12" ){
+                            $ICBPER = $ICBPER + round($p[4] * $impuesto_icbper , 2);
+                        }
+                        $monto = round($monto + $subtotal , 2);
+                        ?>
+                        <tr> <!--De esta tapla se jala los valores por la posicion de los arrays-->
+                            <td><?php echo $p[0];?></td>
+                            <td><?php echo $p[1];?></td>
+                            <td>s/. <?php echo $p[3];?></td>
+                            <td><?php echo $p[4];?></td>
+                            <td>s/. <?php echo $subtotal;?></td>
+                            <td><a type="button" class="btn btn-xs btn-warning btne" onclick="quitarProducto(<?php echo $p[0];?>)" ><i class="fa fa-times"></i> Quitar</a></td>
+                        </tr>
+                        <?php
+                    }else{
+                        //INAFECTA
                         $subtotal = round($p[4] * $p[3],2);
 
                         $inafecta = round($inafecta + $subtotal , 2);
                         $exonerada = $exonerada;
+                        $gratuita = $gratuita;
                         $gravada = round($gravada, 2);
                         $igv =round($igv, 2);
                         if ($p[0] == "11" || $p[0] == "12" ){
@@ -123,6 +152,8 @@
             </div>
 
             <div class="col-lg-4">
+                <h5>OP. GRATUITA: s/. <?php echo number_format($gratuita ,2);?></h5>
+                <input type="hidden" value="<?php echo $gratuita;?>" id="gratuita">
                 <h5>OP. EXONERADA: s/. <?php echo number_format($exonerada ,2);?></h5>
                 <input type="hidden" value="<?php echo $exonerada;?>" id="exonerada">
                 <h5>OP. INAFECTA: s/. <?php echo number_format($inafecta , 2);?></h5>

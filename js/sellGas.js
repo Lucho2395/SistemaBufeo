@@ -44,6 +44,7 @@ function preguntarSiNo(){
     var saleproduct_total = total;
     var saleproduct_gravada = gravada;
     var saleproduct_igv = igv;
+    var saleproduct_gratuita = $('#gratuita').val();
     if (saleproduct_type == "07" || saleproduct_type == "08"){
         if (saleproduct_type == "07"){
             var tipo_nota = $('#TipoNotaCredito').val();
@@ -62,7 +63,7 @@ function preguntarSiNo(){
 
 
     alertify.confirm('Realizar Venta', '¿Esta seguro que desea realizar esta venta? Monto Total: s/.' + saleproduct_total,
-        function(){ vender(client_number, saleproductgas_direccion, saleproductgas_telefono, saleproduct_type, saleproduct_naturaleza, saleproduct_exonerada, saleproduct_inafecta, saleproduct_icbper, saleproduct_total, saleproduct_gravada, saleproduct_igv, tipo_nota, Serie_Numero, Tipo_documento_modificar) }
+        function(){ vender(client_number, saleproductgas_direccion, saleproductgas_telefono, saleproduct_type, saleproduct_naturaleza, saleproduct_exonerada, saleproduct_inafecta, saleproduct_icbper, saleproduct_total, saleproduct_gravada, saleproduct_igv, saleproduct_gratuita, tipo_nota, Serie_Numero, Tipo_documento_modificar) }
         , function(){ alertify.error('Operacion Cancelada')});
 }
 
@@ -72,7 +73,7 @@ function preguntarSiNoA(id_saleproductgas){
         , function(){ alertify.error('Operacion Cancelada')});
 }
 
-function vender(client_number, saleproductgas_direccion, saleproductgas_telefono, saleproduct_type, saleproduct_naturaleza, saleproduct_exonerada, saleproduct_inafecta, saleproduct_icbper, saleproduct_total, saleproduct_gravada, saleproduct_igv, tipo_nota, Serie_Numero, Tipo_documento_modificar){
+function vender(client_number, saleproductgas_direccion, saleproductgas_telefono, saleproduct_type, saleproduct_naturaleza, saleproduct_exonerada, saleproduct_inafecta, saleproduct_icbper, saleproduct_total, saleproduct_gravada, saleproduct_igv, saleproduct_gratuita, tipo_nota, Serie_Numero, Tipo_documento_modificar){
     var cadena = "client_number=" + client_number +
         "&saleproductgas_direccion=" + saleproductgas_direccion +
         "&saleproductgas_telefono=" + saleproductgas_telefono +
@@ -86,6 +87,7 @@ function vender(client_number, saleproductgas_direccion, saleproductgas_telefono
         "&tipo_nota=" + tipo_nota +
         "&Serie_Numero=" + Serie_Numero +
         "&Tipo_documento_modificar=" + Tipo_documento_modificar +
+        "&saleproduct_gratuita=" + saleproduct_gratuita +
         "&saleproduct_igv=" + saleproduct_igv;
     $.ajax({
         type:"POST",

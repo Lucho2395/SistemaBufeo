@@ -139,7 +139,7 @@
 
     function preguntarSiNoEnviarSunat(id, envio_sunat){
         alertify.confirm('Enviar a Facturador', '¿Esta seguro de Enivar al Facturador de la Sunat?',
-            function(){ enviar_facturador_json(id, envio_sunat) }
+            function(){ crear_ArchivosPlanos(id, envio_sunat) }
             , function(){ alertify.error('Operacion Cancelada')});
     }
     function crear_ArchivosPlanos(id, envio_sunat){
@@ -147,7 +147,7 @@
                     "&envio_sunat=" + envio_sunat;
         $.ajax({
             type:"POST",
-            url: urlweb + "api/SellGas/enviar_facturador_json",
+            url: urlweb + "api/SellGas/crear_ArchivosPlanos",
             data : cadena,
             success:function (r) {
                 if(r==1){

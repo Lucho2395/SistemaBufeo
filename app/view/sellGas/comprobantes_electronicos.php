@@ -14,6 +14,18 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title" id="myModalLabel">Buscar Comprobante</h4>
             </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-3">
+                    <label for="estado_comprobante">Escoger Estado de Comprobante</label>
+                    <select name="" id="estado_comprobante" class="form-control">
+                        <option value="0">Enviados a la SUNAT</option>
+                        <option value="1">ANULADOS</option>
+                    </select>
+                </div>
+
+            </div>
             <div class="modal-body">
                 <div class="col-lg-12">
                     <div class="col-xs-3">
@@ -230,6 +242,7 @@
 
     function buscar_comprobante(){
         var valor = "correcto";
+        var estado_comprobante = $('#estado_comprobante'). val();
         var tipo_comprobante = $('#type_comprobante'). val();
         var serie = $('#comprobante_serie'). val();
         var numero = $('#comprobante_numero'). val();
@@ -253,6 +266,7 @@
         if(valor == "correcto"){
             var cadena = "tipo_comprobante=" + tipo_comprobante +
                 "&serie=" + serie +
+                "&estado_comprobante=" + estado_comprobante +
                 "&numero=" + numero;
 
             $.ajax({

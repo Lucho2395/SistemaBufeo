@@ -430,6 +430,7 @@ class SellGasController{
             $saleproduct_gravada = $_POST['saleproduct_gravada'];
             $saleproduct_icbper = $_POST['saleproduct_icbper'];
             $saleproduct_igv = $_POST['saleproduct_igv'];
+            $saleproduct_gratuita = $_POST['saleproduct_gratuita'];
             $saleproduct_total = $_POST['saleproduct_total'];
             $saleproduct_date = date("Y-m-d H:i:s");
             $tipo_nota = $_POST['tipo_nota'];
@@ -438,7 +439,7 @@ class SellGasController{
 
             $saleproduct_cancelled = 1;
 
-            $savesale = $this->sell->insertSale($id_client, $id_user, $id_turn, $saleproductgas_direccion, $saleproductgas_telefono, $saleproduct_type, $saleproductgas_naturaleza, $saleproduct_correlative, $saleproduct_gravada, $saleproduct_igv, $saleproduct_total, $saleproduct_date, $saleproduct_estado, $saleproduct_cancelled, $saleproduct_inafecta, $saleproduct_exonerada, $saleproduct_icbper, $tipo_nota, $Serie_Numero, $Tipo_documento_modificar);
+            $savesale = $this->sell->insertSale($id_client, $id_user, $id_turn, $saleproductgas_direccion, $saleproductgas_telefono, $saleproduct_type, $saleproductgas_naturaleza, $saleproduct_correlative, $saleproduct_gravada, $saleproduct_igv, $saleproduct_total, $saleproduct_date, $saleproduct_estado, $saleproduct_cancelled, $saleproduct_inafecta, $saleproduct_exonerada, $saleproduct_icbper, $tipo_nota, $Serie_Numero, $Tipo_documento_modificar, $saleproduct_gratuita);
             $idsale = $savesale->id_saleproductgas;
 
 
@@ -455,7 +456,7 @@ class SellGasController{
                 }
                 $ICBPER = 0;
                 foreach ($_SESSION['productos'] as $p){
-                    if ($p[5] == 1){
+                    if ($p[5] == 1 || $p[5] == 10){
                         $subtotal = round($p[3] * $p[4], 2);
                         $id_saleproduct = $savesale->id_saleproductgas;
                         $id_productforsale = $p[0];
@@ -486,6 +487,37 @@ class SellGasController{
                             $return = 2;
                         }
                     } else if($p[5] == 3){
+                        $subtotal = round($p[3] * $p[4], 2);
+                        $id_saleproduct = $savesale->id_saleproductgas;
+                        $id_productforsale = $p[0];
+                        $sale_productname = $p[1];
+                        $sale_unid = $p[2];
+                        $sale_price= $p[3];
+                        $sale_productscant = $p[4];
+                        $sale_productstotalselled = $p[4];
+
+                        $precio_producto = $p[3];
+                        $precio_base = round($precio_producto , 2);
+                        $subtotal_base = round($subtotal , 2);
+                        $igv_total = "0.00";
+                        $tipo_igv = $p[5];
+                        if ($p[0] == "11" || $p[0] == "12" ){
+                            $ICBPER = $ICBPER + round($p[4] * $impuesto_icbper , 2);
+                        } else{
+                            $ICBPER = $ICBPER;
+                        }
+                        $sale_productstotalprice = round($subtotal + $ICBPER, 2);
+                        $savedetail = $this->sell->insertSaledetail($id_saleproduct, $id_productforsale, $sale_productname, $sale_unid, $sale_price, $sale_productscant, $sale_productstotalselled, $sale_productstotalprice, $precio_producto, $precio_base, $subtotal_base, $igv_total, $tipo_igv, $ICBPER);
+                        if($savedetail == 1){
+                            $reduce = $sale_productscant;
+                            $id_product = $this->inventory->listIdproducforproductsale($id_productforsale);
+                            $this->sell->saveProductstock($reduce, $id_product);
+                            $return = 1;
+                        } else {
+                            $return = 2;
+                        }
+                    }else if($p[5] == 4 || $p[5] == 5 || $p[5] == 6 || $p[5] == 7 || $p[5] == 8 || $p[5] == 9 || $p[5] == 11 || $p[5] == 12 || $p[5] == 13 || $p[5] == 14 || $p[5] == 15 || $p[5] == 16 || $p[5] == 17 || $p[5] == 18 || $p[5] == 20){
+                        //GRATUITA
                         $subtotal = round($p[3] * $p[4], 2);
                         $id_saleproduct = $savesale->id_saleproductgas;
                         $id_productforsale = $p[0];
@@ -1576,17 +1608,28 @@ class SellGasController{
             //TOKEN para enviar documentos
             $token = "6fbd41af33af454a8dcfae87dfcdb72e517a6fe16f0541a4a2a4e018c8e96384";
 
+            $estado_comprobante = $_POST['estado_comprobante'];
             $tipo_comprobante = $_POST['tipo_comprobante'];
             $serie = $_POST['serie'];
             $numero = $_POST['numero'];
 
-            $data_array = array("operacion" => "consultar_comprobante",
-                "tipo_de_comprobante" => $tipo_comprobante,
-                "serie" => $serie,
-                "numero" => $numero,
-            );
+            if($estado_comprobante == 0){
+                $data_array = array("operacion" => "consultar_comprobante",
+                    "tipo_de_comprobante" => $tipo_comprobante,
+                    "serie" => $serie,
+                    "numero" => $numero,
+                );
 
-            $data_json = json_encode($data_array);
+                $data_json = json_encode($data_array);
+            } else{
+                $data_array = array("operacion" => "consultar_anulacion",
+                    "tipo_de_comprobante" => $tipo_comprobante,
+                    "serie" => $serie,
+                    "numero" => $numero,
+                );
+                $data_json = json_encode($data_array);
+            }
+
 
             //Invocamos el servicio de NUBEFACT
             $ch = curl_init();

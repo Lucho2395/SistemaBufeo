@@ -216,10 +216,10 @@ class SellGas{
     }
 
     //Insertar Datos En Detalle Venta
-    public function insertSale($id_client, $id_user, $id_turn, $saleproductgas_direccion, $saleproductgas_telefono, $saleproduct_type, $saleproductgas_naturaleza, $saleproduct_correlative, $saleproduct_gravada, $saleproduct_igv, $saleproduct_total, $saleproduct_date, $saleproduct_estado, $saleproduct_cancelled, $saleproduct_inafecta, $saleproduct_exonerada , $saleproduct_icbper, $tipo_nota, $Serie_Numero, $Tipo_documento_modificar){
+    public function insertSale($id_client, $id_user, $id_turn, $saleproductgas_direccion, $saleproductgas_telefono, $saleproduct_type, $saleproductgas_naturaleza, $saleproduct_correlative, $saleproduct_gravada, $saleproduct_igv, $saleproduct_total, $saleproduct_date, $saleproduct_estado, $saleproduct_cancelled, $saleproduct_inafecta, $saleproduct_exonerada , $saleproduct_icbper, $tipo_nota, $Serie_Numero, $Tipo_documento_modificar, $saleproduct_gratuita){
         try{
             $date = date("Y-m-d H:i:s");
-            $sql = 'insert into saleproductgas(id_client, id_user, id_turn, saleproductgas_direccion, saleproductgas_telefono, saleproductgas_type, saleproductgas_naturaleza, saleproductgas_correlativo, saleproductgas_totalexonerada, saleproductgas_totalinafecta, saleproductgas_totalgravada, saleproductgas_totaligv, saleproductgas_icbper, saleproductgas_total, saleproductgas_date, tipo_documento_modificar, correlativo_modificar, tipo_nota_id, saleproductgas_estado, saleproductgas_cancelled) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
+            $sql = 'insert into saleproductgas(id_client, id_user, id_turn, saleproductgas_direccion, saleproductgas_telefono, saleproductgas_type, saleproductgas_naturaleza, saleproductgas_correlativo, saleproductgas_totalgratuita, saleproductgas_totalexonerada, saleproductgas_totalinafecta, saleproductgas_totalgravada, saleproductgas_totaligv, saleproductgas_icbper, saleproductgas_total, saleproductgas_date, tipo_documento_modificar, correlativo_modificar, tipo_nota_id, saleproductgas_estado, saleproductgas_cancelled) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
             $stm = $this->pdo->prepare($sql);
             $stm->execute([
                 $id_client,
@@ -230,6 +230,7 @@ class SellGas{
                 $saleproduct_type,
                 $saleproductgas_naturaleza,
                 $saleproduct_correlative,
+                $saleproduct_gratuita,
                 $saleproduct_exonerada,
                 $saleproduct_inafecta,
                 $saleproduct_gravada,
@@ -522,7 +523,7 @@ class SellGas{
                     fecha_de_emision, DATE_FORMAT(sp.saleproductgas_date, \'%d-%m-%Y\') AS fecha_de_vencimiento, 
                     emp.empresa_ruc, emp.empresa_nombre, emp.empresa_domiciliofiscal, emp.empresa_celular1, emp.empresa_correo, 
                     emp.empresa_descripcion, sp.id_saleproductgas, sp.id_empresa, sp.saleproductgas_type, sp.saleproductgas_correlativo, 
-                    sp.saleproductgas_total, sp.saleproductgas_totalexonerada, sp.saleproductgas_totalinafecta, sp.saleproductgas_totalgravada, sp.saleproductgas_totaligv, cl.id_client, sp.id_moneda, 
+                    sp.saleproductgas_total, sp.saleproductgas_totalgratuita, sp.saleproductgas_totalexonerada, sp.saleproductgas_totalinafecta, sp.saleproductgas_totalgravada, sp.saleproductgas_totaligv, cl.id_client, sp.id_moneda, 
                     cl.client_number, cl.id_tipodocumento, cl.client_name, cl.client_razonsocial, cl.client_razonsocial_sunat,
                     cl.client_address, cl.client_correo, tid.tipodocumento_codigo, sp.saleproductgas_type, mo.moneda, mo.abrstandar, 
                     mo.simbolo, sp.saleproductgas_icbper FROM saleproductgas sp INNER JOIN empresa emp ON sp.id_empresa = emp.id_empresa INNER JOIN client cl 
