@@ -42,63 +42,82 @@
                     <tr>
                         <th>N°</th>
                         <th>Fecha</th>
-                        <th>COD</th>
-                        <th>Usuario Vendedor</th>
-                        <th>Cliente</th>
-                        <th>DNI ó RUC</th>
-                        <th>Total de Venta</th>
-                        <th>Naturaleza</th>
-                        <th>Estado Venta</th>
-                        <th>Detalles</th>
-
+                        <th>Tipo</th>
+                        <th>Serie y numero</th>
+                        <th>DNI, RUC.</th>
+                        <th>Denominación</th>
+                        <th>M</th>
+                        <th>Total</th>
+                        <th>PDF</th>
+                        <th>XML</th>
+                        <th>ESTADO SUNAT</th>
+                        <th>ACCIÓN</th>
                     </tr>
                     </thead>
                     <tbody>
                     <?php
+
                     $totalsales = count($sales);
-                    foreach ($sales as $m){
-                        $show = "<a class=\"btn btn-xs btn-outline-danger\">ANULADO</a>";
-                        if($m->saleproductgas_cancelled == 1){
-                            $show = "<a class=\"btn btn-xs btn-outline-success\">VENDIDO</a>";
-                        }
+                    foreach ($sales as $s){
                         $stylee="";
-                        if($m->anulado_sunat == 1){
+                        if($s->anulado_sunat == 1){
                             $stylee = "style= 'background: lightcoral;'";
+                        }
+                        if ($s->link_pdf_comprobante == NULL){
+                            $comprobante_pdf = "X";
+                        } else{
+                            $comprobante_pdf = "<a type=\"button\" target='_blank' href=\"$s->link_pdf_comprobante\" style=\"color: red\" ><i class=\"fa fa-file-pdf-o\"></i></a>";
+                        }
+                        if($s->respuesta_sunat == NULL){
+                            $respuesta_sunat = "X";
+                        }else{
+                            $respuesta_sunat = $s->respuesta_sunat;
                         }
                         ?>
                         <tr <?= $stylee ?>>
-                            <td><?php echo $totalsales;?></td>
-                            <td><?php echo $m->saleproductgas_date;?></td>
-                            <td><?php echo $m->saleproductgas_correlativo;?></td>
-                            <td><?php echo $m->user_nickname;?></td>
-                            <td><?php echo $m->client_name;?></td>
-                            <td><?php echo $m->client_number;?></td>
-                            <td>s/. <?php echo $m->saleproductgas_total;?></td>
-                            <td><?php echo $m->saleproductgas_naturaleza;?></td>
-                            <td><?php echo $show;?></td>
-                            <td><a type="button" class="btn btn-xs btn-primary btne" href="<?php echo _SERVER_ . 'SellGas/viewsale/' . $m->id_saleproductgas;?>" target="_blank" >Ver Detalle</a>
+                            <td><?= $totalsales; ?></td>
+                            <td><?= $s->saleproductgas_date;?></td>
+                            <td><?= $s->saleproductgas_type ;?></td>
+                            <td><?= $s->saleproductgas_correlativo;?></td>
+                            <td><?= $s->client_number; ?></td>
+                            <td><?= $s->client_razonsocial . $s->client_name ; ?></td>
+                            <td><?= $s->simbolo; ?></td>
+                            <td><?= $s->saleproductgas_total; ?></td>
+                            <td style="color: green"><center><?= $comprobante_pdf; ?></center></td>
+                            <td>
                                 <?php
-                                if ($m->enviado_sunat == 0){
-                                ?>
-                                    <a type="button" class="btn btn-xs btn-success btne" onclick="preguntarSiNoEnviarSunat(<?php echo $m->id_saleproductgas;?>,<?php echo $m->enviado_sunat;?>)" target="_blank" >Enviar a Facturador</a></td>
+                                if($s->enviado_sunat == 1){ ?>
+                                    <center><a href="<?php echo _SERVER_ . 'SellGas/xmlSunat/' . $s->id_saleproductgas ;?>" target="_blank"><i class="fa fa-file-code-o"></a></center>
                                 <?php
-                                } else {
-                                    if($m->anulado_sunat == 0){
-                                    ?>
-                                        <a type="button" class="btn btn-xs btn-danger btne" onclick="preguntarSiNoAnular(<?php echo $m->id_saleproductgas;?>,<?php echo $m->enviado_sunat;?>)" target="_blank" >Anular</a></td>
-                                        <?php
-                                    } else { ?>
-                                        <a type="button" class="btn btn-xs btn-danger btne" target="_blank" >Anulado</a></td>
-                                    <?php
-                                    }
+                                }else{
+                                    echo "X";
                                 }
                                 ?>
-
+                            </td>
+                            <td><center><a href="<?php echo _SERVER_ . 'SellGas/cdrSunat/' . $s->id_saleproductgas ;?>" target="_blank"><i class="fa fa-file-code-o"></a></center></td>
+                            <td><a type="button" class="btn btn-xs btn-primary btne" href="<?php echo _SERVER_ . 'SellGas/viewsale/' . $s->id_saleproductgas;?>" target="_blank" >Ver Detalle</a>
+                                <?php
+                                if ($s->enviado_sunat == 0){
+                                ?>
+                                <a type="button" class="btn btn-xs btn-success btne" onclick="preguntarSiNoEnviarSunat(<?php echo $s->id_saleproductgas;?>,<?php echo $s->enviado_sunat;?>)" target="_blank" >Enviar a Facturador</a></td>
+                            <?php
+                            } else {
+                                if($s->anulado_sunat == 0){
+                                    ?>
+                                    <a type="button" class="btn btn-xs btn-danger btne" onclick="preguntarSiNoAnular(<?php echo $s->id_saleproductgas;?>,<?php echo $s->enviado_sunat;?>)" target="_blank" >Anular</a></td>
+                                    <?php
+                                } else { ?>
+                                    <a type="button" class="btn btn-xs btn-danger btne" target="_blank" >Anulado</a></td>
+                                    <?php
+                                }
+                            }
+                            ?>
                         </tr>
                         <?php
                         $totalsales--;
                     }
                     ?>
+
                     </tbody>
                 </table>
             </div>
@@ -117,6 +136,24 @@
 <script src="<?php echo _SERVER_ . _JS_;?>sellGas.js"></script>
 
 <script type="text/javascript">
+
+    function xml_sunat(id){
+        var cadena = "id=" + id;
+        $.ajax({
+            type:"POST",
+            url: urlweb + "api/SellGas/xmlSunat",
+            data : cadena,
+            success:function (r) {
+                if(r!=2){
+                    $('#respuesta_json').html(r);
+                    alertify.success('Registro Enviado');
+                } else{
+                    alertify.error('error al enviar');
+                }
+
+            }
+        });
+    }
 
     function enviar_facturador_json(id, envio_sunat) {
         var cadena = "id=" + id +

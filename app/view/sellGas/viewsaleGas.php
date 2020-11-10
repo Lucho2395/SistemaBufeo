@@ -112,9 +112,12 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-5"></div>
+            <div class="col-lg-3"></div>
             <div class="col-lg-3">
-                <a class="btn btn-primary" target="_blank" href="<?php echo _SERVER_;?>print.php"><i class="fa fa-print"></i> Imprimir</a>
+                <a class="btn btn-primary" target="_blank" href="<?php echo _SERVER_;?>print.php"><i class="fa fa-print"></i> Imprimir Ticket</a>
+            </div>
+            <div class="col-lg-3">
+                <a class="btn btn-success" target="_blank" href="<?php echo _SERVER_;?>print.php"><i class="fa fa-print"></i> Imprimir Comprobante</a>
             </div>
         </div>
     </section>

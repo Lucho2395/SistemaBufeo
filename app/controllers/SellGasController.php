@@ -1192,6 +1192,63 @@ class SellGasController{
 
     }
 
+    function xmlSunat(){
+        try{
+            $id_comprobante = $_GET['id'] ?? 0;
+            if($id_comprobante == 0){
+                throw new Exception('ID Sin Declarar');
+            }
+            $comprobante = $this->sell->datos_comprobante($id_comprobante); //CONSULTA DONDE MUESTRA LOS DATOS DEL SALEPRODUCT
+            $fichero = 'C:/FacturadorBufeo/sunat_archivos/sfs/FIRMA/' . $comprobante->empresa_ruc . '-' . $comprobante->saleproductgas_type . '-' . $comprobante->saleproductgas_correlativo . '.xml';
+            //$fichero = 'C:/FacturadorBufeo/sunat_archivos/sfs/FIRMA/20601898447-01-FFF1-23.xml';
+            $f = fopen($fichero, 'r');
+            header('Content-type: text/xml; content="text/html; charset=UTF-8"');
+            while (!feof($f)){
+                $linea = fgets($f);
+                echo $linea;
+            }
+
+            fclose($f);
+            /*$fichero_ = json_decode(file_get_contents($fichero) , true);
+            //$fichero_=simplexml_load_file($fichero);
+            header('Content-type: text/xml; content="text/html; charset=UTF-8"');
+            echo $fichero_;*/
+
+        } catch (Throwable $e){
+            $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
+            echo "<script language=\"javascript\">alert(\"Error Al Mostrar Contenido. Redireccionando Al Inicio\");</script>";
+            echo "<script language=\"javascript\">window.location.href=\"". _SERVER_ ."\";</script>";
+        }
+    }
+    public function cdrSunat(){
+        try{
+            $id_comprobante = $_GET['id'] ?? 0;
+            if($id_comprobante == 0){
+                throw new Exception('ID Sin Declarar');
+            }
+            $comprobante = $this->sell->datos_comprobante($id_comprobante); //CONSULTA DONDE MUESTRA LOS DATOS DEL SALEPRODUCT
+            $fichero = 'C:/FacturadorBufeo/sunat_archivos/sfs/RPTA/' . 'R' . $comprobante->empresa_ruc . '-' . $comprobante->saleproductgas_type . '-' . $comprobante->saleproductgas_correlativo . '.zip';
+            //$fichero = 'C:/FacturadorBufeo/sunat_archivos/sfs/FIRMA/20601898447-01-FFF1-23.xml';
+            $f = fopen($fichero, 'r');
+            header('Content-type: text/xml; content="text/html; charset=UTF-8"');
+            while (!feof($f)){
+                $linea = fgets($f);
+                echo $linea;
+            }
+
+            fclose($f);
+            /*$fichero_ = json_decode(file_get_contents($fichero) , true);
+            //$fichero_=simplexml_load_file($fichero);
+            header('Content-type: text/xml; content="text/html; charset=UTF-8"');
+            echo $fichero_;*/
+
+        } catch (Throwable $e){
+            $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
+            echo "<script language=\"javascript\">alert(\"Error Al Mostrar Contenido. Redireccionando Al Inicio\");</script>";
+            echo "<script language=\"javascript\">window.location.href=\"". _SERVER_ ."\";</script>";
+        }
+    }
+
     function enviar_facturador_json(){
         try {
             $id_user = $this->crypt->decrypt($_SESSION['id_user'],_PASS_);// llama la clase crypt de decrypt para decodificar los 2 parametros

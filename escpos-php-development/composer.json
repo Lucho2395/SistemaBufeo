@@ -18,7 +18,8 @@
     },
     "require": {
         "php": ">=7.0",
-        "ext-mbstring": "*"
+        "ext-mbstring": "*",
+      "ext-simplexml": "*"
     },
     "suggest": {
         "guzzlehttp/guzzle": "Allows the use of the ApiConnector to send print jobs over HTTP.",
