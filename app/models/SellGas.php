@@ -279,34 +279,6 @@ class SellGas{
     }
 
 
-    public function insertSaledetail($id_saleproduct, $id_productforsale, $sale_productname, $sale_unid, $sale_price, $sale_productscant, $sale_productstotalselled, $sale_productstotalprice, $precio_producto, $precio_base, $subtotal_base, $igv_total, $tipo_igv, $ICBPER){
-        try{
-            $sql = 'insert into saledetailgas (id_saleproductgas, id_productforsale, sale_productnamegas, id_medida, sale_pricegas, sale_productscantgas, sale_productstotalselledgas, precio_base, precio_producto, subtotal, igv, igv_tipoigv, total_icbper, sale_productstotalpricegas) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
-            $stm = $this->pdo->prepare($sql);
-            $stm->execute([
-                $id_saleproduct,
-                $id_productforsale,
-                $sale_productname,
-                $sale_unid,
-                $sale_price,
-                $sale_productscant,
-                $sale_productstotalselled,
-                $precio_base,
-                $precio_producto,
-                $subtotal_base,
-                $igv_total,
-                $tipo_igv,
-                $ICBPER,
-                $sale_productstotalprice
-
-            ]);
-            $result = 1;
-        } catch (Exception $e){
-            $this->log->insert($e->getMessage(), get_class($this).'|'.__FUNCTION__);
-            $result = 0;
-        }
-        return $result;
-    }
 
     //Actualizar Stock
     public function saveProductstock($stock, $id){

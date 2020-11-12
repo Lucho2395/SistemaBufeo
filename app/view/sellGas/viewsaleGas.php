@@ -23,7 +23,7 @@
             <div class="col-xs-1"></div>
             <div class="col-xs-4">
                 <p><i class="fa fa-calendar"></i> Fecha de Venta: <?php echo $sale->saleproductgas_date;?></p>
-                <p><i class="fa fa-user"></i> Nombre Del Cliente: <?php echo $sale->client_name;?></p>
+                <p><i class="fa fa-user"></i> Nombre Del Cliente: <?php echo $sale->client_name.$sale->client_razonsocial;?></p>
             </div>
             <div class="col-xs-3">
                 <p style="color:red;">Código: <?php echo $sale->saleproductgas_correlativo;?></p>
